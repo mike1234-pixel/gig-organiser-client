@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
 
 export interface Job {
   CreatedAt: string;
@@ -13,13 +13,9 @@ export interface Job {
 }
 
 export const useJobs = () => {
-  const [jobs, setJobs] = useState<Job[]>([]);
+  const { data, isLoading, error } = useQuery("jobs", () =>
+    fetch("http://localhost:3002/jobs").then((response) => response.json())
+  );
 
-  useEffect(() => {
-    fetch("http://localhost:3002/jobs")
-      .then((response) => response.json())
-      .then((data) => setJobs(data));
-  }, []);
-
-  return jobs;
+  return { jobs: data, isLoading, error };
 };
