@@ -12,7 +12,11 @@ export const Jobs = () => {
   return (
     <>
       {jobs.map((job: JobI) => {
-        return <Job job={job} />;
+        return (
+          <div key={job.ID}>
+            <Job job={job} />
+          </div>
+        );
       })}
     </>
   );
