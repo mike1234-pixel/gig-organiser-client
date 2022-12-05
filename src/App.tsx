@@ -1,17 +1,20 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 import styles from "./App.module.css";
-import Jobs from "./components/features/Jobs";
+import { Container } from "./components/common/Container";
+import { Jobs } from "./components/features/Jobs";
 
 const queryClient = new QueryClient();
 
-function App() {
+const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <div className={styles.app}>
-        <Jobs />
+        <Container>
+          <Jobs />
+        </Container>
       </div>
     </QueryClientProvider>
   );
-}
+};
 
 export default App;
