@@ -1,46 +1,50 @@
-# Getting Started with Create React App
+# Gig Organiser Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the React frontend for the Gig Organiser app, which helps users organise and manage their jobs.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Uses React Query for efficient data fetching and caching
+- Uses CSS Modules for modular and reusable styles
+- Uses Jest and Testing Library for unit and integration testing
+- Uses React Router for routing and navigation
+- Uses TypeScript for type-safe code
+- Comes with a Docker setup for easy deployment
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To install and run this project, you will need to have Docker installed on your machine.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Clone this repository to your local machine:
 
-### `npm test`
+`git clone https://github.com/mike1234-pixel/gig-organiser-client.git`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Navigate to the project directory:
 
-### `npm run build`
+`cd gig-organiser-client`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. install dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`npm install`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Start your development server (default port 3000):
 
-### `npm run eject`
+`npm start`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4. Build the Docker image:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`docker build -t gig-organiser-client`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+5. Run the Docker container:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+`docker run -it -p 3001:3000 -v ${PWD}/src:/usr/src/app/src gig-organiser-client`
 
-## Learn More
+This will run the app in a Docker container and maps the host machine's port 3001 to the container's port 3000. The app running inside the container can be accessed on the host machine at localhost:3001
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Testing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To run the test suite for this project, use the following command:
+
+`npm test`
+
+This will run all unit and integration tests using Jest and Testing Library.
