@@ -1,6 +1,7 @@
 import { useState, ReactNode } from "react";
 import classNames from "classnames";
 import styles from "./Accordion.module.css";
+import { MdKeyboardArrowUp } from "react-icons/md";
 
 type AccordionProps = {
   title: string;
@@ -13,16 +14,23 @@ export const Accordion = ({ title, content }: AccordionProps) => {
   return (
     <div className={styles.root}>
       <button
-        className={
-          isOpen
-            ? classNames(styles.accordionButton, styles.accordionButtonActive)
-            : styles.accordionButton
-        }
+        className={classNames(
+          styles.accordionButton,
+          isOpen && styles.accordionButtonActive
+        )}
         onClick={() => setIsOpen(!isOpen)}
       >
         {title}
+        <MdKeyboardArrowUp className={styles.carat} />
       </button>
-      {isOpen && <div className={styles.accordionContent}>{content}</div>}
+      <div
+        className={classNames(
+          styles.accordionContent,
+          isOpen && styles.accordionContentActive
+        )}
+      >
+        {content}
+      </div>
     </div>
   );
 };
