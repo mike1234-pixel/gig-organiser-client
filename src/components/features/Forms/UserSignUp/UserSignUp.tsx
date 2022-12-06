@@ -11,13 +11,13 @@ export const UserSignUp = () => {
     password: "",
   };
 
-  const createUser = useCreateUser;
+  const { mutate, error } = useCreateUser();
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values) => createUser(values)}
+      onSubmit={(values) => mutate(values)}
     >
       <Form>
         <Field type="text" name="name" placeholder="Name" />

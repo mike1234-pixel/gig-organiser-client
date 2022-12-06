@@ -1,12 +1,19 @@
 import { UserSignUpI } from "../types/User_Signup_Object";
+import { useMutation } from "react-query";
 
-export const useCreateUser = (values: UserSignUpI) => {
-  console.log(values);
-  // use react query to submit the post request to create the new user
+const createUser = async (values: UserSignUpI) => {
+  const response = await fetch("http://localhost:3002/create-user", {
+    method: "POST",
+    body: JSON.stringify(values),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  return await response.json();
+};
 
-  // the server needs to check whether the user email exists before it creates an account
+export const useCreateUser = () => {
+  const { mutate, error } = useMutation(createUser);
 
-  // if it does it should send back an error
-
-  // otherwise success response
+  return { mutate, error };
 };
