@@ -1,7 +1,10 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 import styles from "./App.module.css";
 import { Container } from "./components/common/Container";
-import { Jobs } from "./components/features/Jobs";
+import { Dashboard } from "./components/pages/Dashboard";
+import { Login } from "./components/pages/Login";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Nav } from "./components/features/Nav";
 
 const queryClient = new QueryClient();
 
@@ -10,7 +13,13 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <div className={styles.app}>
         <Container>
-          <Jobs />
+          <BrowserRouter>
+            <Nav />
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/login" element={<Login />} />
+            </Routes>
+          </BrowserRouter>
         </Container>
       </div>
     </QueryClientProvider>
