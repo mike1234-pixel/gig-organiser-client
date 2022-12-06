@@ -16,7 +16,7 @@ export const UserSignUp = () => {
 
   if (isSuccess) return <>User created.</>;
 
-  if (error) return <>User with this email already exists.</>;
+  if (error) return <>{error.message}</>;
 
   return (
     <>

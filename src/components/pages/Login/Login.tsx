@@ -1,6 +1,6 @@
-import { UserSignUp } from "../../features/Forms/UserSignUp";
+import { UserLogin } from "../../features/Forms/UserLogin";
 import styles from "./Login.module.css";
 
 export const Login = () => {
-  return <UserSignUp />;
+  return <UserLogin />;
 };

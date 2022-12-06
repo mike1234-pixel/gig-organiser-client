@@ -22,7 +22,9 @@ const createUser = async (values: UserSignUpI) => {
 };
 
 export const useCreateUser = () => {
-  const { mutate, error, isSuccess } = useMutation(createUser);
+  const { mutate, error, isSuccess } = useMutation<unknown, Error, UserSignUpI>(
+    createUser
+  );
 
   return { mutate, error, isSuccess };
 };
