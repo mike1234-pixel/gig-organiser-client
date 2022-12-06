@@ -9,11 +9,20 @@ const createUser = async (values: UserSignUpI) => {
       "Content-Type": "application/json",
     },
   });
+
+  // Check the response status
+  if (response.status === 400) {
+    throw new Error("A user with the submitted email already exists");
+  }
+  if (response.status !== 200) {
+    throw new Error("An error occurred while creating the user");
+  }
+
   return await response.json();
 };
 
 export const useCreateUser = () => {
-  const { mutate, error } = useMutation(createUser);
+  const { mutate, error, isSuccess } = useMutation(createUser);
 
-  return { mutate, error };
+  return { mutate, error, isSuccess };
 };

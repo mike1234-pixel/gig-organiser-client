@@ -1,7 +1,8 @@
 import { useCreateUser } from "../../../../hooks/useCreateUser";
-import { Formik, Form, Field, useFormik } from "formik";
+import { Formik } from "formik";
 import { validationSchema } from "./validationSchema";
 import { UserSignUpI } from "../../../../types/User_Signup_Object";
+import { UserSignUpForm } from "./UserSignUpForm";
 import styles from "./UserSignUp.module.css";
 
 export const UserSignUp = () => {
@@ -11,20 +12,21 @@ export const UserSignUp = () => {
     password: "",
   };
 
-  const { mutate, error } = useCreateUser();
+  const { mutate, error, isSuccess } = useCreateUser();
+
+  if (isSuccess) return <>User created.</>;
+
+  if (error) return <>User with this email already exists.</>;
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={(values) => mutate(values)}
-    >
-      <Form>
-        <Field type="text" name="name" placeholder="Name" />
-        <Field type="email" name="email" placeholder="Email" />
-        <Field type="password" name="password" placeholder="Password" />
-        <button type="submit">Create User</button>
-      </Form>
-    </Formik>
+    <>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={(values) => mutate(values)}
+      >
+        <UserSignUpForm />
+      </Formik>
+    </>
   );
 };
