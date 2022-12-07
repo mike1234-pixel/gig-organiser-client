@@ -1,7 +1,7 @@
 export interface UserI {
   CreatedAt: string;
   DeletedAt: string;
-  ID: number;
+  id: number;
   UpdatedAt: string;
   name: string;
   email: string;
