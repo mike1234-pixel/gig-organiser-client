@@ -1,5 +1,7 @@
 import { UserLoginI } from "../types/User_Login_Object";
 import { useMutation } from "react-query";
+import { useLoginState } from "../context/LoginStateProvider";
+import { UserI } from "../types/User_Object";
 
 const loginUser = async (values: UserLoginI) => {
   const response = await fetch(
@@ -13,7 +15,6 @@ const loginUser = async (values: UserLoginI) => {
     }
   );
 
-  // Check the response status
   if (response.status === 404) {
     throw new Error("No user found with this email address");
   }
@@ -28,9 +29,19 @@ const loginUser = async (values: UserLoginI) => {
 };
 
 export const useLoginUser = () => {
-  const { mutate, error, isSuccess } = useMutation<unknown, Error, UserLoginI>(
-    loginUser
-  );
+  const { mutate, error, isSuccess, data } = useMutation<
+    UserI,
+    Error,
+    UserLoginI
+  >(loginUser);
+
+  // save user to global state
+  const { setUser, setIsLoggedIn } = useLoginState();
+
+  if (data) {
+    setUser(data);
+    setIsLoggedIn(true);
+  }
 
   return { mutate, error, isSuccess };
 };

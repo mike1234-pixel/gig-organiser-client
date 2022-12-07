@@ -6,24 +6,27 @@ import { SignUp } from "./components/pages/Signup";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Nav } from "./components/features/Nav";
 import { Login } from "./components/pages/Login";
+import { LoginStateProvider } from "./context/LoginStateProvider";
 
 const queryClient = new QueryClient();
 
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <div className={styles.app}>
-        <Container>
-          <BrowserRouter>
-            <Nav />
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/login" element={<Login />} />
-            </Routes>
-          </BrowserRouter>
-        </Container>
-      </div>
+      <LoginStateProvider>
+        <div className={styles.app}>
+          <Container>
+            <BrowserRouter>
+              <Nav />
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/login" element={<Login />} />
+              </Routes>
+            </BrowserRouter>
+          </Container>
+        </div>
+      </LoginStateProvider>
     </QueryClientProvider>
   );
 };
