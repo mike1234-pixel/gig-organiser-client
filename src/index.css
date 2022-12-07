@@ -6,6 +6,7 @@
   --white: #fff;
   --text-dark: #444;
   --danger: #d9534f;
+  --success: #9cfcb3;
 }
 
 /* Reset default styles */
@@ -125,6 +126,8 @@ body {
   font-family: 'Work Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(259deg, rgba(0, 135, 255, 0.1) 0%, rgba(219, 91, 255, 0.1) 65%, rgba(81, 250, 255, 0.1) 100%);
+  background-attachment: fixed;
 }
 
 code {

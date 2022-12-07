@@ -1,10 +1,8 @@
 import { useFormikContext, Form, Field, ErrorMessage } from "formik";
-import styles from "./UserSignUp.module.css";
+import styles from "../FormStyles/Form.module.css";
 
 export const UserSignUpForm = () => {
   const formik = useFormikContext<any>();
-
-  const { errors } = formik;
 
   return (
     <Form>

@@ -6,10 +6,10 @@ export const Nav = () => {
   const { user } = useLoginState();
 
   return (
-    <>
-      <p style={{ marginRight: 50 }}>{user?.name}</p>
+    <nav className={styles.nav}>
+      <p>{user?.name}</p>
       <Link to="/signup">signup</Link>
       <Link to="/login">login</Link>
-    </>
+    </nav>
   );
 };
