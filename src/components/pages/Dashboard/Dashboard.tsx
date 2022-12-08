@@ -7,6 +7,7 @@ import { useTogglePanel } from "../../../context/EditPanel";
 import { AddJob } from "../../features/Forms/AddJob";
 import { Button } from "../../common/Button";
 import { JobsTable } from "../../features/Tables/JobsTable/JobsTable";
+import { LayoutPage } from "../../common/LayoutPage";
 
 export const Dashboard = () => {
   const { isLoggedIn } = useLoginState();
@@ -18,10 +19,11 @@ export const Dashboard = () => {
       <EditPanel title="Add Job">
         <AddJob />
       </EditPanel>
-      <ContentBox>
+
+      <LayoutPage>
         <JobsTable />
         <Button onClick={() => setTogglePanel(!togglePanel)}>Add job</Button>
-      </ContentBox>
+      </LayoutPage>
     </>
   ) : (
     <div className={styles.hero}>

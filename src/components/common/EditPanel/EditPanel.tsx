@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { ReactNode } from "react";
 import { useTogglePanel } from "../../../context/EditPanel";
+import { TfiClose } from "react-icons/tfi";
 import styles from "./EditPanel.module.css";
 
 interface EditPanelProps {
@@ -23,7 +24,12 @@ export const EditPanel = ({ children, title }: EditPanelProps) => {
       >
         <h1 className={styles.title}>{title}</h1>
         {children}
-        <button onClick={() => setTogglePanel(!togglePanel)}>close</button>
+        <button
+          onClick={() => setTogglePanel(!togglePanel)}
+          className={styles.close}
+        >
+          <TfiClose />
+        </button>
       </div>
     </div>
   );

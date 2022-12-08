@@ -50,3 +50,14 @@
 .title {
     font-size: 3rem;
 }
+
+.close {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--danger);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}

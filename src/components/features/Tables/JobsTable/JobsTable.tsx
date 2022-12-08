@@ -1,11 +1,12 @@
 import { useMemo } from "react";
 import { useTable } from "react-table";
 import { useJobs } from "../../../../hooks/useJobs";
+import styles from "./TableStyles/Table.module.css";
 
 const columns = [
   {
-    Header: "Name",
-    accessor: "name",
+    Header: "Title",
+    accessor: "title",
   },
   {
     Header: "Organisation",
@@ -42,7 +43,9 @@ export const JobsTable = () => {
         {headerGroups.map((headerGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
-              <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+              <th className={styles.th} {...column.getHeaderProps()}>
+                {column.render("Header")}
+              </th>
             ))}
           </tr>
         ))}
@@ -53,7 +56,11 @@ export const JobsTable = () => {
           return (
             <tr {...row.getRowProps()}>
               {row.cells.map((cell) => {
-                return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
+                return (
+                  <td className={styles.td} {...cell.getCellProps()}>
+                    {cell.render("Cell")}
+                  </td>
+                );
               })}
             </tr>
           );
