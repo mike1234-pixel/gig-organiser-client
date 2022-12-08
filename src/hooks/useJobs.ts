@@ -13,5 +13,5 @@ export const useJobs = () => {
     { refetchInterval: 5000 }
   );
 
-  return { jobs: data, isLoading, error };
+  return { jobs: data || [], isLoading, error };
 };

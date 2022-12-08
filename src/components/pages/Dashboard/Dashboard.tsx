@@ -1,4 +1,3 @@
-import { Jobs } from "../../features/Jobs";
 import { useLoginState } from "../../../context/LoginStateProvider";
 import styles from "./Dashboard.module.css";
 import { Container } from "../../common/Container";
@@ -7,6 +6,7 @@ import { EditPanel } from "../../common/EditPanel";
 import { useTogglePanel } from "../../../context/EditPanel";
 import { AddJob } from "../../features/Forms/AddJob";
 import { Button } from "../../common/Button";
+import { JobsTable } from "../../features/Tables/JobsTable/JobsTable";
 
 export const Dashboard = () => {
   const { isLoggedIn } = useLoginState();
@@ -19,7 +19,7 @@ export const Dashboard = () => {
         <AddJob />
       </EditPanel>
       <ContentBox>
-        <Jobs />
+        <JobsTable />
         <Button onClick={() => setTogglePanel(!togglePanel)}>Add job</Button>
       </ContentBox>
     </>
