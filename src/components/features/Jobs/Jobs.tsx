@@ -9,6 +9,8 @@ export const Jobs = () => {
 
   if (error) return <>error</>;
 
+  if (!jobs.length) return <>No jobs found</>;
+
   return (
     <>
       {jobs.map((job: JobI) => {

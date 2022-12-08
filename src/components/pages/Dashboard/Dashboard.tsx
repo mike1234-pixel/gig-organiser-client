@@ -1,17 +1,26 @@
 import { Jobs } from "../../features/Jobs";
-import organise from "./organise.jpg";
 import { useLoginState } from "../../../context/LoginStateProvider";
 import styles from "./Dashboard.module.css";
 import { Container } from "../../common/Container";
 import { ContentBox } from "../../features/Forms/ContentBox";
+import { EditPanel } from "../../common/EditPanel";
+import { useTogglePanel } from "../../../context/EditPanel";
 
 export const Dashboard = () => {
   const { isLoggedIn } = useLoginState();
 
+  const { togglePanel, setTogglePanel } = useTogglePanel();
+
   return isLoggedIn ? (
-    <ContentBox>
-      <Jobs />
-    </ContentBox>
+    <>
+      <EditPanel>
+        <p>edit panel custom content</p>
+      </EditPanel>
+      <ContentBox>
+        <Jobs />
+        <button onClick={() => setTogglePanel(!togglePanel)}>edit jobs</button>
+      </ContentBox>
+    </>
   ) : (
     <div className={styles.hero}>
       <Container>

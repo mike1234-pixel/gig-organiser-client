@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, ReactNode } from "react";
 import { UserI } from "../types/User_Object";
 
 interface LoginState {
@@ -20,11 +20,7 @@ const LoginStateContext = createContext<LoginState>({
 export const useLoginState = () => useContext(LoginStateContext);
 
 // Create a provider for the login state context
-export const LoginStateProvider = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+export const LoginStateProvider = ({ children }: { children: ReactNode }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState<UserI | null>(null);
 
