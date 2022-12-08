@@ -6,7 +6,12 @@
   --white: #fff;
   --text-dark: #444;
   --danger: #d9534f;
-  --success: #9cfcb3;
+  --success: #3d9f54;
+  --warning: #a68e3f;
+  --danger-light: #ffd8d7;
+  --success-light: #d5ffdf;
+  --warning-light: #fff5d3;
+  --action: #0087FF;
 }
 
 /* Reset default styles */

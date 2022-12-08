@@ -2,7 +2,7 @@ import { ErrorMessage, Field, Form, useFormikContext } from "formik";
 import { Button } from "../../../common/Button";
 import styles from "../FormStyles/Form.module.css";
 
-export const AddJobForm = () => {
+export const UpdateJobForm = () => {
   const formik = useFormikContext<any>();
 
   return (
@@ -55,27 +55,18 @@ export const AddJobForm = () => {
           className={styles.errorMessage}
         />
         <Field
+          type="text"
           name="status"
           placeholder="Status"
           className={styles.textInput}
-          as="select"
-          defaultValue="default"
-        >
-          <option value="" disabled>
-            Select Status
-          </option>
-          <option value="pending">Pending</option>
-          <option value="success">Success</option>
-          <option value="declined">Declined</option>
-        </Field>
-
+        />
         <ErrorMessage
           component="span"
           name="status"
           className={styles.errorMessage}
         />
         <Button type="submit" disabled={formik.isSubmitting}>
-          Add Job
+          Update
         </Button>
       </>
     </Form>

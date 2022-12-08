@@ -1,0 +1,66 @@
+.table {
+    width: 100%;
+    margin-top: 30px;
+    overflow-x: auto;
+}
+
+@media (max-width: 991px) {
+    .table {
+        overflow-x: scroll;
+    }
+}
+
+.th {
+    font-size: 2rem;
+    padding: 8px;
+    text-align: left;
+}
+
+.td {
+    padding: 8px;
+}
+
+tr:nth-child(odd) {
+    background: var(--white);
+}
+
+thead tr {
+    background: transparent !important;
+}
+
+th:nth-of-type(4) {
+    text-align: center;
+}
+
+.priority {
+    display: flex;
+    justify-content: center;
+}
+
+.priorityValue {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.warning {
+    background: var(--warning-light);
+    color: var(--warning);
+    border: 2px outset var(--warning-light);
+}
+
+.danger {
+    background: var(--danger-light);
+    color: var(--danger);
+    border: 2px outset var(--danger-light);
+}
+
+.success {
+    background: var(--success-light);
+    color: var(--success);
+    border: 2px outset var(--success-light);
+}

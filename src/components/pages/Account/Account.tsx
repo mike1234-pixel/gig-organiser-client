@@ -6,15 +6,15 @@ export const Account = () => {
   const { user } = useLoginState();
 
   return (
-    <ContentBox>
+    <>
       {user ? (
-        <>
+        <ContentBox title="Account">
           <p>{user?.name}</p>
           <p>{user?.email}</p>
-        </>
+        </ContentBox>
       ) : (
-        <p>Logged out.</p>
+        <ContentBox title="Logged Out." />
       )}
-    </ContentBox>
+    </>
   );
 };

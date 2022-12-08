@@ -29,6 +29,17 @@
     color: var(--white);
 }
 
+.titleLink {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo {
+    color: var(--white);
+    font-size: 4rem;
+}
+
 .list {
     display: flex;
     align-items: center;
@@ -83,6 +94,7 @@
     font-family: 'Work Sans', sans-serif;
     position: absolute;
     right: 0;
+    top: 15px;
 }
 
 @media (min-width: 768px) {

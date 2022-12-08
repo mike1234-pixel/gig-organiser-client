@@ -8,6 +8,6 @@
     display: block;
     margin-top: 20px;
     font-family: 'Work Sans', sans-serif;
-    background: var(--success);
-    color: var(--text-dark);
+    background: var(--action);
+    color: var(--white);
 }

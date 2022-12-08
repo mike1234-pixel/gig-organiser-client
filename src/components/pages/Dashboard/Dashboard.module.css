@@ -17,3 +17,8 @@
     font-size: 3rem;
     color: var(--white);
 }
+
+.actionButtonContainer {
+    display: flex;
+    justify-content: flex-end;
+}

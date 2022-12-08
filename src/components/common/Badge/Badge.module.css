@@ -1,0 +1,29 @@
+.root {
+    padding: 2px 8px;
+    border-radius: 4px;
+    width: fit-content;
+    font-family: 'Space Grotesk', sans-serif;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    background: var(--success-light);
+    color: var(--success);
+    border: 2px ridge var(--white);
+}
+
+.warning {
+    background: var(--warning-light);
+    color: var(--warning);
+    border: 2px ridge var(--warning-light);
+}
+
+.success {
+    background: var(--success-light);
+    color: var(--success);
+    border: 2px ridge var(--success-light);
+}
+
+.danger {
+    background: var(--danger-light);
+    color: var(--danger);
+    border: 2px ridge var(--danger-light);
+}

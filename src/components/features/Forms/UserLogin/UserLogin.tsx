@@ -5,6 +5,8 @@ import { UserLoginForm } from "./UserLoginForm";
 import { useLoginUser } from "../../../../hooks/useLoginUser";
 import { ContentBox } from "../ContentBox";
 import styles from "./UserLogin.module.css";
+import { Link } from "react-router-dom";
+import { Button } from "../../../common/Button";
 
 export const UserLogin = () => {
   const initialValues: UserLoginI = {
@@ -14,7 +16,14 @@ export const UserLogin = () => {
 
   const { mutate, error, isSuccess } = useLoginUser();
 
-  if (isSuccess) return <ContentBox title="Successfully Logged In" />;
+  if (isSuccess)
+    return (
+      <ContentBox title="Successfully Logged In">
+        <Link to="/">
+          <Button>Go to dashboard</Button>
+        </Link>
+      </ContentBox>
+    );
 
   if (error)
     return (

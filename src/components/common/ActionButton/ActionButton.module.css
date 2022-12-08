@@ -1,0 +1,15 @@
+.root {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.1s ease-in-out;
+}
+
+.root:hover {
+    transform: translateY(-2px);
+}
+
+.root:active {
+    transform: translateY(2px);
+}
