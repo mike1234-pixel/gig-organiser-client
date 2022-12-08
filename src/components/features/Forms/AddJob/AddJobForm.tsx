@@ -1,4 +1,5 @@
 import { ErrorMessage, Field, Form, useFormikContext } from "formik";
+import { Button } from "../../../common/Button";
 import styles from "../FormStyles/Form.module.css";
 
 export const AddJobForm = () => {
@@ -42,6 +43,8 @@ export const AddJobForm = () => {
         />
         <Field
           type="number"
+          min="0"
+          max="10"
           name="priority"
           placeholder="Priority"
           className={styles.textInput}
@@ -62,13 +65,9 @@ export const AddJobForm = () => {
           name="status"
           className={styles.errorMessage}
         />
-        <button
-          type="submit"
-          disabled={formik.isSubmitting}
-          className={styles.submitButton}
-        >
+        <Button type="submit" disabled={formik.isSubmitting}>
           Add Job
-        </button>
+        </Button>
       </>
     </Form>
   );

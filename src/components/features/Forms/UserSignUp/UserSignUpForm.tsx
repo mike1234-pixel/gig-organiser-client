@@ -1,4 +1,5 @@
 import { useFormikContext, Form, Field, ErrorMessage } from "formik";
+import { Button } from "../../../common/Button";
 import styles from "../FormStyles/Form.module.css";
 
 export const UserSignUpForm = () => {
@@ -40,13 +41,9 @@ export const UserSignUpForm = () => {
           name="password"
           className={styles.errorMessage}
         />
-        <button
-          type="submit"
-          disabled={formik.isSubmitting}
-          className={styles.submitButton}
-        >
+        <Button type="submit" disabled={formik.isSubmitting}>
           Create User
-        </button>
+        </Button>
       </>
     </Form>
   );

@@ -1,0 +1,13 @@
+.button {
+    border: 1px solid rgba(189, 189, 189, 0.2);
+    border-radius: 4px;
+    background: none;
+    padding: 16px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: block;
+    margin-top: 20px;
+    font-family: 'Work Sans', sans-serif;
+    background: var(--success);
+    color: var(--text-dark);
+}
