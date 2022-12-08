@@ -5,6 +5,7 @@ import { Container } from "../../common/Container";
 import { ContentBox } from "../../features/Forms/ContentBox";
 import { EditPanel } from "../../common/EditPanel";
 import { useTogglePanel } from "../../../context/EditPanel";
+import { AddJob } from "../../features/Forms/AddJob";
 
 export const Dashboard = () => {
   const { isLoggedIn } = useLoginState();
@@ -14,11 +15,11 @@ export const Dashboard = () => {
   return isLoggedIn ? (
     <>
       <EditPanel>
-        <p>edit panel custom content</p>
+        <AddJob />
       </EditPanel>
       <ContentBox>
         <Jobs />
-        <button onClick={() => setTogglePanel(!togglePanel)}>edit jobs</button>
+        <button onClick={() => setTogglePanel(!togglePanel)}>Add job</button>
       </ContentBox>
     </>
   ) : (

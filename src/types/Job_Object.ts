@@ -3,9 +3,10 @@ export interface JobI {
   DeletedAt: string;
   ID: number;
   UpdatedAt: string;
+  userid: string;
   description: string;
   organisation: string;
-  priority: 8;
+  priority: number;
   status: string;
   title: string;
 }

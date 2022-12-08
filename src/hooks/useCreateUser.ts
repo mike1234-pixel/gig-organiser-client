@@ -10,7 +10,6 @@ const createUser = async (values: UserSignUpI) => {
     },
   });
 
-  // Check the response status
   if (response.status === 400) {
     throw new Error("A user with the submitted email already exists");
   }
