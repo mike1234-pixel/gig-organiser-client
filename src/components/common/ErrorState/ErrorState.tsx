@@ -1,5 +1,5 @@
-import styles from "./ErrorState.module.css";
 import { BiCommentError } from "react-icons/bi";
+import styles from "./ErrorState.module.css";
 
 interface ErrorStateProps {
   title: string;

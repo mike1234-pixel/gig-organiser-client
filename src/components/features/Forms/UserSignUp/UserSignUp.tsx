@@ -3,12 +3,12 @@ import { Formik } from "formik";
 import { validationSchema } from "./validationSchema";
 import { UserSignUpI } from "../../../../types/User_Signup_Object";
 import { UserSignUpForm } from "./UserSignUpForm";
-import { ContentBox } from "../ContentBox";
 import { LayoutPage } from "../../../common/LayoutPage";
 import styles from "./UserSignUp.module.css";
 import { Button } from "../../../common/Button";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { ErrorState } from "../../../common/ErrorState";
 
 export const UserSignUp = () => {
   const initialValues: UserSignUpI = {
@@ -46,10 +46,10 @@ export const UserSignUp = () => {
 
   if (error)
     return (
-      <ContentBox title="Error">
-        <p>{error.message}</p>
+      <LayoutPage>
+        <ErrorState title="Error" text={error.message} />
         <Button onClick={() => setError(null)}>Try Again</Button>
-      </ContentBox>
+      </LayoutPage>
     );
 
   return (

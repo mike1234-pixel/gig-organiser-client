@@ -3,10 +3,12 @@ import { validationSchema } from "./validationSchema";
 import { UserLoginI } from "../../../../types/User_Login_Object";
 import { UserLoginForm } from "./UserLoginForm";
 import { useLoginUser } from "../../../../hooks/useLoginUser";
-import { ContentBox } from "../ContentBox";
 import { Link } from "react-router-dom";
 import { Button } from "../../../common/Button";
 import { useAuth } from "../../../../context/AuthContext";
+import { LayoutPage } from "../../../common/LayoutPage";
+import { ErrorState } from "../../../common/ErrorState";
+import { useEffect, useState } from "react";
 import styles from "./UserLogin.module.css";
 
 export const UserLogin = () => {
@@ -15,28 +17,36 @@ export const UserLogin = () => {
     password: "",
   };
 
-  const { mutate, error, isSuccess } = useLoginUser();
+  const { mutate, error: responseError, isSuccess } = useLoginUser();
 
   const { user } = useAuth();
 
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    setError(responseError);
+  }, [responseError]);
+
   if (isSuccess)
     return (
-      <ContentBox title={`Welcome Back ${user?.name}`}>
+      <LayoutPage>
+        <h1 className={styles.title}>{`Welcome Back ${user?.name}`}</h1>
         <Link to="/">
           <Button>Go to dashboard</Button>
         </Link>
-      </ContentBox>
+      </LayoutPage>
     );
 
   if (error)
     return (
-      <ContentBox title="Error">
-        <p>{error.message}</p>
-      </ContentBox>
+      <LayoutPage>
+        <ErrorState title="Error" text={error.message} />
+        <Button onClick={() => setError(null)}>Try Again</Button>
+      </LayoutPage>
     );
 
   return (
-    <ContentBox title="Log In">
+    <LayoutPage>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -44,6 +54,6 @@ export const UserLogin = () => {
       >
         <UserLoginForm />
       </Formik>
-    </ContentBox>
+    </LayoutPage>
   );
 };
