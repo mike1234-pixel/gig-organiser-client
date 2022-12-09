@@ -1,22 +1,19 @@
 import { GrEdit } from "react-icons/gr";
+import { MdOutlineDeleteOutline } from "react-icons/md";
 import styles from "./ActionButton.module.css";
 
 interface ActionButtonProps {
-  variant: "edit";
-  onClick: (arg: any) => void;
+  variant: "edit" | "delete";
+  onClick?: (arg: any) => void;
 }
 
 export const ActionButton = ({ variant, onClick }: ActionButtonProps) => {
   const Variant = () => {
     switch (variant) {
       case "edit":
-        return (
-          <GrEdit
-            style={{
-              color: "red",
-            }}
-          />
-        );
+        return <GrEdit />;
+      case "delete":
+        return <MdOutlineDeleteOutline />;
       default:
         return null;
     }

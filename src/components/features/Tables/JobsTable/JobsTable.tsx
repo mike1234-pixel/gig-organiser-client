@@ -9,6 +9,7 @@ import { ActionButton } from "../../../common/ActionButton";
 import classNames from "classnames";
 import { JobI } from "../../../../types/Job_Object";
 import { useJobToUpdate } from "../../../../context/UpdateJobContext";
+import { useDeleteJob } from "../../../../hooks/useDeleteJob";
 
 const badgeVariants: { [key: string]: BadgeProps["variant"] } = {
   pending: "warning",
@@ -43,7 +44,7 @@ const PriorityBadge = ({ priority }: { priority: string }) => {
   );
 };
 
-const StatusBadge = ({ job }: { job: JobI }) => {
+const EditButton = ({ job }: { job: JobI }) => {
   const { setJobToUpdate } = useJobToUpdate();
 
   const { setTogglePanel, togglePanel } = useTogglePanel();
@@ -57,6 +58,12 @@ const StatusBadge = ({ job }: { job: JobI }) => {
   };
 
   return <ActionButton variant="edit" onClick={handleClick} />;
+};
+
+const DeleteButton = ({ job }: { job: JobI }) => {
+  const { mutate } = useDeleteJob();
+
+  return <ActionButton variant="delete" onClick={() => mutate(job)} />;
 };
 
 const columns: any = [
@@ -90,7 +97,12 @@ const columns: any = [
   {
     Header: "",
     id: "edit",
-    Cell: ({ row }: { row: Row<any> }) => <StatusBadge job={row.original} />,
+    Cell: ({ row }: { row: Row<any> }) => <EditButton job={row.original} />,
+  },
+  {
+    Header: "",
+    id: "delete",
+    Cell: ({ row }: { row: Row<any> }) => <DeleteButton job={row.original} />,
   },
 ];
 
