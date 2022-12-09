@@ -10,11 +10,12 @@ import { Home } from "../Home";
 import { useJobs } from "../../../hooks/useJobs";
 import styles from "./Dashboard.module.css";
 import { EmptyState } from "../../common/EmptyState";
+import { LoadingState } from "../../common/LoadingState";
 
 export const Dashboard = () => {
   const { isLoggedIn } = useAuth();
 
-  const { jobs } = useJobs();
+  const { jobs, isLoading, error } = useJobs();
 
   const { addJob, setAddJob, togglePanel, setTogglePanel } = useTogglePanel();
 
@@ -23,7 +24,16 @@ export const Dashboard = () => {
     setTogglePanel(!togglePanel);
   };
 
-  return isLoggedIn ? (
+  if (!isLoggedIn) return <Home />;
+
+  if (isLoading)
+    return (
+      <LayoutPage>
+        <LoadingState title="Loading..." text="just a second..." />
+      </LayoutPage>
+    );
+
+  return (
     <>
       {addJob ? (
         <EditPanel title="Add Job">
@@ -46,7 +56,5 @@ export const Dashboard = () => {
         )}
       </LayoutPage>
     </>
-  ) : (
-    <Home />
   );
 };

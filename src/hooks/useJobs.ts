@@ -10,8 +10,10 @@ export const useJobs = () => {
       fetch(`http://localhost:3002/jobs?userID=${user?.id}`).then((response) =>
         response.json()
       ),
-    { refetchInterval: 5000 }
+    {
+      refetchInterval: 5000,
+    }
   );
 
-  return { jobs: data || [], isLoading, error };
+  return { jobs: data, isLoading, error };
 };

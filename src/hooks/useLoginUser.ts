@@ -29,7 +29,7 @@ const loginUser = async (values: UserLoginI) => {
 };
 
 export const useLoginUser = () => {
-  const { mutate, error, isSuccess, data } = useMutation<
+  const { mutate, error, isSuccess, isLoading, data } = useMutation<
     UserI,
     Error,
     UserLoginI
@@ -43,5 +43,5 @@ export const useLoginUser = () => {
     setIsLoggedIn(true);
   }
 
-  return { mutate, error, isSuccess };
+  return { mutate, error, isSuccess, isLoading };
 };
