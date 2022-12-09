@@ -114,7 +114,7 @@ export const JobsTable = () => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({
       columns: columns,
-      data: jobs,
+      data: jobs || [],
     });
 
   return (

@@ -11,6 +11,7 @@ import { useJobs } from "../../../hooks/useJobs";
 import styles from "./Dashboard.module.css";
 import { EmptyState } from "../../common/EmptyState";
 import { LoadingState } from "../../common/LoadingState";
+import { ErrorState } from "../../common/ErrorState";
 
 export const Dashboard = () => {
   const { isLoggedIn } = useAuth();
@@ -33,6 +34,13 @@ export const Dashboard = () => {
       </LayoutPage>
     );
 
+  if (error)
+    return (
+      <LayoutPage>
+        <ErrorState title="Error" text={error.message} />
+      </LayoutPage>
+    );
+
   return (
     <>
       {addJob ? (
@@ -49,7 +57,7 @@ export const Dashboard = () => {
         <div className={styles.actionButtonContainer}>
           <Button onClick={handleClick}>Add job</Button>
         </div>
-        {jobs.length ? (
+        {jobs?.length ? (
           <JobsTable />
         ) : (
           <EmptyState title="No jobs yet." text="Start adding jobs!" />
