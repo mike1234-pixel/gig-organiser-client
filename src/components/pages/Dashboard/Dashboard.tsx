@@ -39,7 +39,11 @@ export const Dashboard = () => {
         <div className={styles.actionButtonContainer}>
           <Button onClick={handleClick}>Add job</Button>
         </div>
-        {jobs.length ? <JobsTable /> : <EmptyState />}
+        {jobs.length ? (
+          <JobsTable />
+        ) : (
+          <EmptyState title="No jobs yet." text="Start adding jobs!" />
+        )}
       </LayoutPage>
     </>
   ) : (

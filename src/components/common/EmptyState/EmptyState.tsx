@@ -1,12 +1,17 @@
 import { GiEmptyMetalBucketHandle } from "react-icons/gi";
 import styles from "./EmptyState.module.css";
 
-export const EmptyState = () => {
+interface EmptyStateProps {
+  title: string;
+  text: string;
+}
+
+export const EmptyState = ({ title, text }: EmptyStateProps) => {
   return (
     <div className={styles.root}>
-      <h1 className={styles.title}>No jobs yet.</h1>
+      <h1 className={styles.title}>{title}</h1>
       <GiEmptyMetalBucketHandle className={styles.icon} />
-      <p>Start adding jobs!</p>
+      <p>{text}</p>
     </div>
   );
 };
