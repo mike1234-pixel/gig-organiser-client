@@ -4,10 +4,10 @@ import { UserLoginI } from "../../../../types/User_Login_Object";
 import { UserLoginForm } from "./UserLoginForm";
 import { useLoginUser } from "../../../../hooks/useLoginUser";
 import { ContentBox } from "../ContentBox";
-import styles from "./UserLogin.module.css";
 import { Link } from "react-router-dom";
 import { Button } from "../../../common/Button";
-import { useLoginState } from "../../../../context/LoginStateProvider";
+import { useAuth } from "../../../../context/AuthContext";
+import styles from "./UserLogin.module.css";
 
 export const UserLogin = () => {
   const initialValues: UserLoginI = {
@@ -17,7 +17,7 @@ export const UserLogin = () => {
 
   const { mutate, error, isSuccess } = useLoginUser();
 
-  const { user } = useLoginState();
+  const { user } = useAuth();
 
   if (isSuccess)
     return (

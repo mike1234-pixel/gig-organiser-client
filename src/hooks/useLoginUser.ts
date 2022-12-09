@@ -1,6 +1,6 @@
 import { UserLoginI } from "../types/User_Login_Object";
 import { useMutation } from "react-query";
-import { useLoginState } from "../context/LoginStateProvider";
+import { useAuth } from "../context/AuthContext";
 import { UserI } from "../types/User_Object";
 
 const loginUser = async (values: UserLoginI) => {
@@ -36,7 +36,7 @@ export const useLoginUser = () => {
   >(loginUser);
 
   // save user to global state
-  const { setUser, setIsLoggedIn } = useLoginState();
+  const { setUser, setIsLoggedIn } = useAuth();
 
   if (data) {
     setUser(data);

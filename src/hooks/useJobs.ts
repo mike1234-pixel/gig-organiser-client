@@ -1,8 +1,8 @@
 import { useQuery } from "react-query";
-import { useLoginState } from "../context/LoginStateProvider";
+import { useAuth } from "../context/AuthContext";
 
 export const useJobs = () => {
-  const { user } = useLoginState();
+  const { user } = useAuth();
 
   const { data, isLoading, error } = useQuery(
     "jobs",

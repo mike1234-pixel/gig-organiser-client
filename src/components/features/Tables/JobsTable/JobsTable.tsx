@@ -1,12 +1,14 @@
 import { useMemo } from "react";
-import { useTable } from "react-table";
+import { Row, useTable } from "react-table";
 import { useJobs } from "../../../../hooks/useJobs";
 import styles from "../TableStyles/Table.module.css";
-import { useTogglePanel } from "../../../../context/EditPanel";
+import { useTogglePanel } from "../../../../context/TogglePanelContext";
 import { Badge } from "../../../common/Badge";
 import { BadgeProps } from "../../../common/Badge/Badge";
 import { ActionButton } from "../../../common/ActionButton";
 import classNames from "classnames";
+import { JobI } from "../../../../types/Job_Object";
+import { useJobToUpdate } from "../../../../context/UpdateJobContext";
 
 const badgeVariants: { [key: string]: BadgeProps["variant"] } = {
   pending: "warning",
@@ -41,6 +43,22 @@ const PriorityBadge = ({ priority }: { priority: string }) => {
   );
 };
 
+const StatusBadge = ({ job }: { job: JobI }) => {
+  const { setJobToUpdate } = useJobToUpdate();
+
+  const { setTogglePanel, togglePanel } = useTogglePanel();
+
+  const { setAddJob } = useTogglePanel();
+
+  const handleClick = () => {
+    setAddJob(false);
+    setJobToUpdate(job);
+    setTogglePanel(!togglePanel);
+  };
+
+  return <ActionButton variant="edit" onClick={handleClick} />;
+};
+
 const columns: any = [
   {
     Header: "Title",
@@ -72,7 +90,7 @@ const columns: any = [
   {
     Header: "",
     id: "edit",
-    Cell: () => <ActionButton variant="edit" />,
+    Cell: ({ row }: { row: Row<any> }) => <StatusBadge job={row.original} />,
   },
 ];
 

@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { ReactNode } from "react";
-import { useTogglePanel } from "../../../context/EditPanel";
+import { useTogglePanel } from "../../../context/TogglePanelContext";
 import { TfiClose } from "react-icons/tfi";
 import styles from "./EditPanel.module.css";
 

@@ -3,9 +3,10 @@ import styles from "./ActionButton.module.css";
 
 interface ActionButtonProps {
   variant: "edit";
+  onClick: (arg: any) => void;
 }
 
-export const ActionButton = ({ variant }: ActionButtonProps) => {
+export const ActionButton = ({ variant, onClick }: ActionButtonProps) => {
   const Variant = () => {
     switch (variant) {
       case "edit":
@@ -22,7 +23,7 @@ export const ActionButton = ({ variant }: ActionButtonProps) => {
   };
 
   return (
-    <button className={styles.root}>
+    <button className={styles.root} onClick={onClick}>
       <Variant />
     </button>
   );

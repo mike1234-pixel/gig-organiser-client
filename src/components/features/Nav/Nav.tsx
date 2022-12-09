@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useState } from "react";
-import { useLoginState } from "../../../context/LoginStateProvider";
+import { useAuth } from "../../../context/AuthContext";
 import { Container } from "../../common/Container";
 import { CgMenuRight, CgClose } from "react-icons/cg";
 import { SiEditorconfig } from "react-icons/si";
@@ -9,7 +9,7 @@ import { NavLinkItem } from "./NavLink";
 import { Link } from "react-router-dom";
 
 export const Nav = () => {
-  const { isLoggedIn, user, setIsLoggedIn, setUser } = useLoginState();
+  const { isLoggedIn, user, setIsLoggedIn, setUser } = useAuth();
 
   const [navClosed, setNavClosed] = useState<boolean>(true);
 

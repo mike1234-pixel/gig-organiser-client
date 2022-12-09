@@ -1,23 +1,23 @@
 import { Formik } from "formik";
-import { useTogglePanel } from "../../../../context/EditPanel";
-import { useLoginState } from "../../../../context/LoginStateProvider";
+import { useTogglePanel } from "../../../../context/TogglePanelContext";
+import { useAuth } from "../../../../context/AuthContext";
 import { useAddJob } from "../../../../hooks/useAddJob";
 import { JobNewI } from "../../../../types/Job_New_Object";
 import { AddJobForm } from "./AddJobForm";
 import { validationSchema } from "./validationSchema";
 
 export const AddJob = () => {
-  const { user } = useLoginState();
+  const { user } = useAuth();
 
   const { mutate } = useAddJob();
 
   const { togglePanel, setTogglePanel } = useTogglePanel();
 
   const handleSubmit = (
-    values: JobNewI,
+    job: JobNewI,
     { resetForm }: { resetForm: () => void }
   ) => {
-    mutate(values);
+    mutate(job);
     resetForm();
     setTimeout(() => {
       setTogglePanel(!togglePanel);

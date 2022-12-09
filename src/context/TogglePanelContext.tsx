@@ -1,23 +1,21 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 
-type TogglePanelState = boolean;
-
-type SetTogglePanel = (toggle: TogglePanelState) => void;
-
 type TogglePanelContextValue = {
-  togglePanel: TogglePanelState;
-  setTogglePanel: SetTogglePanel;
+  togglePanel: boolean;
+  setTogglePanel: (toggle: boolean) => void;
+  addJob: boolean;
+  setAddJob: (addJob: boolean) => void;
 };
 
 const TogglePanelContext = createContext<TogglePanelContextValue>({
   togglePanel: false,
   setTogglePanel: () => {},
+  addJob: false,
+  setAddJob: () => {},
 });
 
 const useTogglePanel = (): TogglePanelContextValue => {
   const context = useContext(TogglePanelContext);
-
-  console.log("run");
 
   if (!context) {
     throw new Error(
@@ -29,13 +27,16 @@ const useTogglePanel = (): TogglePanelContextValue => {
 };
 
 const TogglePanelContextProvider = ({ children }: { children: ReactNode }) => {
-  const [togglePanel, setTogglePanel] = useState<TogglePanelState>(false);
+  const [togglePanel, setTogglePanel] = useState<boolean>(false);
+  const [addJob, setAddJob] = useState<boolean>(false); // this controls whether the form displayed is for adding a job or upddating a job
 
   return (
     <TogglePanelContext.Provider
       value={{
         togglePanel,
         setTogglePanel,
+        addJob,
+        setAddJob,
       }}
     >
       {children}

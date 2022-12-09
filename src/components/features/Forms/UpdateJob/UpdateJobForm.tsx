@@ -55,18 +55,26 @@ export const UpdateJobForm = () => {
           className={styles.errorMessage}
         />
         <Field
-          type="text"
           name="status"
           placeholder="Status"
           className={styles.textInput}
-        />
+          as="select"
+          defaultValue="default"
+        >
+          <option value="" disabled>
+            Select Status
+          </option>
+          <option value="pending">Pending</option>
+          <option value="success">Success</option>
+          <option value="declined">Declined</option>
+        </Field>
         <ErrorMessage
           component="span"
           name="status"
           className={styles.errorMessage}
         />
         <Button type="submit" disabled={formik.isSubmitting}>
-          Update
+          Update Job
         </Button>
       </>
     </Form>

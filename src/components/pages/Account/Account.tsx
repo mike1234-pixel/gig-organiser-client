@@ -1,9 +1,9 @@
-import { useLoginState } from "../../../context/LoginStateProvider";
+import { useAuth } from "../../../context/AuthContext";
 import { ContentBox } from "../../features/Forms/ContentBox";
 import styles from "./Account.module.css";
 
 export const Account = () => {
-  const { user } = useLoginState();
+  const { user } = useAuth();
 
   return (
     <>
