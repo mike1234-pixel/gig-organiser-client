@@ -7,6 +7,7 @@ import { ContentBox } from "../ContentBox";
 import styles from "./UserLogin.module.css";
 import { Link } from "react-router-dom";
 import { Button } from "../../../common/Button";
+import { useLoginState } from "../../../../context/LoginStateProvider";
 
 export const UserLogin = () => {
   const initialValues: UserLoginI = {
@@ -16,9 +17,11 @@ export const UserLogin = () => {
 
   const { mutate, error, isSuccess } = useLoginUser();
 
+  const { user } = useLoginState();
+
   if (isSuccess)
     return (
-      <ContentBox title="Successfully Logged In">
+      <ContentBox title={`Welcome Back ${user?.name}`}>
         <Link to="/">
           <Button>Go to dashboard</Button>
         </Link>

@@ -5,11 +5,11 @@
     display: block;
     margin: 16px 0;
     font-size: 2rem;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: var(--font-secondary);
 }
 
 .textInput::placeholder {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: var(--font-secondary);
 }
 
 .errorMessage {

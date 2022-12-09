@@ -12,6 +12,9 @@
   --success-light: #d5ffdf;
   --warning-light: #fff5d3;
   --action: #0087FF;
+  /* fonts */
+  --font-primary: 'Work Sans', sans-serif;
+  --font-secondary: 'Space Grotesk', sans-serif;
 }
 
 /* Reset default styles */
@@ -126,9 +129,13 @@ p {
   margin: 10px 0;
 }
 
+strong {
+  font-weight: 700;
+}
+
 body {
   margin: 0;
-  font-family: 'Work Sans', sans-serif;
+  font-family: var(--font-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(259deg, rgba(0, 135, 255, 0.1) 0%, rgba(219, 91, 255, 0.1) 65%, rgba(81, 250, 255, 0.1) 100%);

@@ -62,7 +62,7 @@
     font-size: 1rem;
     text-transform: uppercase;
     cursor: pointer;
-    font-family: 'Work Sans', sans-serif;
+    font-family: var(--font-primary);
 }
 
 .active {
@@ -91,7 +91,7 @@
     font-size: 1rem;
     text-transform: uppercase;
     cursor: pointer;
-    font-family: 'Work Sans', sans-serif;
+    font-family: var(--font-primary);
     position: absolute;
     right: 0;
     top: 15px;

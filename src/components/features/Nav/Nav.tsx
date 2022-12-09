@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 export const Nav = () => {
   const { isLoggedIn, user, setIsLoggedIn, setUser } = useLoginState();
 
-  const [navToggled, setNavToggled] = useState<boolean>(false);
+  const [navClosed, setNavClosed] = useState<boolean>(true);
 
   const handleClick = () => {
     setUser(null);
@@ -28,9 +28,9 @@ export const Nav = () => {
           </Link>
 
           <ul
-            className={classNames(styles.list, navToggled && styles.collapsed)}
+            className={classNames(styles.list, !navClosed && styles.collapsed)}
           >
-            <NavLinkItem path="/" name="Dashboard" />
+            <NavLinkItem path="/" name={isLoggedIn ? "Dashboard" : "Home"} />
             {!isLoggedIn && (
               <>
                 <NavLinkItem path="/signup" name="Sign Up" />
@@ -57,9 +57,9 @@ export const Nav = () => {
           </ul>
           <button
             className={styles.toggleButton}
-            onClick={() => setNavToggled(!navToggled)}
+            onClick={() => setNavClosed(!navClosed)}
           >
-            {navToggled ? <CgMenuRight /> : <CgClose />}
+            {navClosed ? <CgMenuRight /> : <CgClose />}
           </button>
         </div>
       </Container>

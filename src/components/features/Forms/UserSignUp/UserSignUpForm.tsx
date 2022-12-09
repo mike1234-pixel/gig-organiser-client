@@ -42,7 +42,7 @@ export const UserSignUpForm = () => {
           className={styles.errorMessage}
         />
         <Button type="submit" disabled={formik.isSubmitting}>
-          Create User
+          Sign Up
         </Button>
       </>
     </Form>

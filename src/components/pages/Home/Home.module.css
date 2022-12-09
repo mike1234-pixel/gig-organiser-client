@@ -1,0 +1,29 @@
+.hero {
+    width: 100%;
+    background-image: url("./organise.jpg");
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
+    background-size: cover;
+    height: 100vh;
+}
+
+.titleContainer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 3rem;
+    color: var(--white);
+    margin-bottom: 30px;
+    font-family: var(--font-secondary);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--white);
+    max-width: 600px;
+    margin-bottom: 16px;
+}
