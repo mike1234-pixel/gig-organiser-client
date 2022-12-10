@@ -1,10 +1,10 @@
 import { useMutation } from "react-query";
 import { JobNewI } from "../types/Job_New_Object";
 
-const addJob = async (values: JobNewI) => {
+const addJob = async (newJob: JobNewI) => {
   const response = await fetch("http://localhost:3002/job", {
     method: "POST",
-    body: JSON.stringify(values),
+    body: JSON.stringify(newJob),
     headers: {
       "Content-Type": "application/json",
     },

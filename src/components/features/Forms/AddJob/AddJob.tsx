@@ -25,7 +25,7 @@ export const AddJob = () => {
   };
 
   const initialValues: JobNewI = {
-    userid: user!.id,
+    userid: user!.ID,
     description: "",
     organisation: "",
     priority: 0,

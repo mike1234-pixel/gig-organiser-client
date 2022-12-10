@@ -8,7 +8,7 @@ export const useJobs = () => {
   const { data, isLoading, error } = useQuery<any, Error, JobI[], "jobs">(
     "jobs",
     () =>
-      fetch(`http://localhost:3002/jobs?userID=${user?.id}`).then((response) =>
+      fetch(`http://localhost:3002/jobs?userID=${user?.ID}`).then((response) =>
         response.json()
       ),
     {

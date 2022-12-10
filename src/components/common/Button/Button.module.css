@@ -8,6 +8,21 @@
     display: block;
     margin-top: 20px;
     font-family: var(--font-primary);
-    background: var(--action);
     color: var(--white);
+}
+
+.warning {
+    background: var(--warning);
+}
+
+.danger {
+    background: var(--danger);
+}
+
+.success {
+    background: var(--success);
+}
+
+.action {
+    background: var(--action);
 }

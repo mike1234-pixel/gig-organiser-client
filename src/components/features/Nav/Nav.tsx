@@ -42,7 +42,7 @@ export const Nav = () => {
                 <NavLinkItem
                   path="/user"
                   name={user.name}
-                  dynamicRouteId={user.id}
+                  dynamicRouteId={user.ID}
                 />
                 <li>
                   <button
