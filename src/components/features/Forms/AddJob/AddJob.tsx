@@ -3,8 +3,8 @@ import { useTogglePanel } from "../../../../context/TogglePanelContext";
 import { useAuth } from "../../../../context/AuthContext";
 import { useAddJob } from "../../../../hooks/useAddJob";
 import { JobNewI } from "../../../../types/Job_New_Object";
-import { AddJobForm } from "./AddJobForm";
 import { validationSchema } from "./validationSchema";
+import { JobForm } from "../Job";
 
 export const AddJob = () => {
   const { user } = useAuth();
@@ -39,7 +39,7 @@ export const AddJob = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <AddJobForm />
+      <JobForm buttonText={"Add Job"} />
     </Formik>
   );
 };

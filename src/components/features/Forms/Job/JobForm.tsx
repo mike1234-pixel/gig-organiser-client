@@ -2,38 +2,37 @@ import { ErrorMessage, Field, Form, useFormikContext } from "formik";
 import { Button } from "../../../common/Button";
 import styles from "../FormStyles/Form.module.css";
 
-export const AddJobForm = () => {
+export const JobForm = ({ buttonText }: { buttonText: string }) => {
   const formik = useFormikContext<any>();
 
   return (
     <Form>
       <>
-        <Field
-          type="text"
-          name="title"
-          placeholder="Title"
-          className={styles.textInput}
-        />
+        <label className={styles.label} htmlFor="title">
+          Job Title
+        </label>
+        <Field type="text" name="title" className={styles.textInput} />
         <ErrorMessage
           component="span"
           name="title"
           className={styles.errorMessage}
         />
-        <Field
-          type="text"
-          name="organisation"
-          placeholder="Organisation"
-          className={styles.textInput}
-        />
+        <label className={styles.label} htmlFor="organisation">
+          Organisation
+        </label>
+        <Field type="text" name="organisation" className={styles.textInput} />
         <ErrorMessage
           component="span"
           name="organisation"
           className={styles.errorMessage}
         />
+        <label className={styles.label} htmlFor="description">
+          Enter a job description, or any notes you want!
+        </label>
         <Field
           type="text"
           name="description"
-          placeholder="Description"
+          as="textarea"
           className={styles.textInput}
         />
         <ErrorMessage
@@ -41,6 +40,10 @@ export const AddJobForm = () => {
           name="description"
           className={styles.errorMessage}
         />
+        <label className={styles.label} htmlFor="priority">
+          Set the priority. On a scale of 1-10 (1 being low), how important is
+          this opportunity?
+        </label>
         <Field
           type="number"
           min="0"
@@ -54,6 +57,9 @@ export const AddJobForm = () => {
           name="priority"
           className={styles.errorMessage}
         />
+        <label className={styles.label} htmlFor="description">
+          What is the status of the application?
+        </label>
         <Field
           name="status"
           placeholder="Status"
@@ -75,7 +81,7 @@ export const AddJobForm = () => {
           className={styles.errorMessage}
         />
         <Button type="submit" disabled={formik.isSubmitting}>
-          Add Job
+          {buttonText}
         </Button>
       </>
     </Form>

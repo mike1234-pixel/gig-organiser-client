@@ -2,8 +2,8 @@ import { Formik } from "formik";
 import { useTogglePanel } from "../../../../context/TogglePanelContext";
 import { useUpdateJob } from "../../../../hooks/useUpdateJob";
 import { JobI } from "../../../../types/Job_Object";
-import { UpdateJobForm } from "./UpdateJobForm";
 import { useJobToUpdate } from "../../../../context/UpdateJobContext";
+import { JobForm } from "../Job";
 
 export const UpdateJob = () => {
   const { mutate } = useUpdateJob();
@@ -60,7 +60,7 @@ export const UpdateJob = () => {
       onSubmit={handleSubmit}
       enableReinitialize
     >
-      <UpdateJobForm />
+      <JobForm buttonText={"Update"} />
     </Formik>
   );
 };

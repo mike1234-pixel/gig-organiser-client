@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import { Row, useTable } from "react-table";
 import { useJobs } from "../../../../hooks/useJobs";
-import styles from "../TableStyles/Table.module.css";
 import { useTogglePanel } from "../../../../context/TogglePanelContext";
 import { Badge } from "../../../common/Badge";
 import { BadgeProps } from "../../../common/Badge/Badge";
@@ -10,11 +9,16 @@ import classNames from "classnames";
 import { JobI } from "../../../../types/Job_Object";
 import { useJobToUpdate } from "../../../../context/UpdateJobContext";
 import { useDeleteJob } from "../../../../hooks/useDeleteJob";
+import styles from "../TableStyles/Table.module.css";
 
 const badgeVariants: { [key: string]: BadgeProps["variant"] } = {
   pending: "warning",
   success: "success",
   declined: "danger",
+};
+
+const DateCell = ({ date }: { date: string }) => {
+  return <p className={styles.date}>{new Date(date).toLocaleDateString()}</p>;
 };
 
 const PriorityBadge = ({ priority }: { priority: string }) => {
@@ -83,6 +87,12 @@ const columns: any = [
     accessor: "description",
   },
   {
+    Header: "Created",
+    accessor: "CreatedAt",
+    sortable: true,
+    Cell: ({ value }: { value: string }) => <DateCell date={value} />,
+  },
+  {
     Header: "Priority",
     accessor: "priority",
     Cell: ({ value }: { value: string }) => <PriorityBadge priority={value} />,
@@ -107,7 +117,7 @@ const columns: any = [
 ];
 
 export const JobsTable = () => {
-  const { jobs: jobsData, isLoading, error } = useJobs();
+  const { jobs: jobsData } = useJobs();
 
   const jobs = useMemo(() => jobsData, [jobsData]);
 
