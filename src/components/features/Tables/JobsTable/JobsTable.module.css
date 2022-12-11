@@ -64,3 +64,8 @@ th:nth-of-type(5) {
     color: var(--success);
     border: 2px outset var(--success-light);
 }
+
+.sortArrow {
+    font-size: 1rem;
+    margin-left: 5px;
+}

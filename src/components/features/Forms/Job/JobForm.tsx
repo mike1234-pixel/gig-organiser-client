@@ -1,6 +1,7 @@
+import classNames from "classnames";
 import { ErrorMessage, Field, Form, useFormikContext } from "formik";
 import { Button } from "../../../common/Button";
-import styles from "../FormStyles/Form.module.css";
+import styles from "./JobForm.module.css";
 
 export const JobForm = ({ buttonText }: { buttonText: string }) => {
   const formik = useFormikContext<any>();
@@ -33,7 +34,7 @@ export const JobForm = ({ buttonText }: { buttonText: string }) => {
           type="text"
           name="description"
           as="textarea"
-          className={styles.textInput}
+          className={classNames(styles.textInput, styles.textarea)}
         />
         <ErrorMessage
           component="span"

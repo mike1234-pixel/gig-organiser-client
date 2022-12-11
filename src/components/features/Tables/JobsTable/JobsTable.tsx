@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Row, useTable } from "react-table";
+import { Row, useTable, useSortBy } from "react-table";
 import { useJobs } from "../../../../hooks/useJobs";
 import { useTogglePanel } from "../../../../context/TogglePanelContext";
 import { Badge } from "../../../common/Badge";
@@ -9,7 +9,8 @@ import classNames from "classnames";
 import { JobI } from "../../../../types/Job_Object";
 import { useJobToUpdate } from "../../../../context/UpdateJobContext";
 import { useDeleteJob } from "../../../../hooks/useDeleteJob";
-import styles from "../TableStyles/Table.module.css";
+import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
+import styles from "./JobsTable.module.css";
 
 const badgeVariants: { [key: string]: BadgeProps["variant"] } = {
   pending: "warning",
@@ -122,10 +123,13 @@ export const JobsTable = () => {
   const jobs = useMemo(() => jobsData, [jobsData]);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({
-      columns: columns,
-      data: jobs || [],
-    });
+    useTable(
+      {
+        columns: columns,
+        data: jobs || [],
+      },
+      useSortBy
+    );
 
   return (
     <table {...getTableProps()} className={styles.table}>
@@ -133,8 +137,19 @@ export const JobsTable = () => {
         {headerGroups.map((headerGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()} className={styles.row}>
             {headerGroup.headers.map((column) => (
-              <th className={styles.th} {...column.getHeaderProps()}>
+              <th
+                className={styles.th}
+                {...column.getHeaderProps(column.getSortByToggleProps())}
+              >
                 {column.render("Header")}
+                <span className={styles.sortArrow}>
+                  {column.isSorted &&
+                    (column.isSortedDesc ? (
+                      <AiOutlineArrowDown />
+                    ) : (
+                      <AiOutlineArrowUp />
+                    ))}
+                </span>
               </th>
             ))}
           </tr>

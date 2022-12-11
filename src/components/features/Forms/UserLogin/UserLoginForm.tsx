@@ -1,6 +1,6 @@
 import { useFormikContext, Form, Field, ErrorMessage } from "formik";
 import { Button } from "../../../common/Button";
-import styles from "../FormStyles/Form.module.css";
+import styles from "./UserLogin.module.css";
 
 export const UserLoginForm = () => {
   const formik = useFormikContext<any>();

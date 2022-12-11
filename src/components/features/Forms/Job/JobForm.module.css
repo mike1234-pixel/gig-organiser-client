@@ -8,6 +8,10 @@
     font-family: var(--font-secondary);
 }
 
+.textarea {
+    resize: vertical;
+}
+
 .textInput::placeholder {
     font-family: var(--font-secondary);
 }
