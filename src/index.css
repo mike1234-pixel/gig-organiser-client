@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
   /* colours */
@@ -13,8 +13,8 @@
   --warning-light: #fff5d3;
   --action: #0087FF;
   /* fonts */
-  --font-primary: 'Work Sans', sans-serif;
-  --font-secondary: 'Space Grotesk', sans-serif;
+  --font-primary: 'M PLUS Rounded 1c', sans-serif;
+  --font-secondary: 'Kodchasan', sans-serif;
 }
 
 /* Reset default styles */
@@ -125,7 +125,7 @@ a {
 }
 
 p {
-  margin: 10px 0;
+  margin-bottom: 16px;
 }
 
 strong {

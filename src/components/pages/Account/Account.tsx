@@ -3,7 +3,6 @@ import { useDeleteUser } from "../../../hooks/useDeleteUser";
 import { Button } from "../../common/Button";
 import { ErrorState } from "../../common/ErrorState";
 import { LayoutPage } from "../../common/LayoutPage";
-import { ContentBox } from "../../features/Forms/ContentBox";
 import { useNavigate } from "react-router-dom";
 import styles from "./Account.module.css";
 
@@ -28,7 +27,7 @@ export const Account = () => {
 
   return (
     <>
-      {user ? (
+      {user && (
         <LayoutPage>
           <h1 className={styles.title}>Account</h1>
           <p>{user?.name}</p>
@@ -42,8 +41,6 @@ export const Account = () => {
             Delete Account
           </Button>
         </LayoutPage>
-      ) : (
-        <ContentBox title="Logged Out." />
       )}
     </>
   );

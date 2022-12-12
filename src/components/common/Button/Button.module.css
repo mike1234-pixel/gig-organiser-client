@@ -6,9 +6,10 @@
     cursor: pointer;
     font-size: 1.2rem;
     display: block;
-    margin-top: 20px;
     font-family: var(--font-primary);
     color: var(--white);
+    width: fit-content;
+    height: fit-content;
 }
 
 .warning {

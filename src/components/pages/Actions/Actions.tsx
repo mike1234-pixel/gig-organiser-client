@@ -48,7 +48,15 @@ export const Actions = () => {
       )}
 
       <LayoutPage>
-        <div className={styles.actionButtonContainer}>
+        <div className={styles.summaryContainer}>
+          <div className={styles.summary}>
+            <p>
+              Jobs have <strong>actions</strong>, which are the specific steps
+              you need to take in order to move forward with the application.
+              These actions can be added here, and might include things like
+              scheduling an interview or completing a technical test.
+            </p>
+          </div>
           <Button onClick={handleClick}>Create Action</Button>
         </div>
         {actions?.length ? (

@@ -1,4 +1,24 @@
-.actionButtonContainer {
+.summaryContainer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+}
+
+.summary {
+    font-size: 1rem;
+    max-width: 80%;
+    text-align: justify;
+}
+
+@media (max-width: 991px) {
+    .summaryContainer {
+        flex-direction: column;
+    }
+
+    .summary {
+        max-width: none;
+    }
+}
+
+.pageLink {
+    color: var(--action);
 }

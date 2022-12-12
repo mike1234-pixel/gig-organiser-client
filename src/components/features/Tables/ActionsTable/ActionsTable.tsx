@@ -20,12 +20,12 @@ const DateCell = ({ date }: { date: string }) => {
   const inThePast = actionDate < new Date();
 
   return (
-    <p
+    <div
       className={classNames(styles.dateTime, inThePast && styles.dateTimePast)}
     >
       <span className={styles.date}>{new Date(date).toLocaleDateString()}</span>{" "}
       <span className={styles.time}>{new Date(date).toLocaleTimeString()}</span>
-    </p>
+    </div>
   );
 };
 
@@ -35,10 +35,10 @@ const JobCell = ({ jobId }: { jobId: number }) => {
   const job = jobs?.find((job) => job.ID === jobId);
 
   return (
-    <p>
+    <div>
       <span className={styles.jobTitle}>{job?.title}</span> @{" "}
       <span>{job?.organisation}</span>
-    </p>
+    </div>
   );
 };
 
@@ -66,13 +66,13 @@ const DeleteButton = ({ action }: { action: ActionI }) => {
 
 const CompletedCell = ({ completed }: { completed: boolean }) => {
   return (
-    <p className={styles.completed}>
+    <span className={styles.completed}>
       {completed ? (
         <BsCheck2Circle className={styles.icon} />
       ) : (
         <AiOutlineEllipsis />
       )}
-    </p>
+    </span>
   );
 };
 
@@ -81,7 +81,7 @@ const columns: any = [
     Header: "Action",
     accessor: "name",
     Cell: ({ value }: { value: string }) => (
-      <p className={styles.name}>{value}</p>
+      <span className={styles.name}>{value}</span>
     ),
   },
   {

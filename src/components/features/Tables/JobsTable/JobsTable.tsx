@@ -24,7 +24,9 @@ const badgeVariants: { [key: string]: BadgeProps["variant"] } = {
 };
 
 const DateCell = ({ date }: { date: string }) => {
-  return <p className={styles.date}>{new Date(date).toLocaleDateString()}</p>;
+  return (
+    <span className={styles.date}>{new Date(date).toLocaleDateString()}</span>
+  );
 };
 
 const PriorityBadgeCell = ({ priority }: { priority: string }) => {
@@ -42,14 +44,14 @@ const PriorityBadgeCell = ({ priority }: { priority: string }) => {
 
   return (
     <div className={styles.priority}>
-      <p
+      <span
         className={classNames(
           styles[getPriorityClass(priorityInt)],
           styles.priorityValue
         )}
       >
         {priority}
-      </p>
+      </span>
     </div>
   );
 };
@@ -97,7 +99,7 @@ const columns: any = [
     Header: "Title",
     accessor: "title",
     Cell: ({ value }: { value: string }) => (
-      <p style={{ fontWeight: 600 }}>{value}</p>
+      <span style={{ fontWeight: 600 }}>{value}</span>
     ),
   },
   {

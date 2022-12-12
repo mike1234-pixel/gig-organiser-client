@@ -17,7 +17,7 @@
 }
 
 .td {
-    padding: 8px;
+    padding: 16px 8px;
 }
 
 tr:nth-child(odd) {
