@@ -1,13 +1,31 @@
 import { useMemo } from "react";
-import { useTable, useSortBy } from "react-table";
+import { useTable, useSortBy, Row } from "react-table";
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import styles from "./ActionsTable.module.css";
 import { useActions } from "../../../../hooks/useActions";
 import { useJobs } from "../../../../hooks/useJobs";
+import { useTogglePanel } from "../../../../context/TogglePanelContext";
+import { useActionToUpdate } from "../../../../context/UpdateActionContext";
+import { ActionI } from "../../../../types/Action_Object";
+import { ActionButton } from "../../../common/ActionButton";
 
 const DateCell = ({ date }: { date: string }) => {
+  // TODO: Fix this
+  const actionDate = new Date(date);
+  const threeDaysBefore = new Date(actionDate);
+  threeDaysBefore.setDate(threeDaysBefore.getDate() - 3);
+
+  let color = "green";
+
+  if (actionDate < threeDaysBefore) {
+    color = "yellow";
+  } else if (actionDate >= threeDaysBefore && actionDate < new Date()) {
+    color = "red";
+  } else if (actionDate < new Date()) {
+    color = "grey";
+  }
   return (
-    <p>
+    <p style={{ color: color }}>
       <span className={styles.date}>{new Date(date).toLocaleDateString()}</span>{" "}
       <span className={styles.time}>{new Date(date).toLocaleTimeString()}</span>
     </p>
@@ -20,6 +38,22 @@ const JobCell = ({ jobId }: { jobId: number }) => {
   const job = jobs?.find((job) => job.ID === jobId);
 
   return <p>{job?.title}</p>;
+};
+
+const EditButton = ({ action }: { action: ActionI }) => {
+  const { setActionToUpdate } = useActionToUpdate();
+
+  const { setTogglePanel, togglePanel } = useTogglePanel();
+
+  const { setForm } = useTogglePanel();
+
+  const handleClick = () => {
+    setForm("UpdateAction");
+    setActionToUpdate(action);
+    setTogglePanel(!togglePanel);
+  };
+
+  return <ActionButton variant="edit" onClick={handleClick} />;
 };
 
 const columns: any = [
@@ -44,6 +78,11 @@ const columns: any = [
     Header: "Job",
     accessor: "jobid",
     Cell: ({ value }: { value: number }) => <JobCell jobId={value} />,
+  },
+  {
+    Header: "",
+    id: "edit",
+    Cell: ({ row }: { row: Row<any> }) => <EditButton action={row.original} />,
   },
 ];
 

@@ -10,6 +10,7 @@ import { Account } from "./components/pages/Account";
 import { TogglePanelContextProvider } from "./context/TogglePanelContext";
 import { UpdateJobContextProvider } from "./context/UpdateJobContext";
 import { Actions } from "./components/pages/Actions";
+import { UpdateActionContextProvider } from "./context/UpdateActionContext";
 
 const queryClient = new QueryClient();
 
@@ -18,20 +19,22 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <UpdateJobContextProvider>
-          <TogglePanelContextProvider>
-            <div className={styles.app}>
-              <BrowserRouter>
-                <Nav />
-                <Routes>
-                  <Route path="/" element={<Jobs />} />
-                  <Route path="/actions" element={<Actions />} />
-                  <Route path="/signup" element={<SignUp />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/user/:id" element={<Account />} />
-                </Routes>
-              </BrowserRouter>
-            </div>
-          </TogglePanelContextProvider>
+          <UpdateActionContextProvider>
+            <TogglePanelContextProvider>
+              <div className={styles.app}>
+                <BrowserRouter>
+                  <Nav />
+                  <Routes>
+                    <Route path="/" element={<Jobs />} />
+                    <Route path="/actions" element={<Actions />} />
+                    <Route path="/signup" element={<SignUp />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/user/:id" element={<Account />} />
+                  </Routes>
+                </BrowserRouter>
+              </div>
+            </TogglePanelContextProvider>
+          </UpdateActionContextProvider>
         </UpdateJobContextProvider>
       </AuthProvider>
     </QueryClientProvider>
