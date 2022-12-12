@@ -11,7 +11,7 @@
 }
 
 .th {
-    font-size: 2rem;
+    font-size: 1.6rem;
     padding: 8px;
     text-align: left;
 }
@@ -68,4 +68,8 @@ th:nth-of-type(5) {
 .sortArrow {
     font-size: 1rem;
     margin-left: 5px;
+}
+
+.actionsList {
+    list-style: disc;
 }

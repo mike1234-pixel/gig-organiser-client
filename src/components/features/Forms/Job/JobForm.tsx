@@ -50,7 +50,6 @@ export const JobForm = ({ buttonText }: { buttonText: string }) => {
           min="1"
           max="10"
           name="priority"
-          placeholder="Priority"
           className={styles.textInput}
         />
         <ErrorMessage

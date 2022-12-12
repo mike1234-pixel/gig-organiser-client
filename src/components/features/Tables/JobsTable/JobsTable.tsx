@@ -11,6 +11,7 @@ import { useJobToUpdate } from "../../../../context/UpdateJobContext";
 import { useDeleteJob } from "../../../../hooks/useDeleteJob";
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import styles from "./JobsTable.module.css";
+import { useActions } from "../../../../hooks/useActions";
 
 const badgeVariants: { [key: string]: BadgeProps["variant"] } = {
   pending: "warning",
@@ -46,6 +47,20 @@ const PriorityBadge = ({ priority }: { priority: string }) => {
         {priority}
       </p>
     </div>
+  );
+};
+
+const Actions = ({ jobId }: { jobId: number }) => {
+  const { actions } = useActions();
+
+  const jobActions = actions?.filter((action) => action.jobid === jobId);
+
+  return (
+    <ul className={styles.actionsList}>
+      {jobActions?.map((action) => {
+        return <li>{action.name}</li>;
+      })}
+    </ul>
   );
 };
 
@@ -97,6 +112,11 @@ const columns: any = [
     Header: "Priority",
     accessor: "priority",
     Cell: ({ value }: { value: string }) => <PriorityBadge priority={value} />,
+  },
+  {
+    Header: "Actions",
+    accessor: "ID",
+    Cell: ({ value }: { value: number }) => <Actions jobId={value} />,
   },
   {
     Header: "Status",
