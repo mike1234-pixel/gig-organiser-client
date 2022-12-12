@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { ErrorMessage, Field, Form, useFormikContext } from "formik";
 import { ChangeEvent } from "react";
+import { MdAddTask } from "react-icons/md";
 import { useJobs } from "../../../../hooks/useJobs";
 import { JobI } from "../../../../types/Job_Object";
 import { Button } from "../../../common/Button";
@@ -90,7 +91,7 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
           className={styles.errorMessage}
         />
         <Button type="submit" disabled={formik.isSubmitting}>
-          {buttonText}
+          {buttonText} <MdAddTask />
         </Button>
       </>
     </Form>

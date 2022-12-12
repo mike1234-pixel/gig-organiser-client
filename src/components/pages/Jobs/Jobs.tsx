@@ -12,6 +12,7 @@ import { EmptyState } from "../../common/EmptyState";
 import { LoadingState } from "../../common/LoadingState";
 import { ErrorState } from "../../common/ErrorState";
 import { Link } from "react-router-dom";
+import { MdOutlineCreateNewFolder } from "react-icons/md";
 import styles from "./Jobs.module.css";
 
 export const Jobs = () => {
@@ -79,7 +80,9 @@ export const Jobs = () => {
               completing a technical test.
             </p>
           </div>
-          <Button onClick={handleClick}>Add job</Button>
+          <Button onClick={handleClick} style={{ marginTop: 0 }}>
+            Add Job <MdOutlineCreateNewFolder />
+          </Button>
         </div>
         {jobs?.length ? (
           <JobsTable />

@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { ErrorMessage, Field, Form, useFormikContext } from "formik";
 import { Button } from "../../../common/Button";
+import { MdOutlineCreateNewFolder } from "react-icons/md";
 import styles from "./JobForm.module.css";
 
 export const JobForm = ({ buttonText }: { buttonText: string }) => {
@@ -76,7 +77,7 @@ export const JobForm = ({ buttonText }: { buttonText: string }) => {
           className={styles.errorMessage}
         />
         <Button type="submit" disabled={formik.isSubmitting}>
-          {buttonText}
+          {buttonText} <MdOutlineCreateNewFolder />
         </Button>
       </>
     </Form>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
@@ -13,7 +13,7 @@
   --warning-light: #fff5d3;
   --action: #0087FF;
   /* fonts */
-  --font-primary: 'M PLUS Rounded 1c', sans-serif;
+  --font-primary: 'Montserrat', sans-serif;
   --font-secondary: 'Kodchasan', sans-serif;
 }
 
@@ -139,6 +139,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(259deg, rgba(0, 135, 255, 0.1) 0%, rgba(219, 91, 255, 0.1) 65%, rgba(81, 250, 255, 0.1) 100%);
   background-attachment: fixed;
+  font-size: 1rem;
+  line-height: 1.6rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 16px;
 }
 
 code {

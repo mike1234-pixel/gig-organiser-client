@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { ReactNode } from "react";
+import { CSSProperties, ReactNode } from "react";
 import styles from "./Button.module.css";
 
 interface ButtonProps {
@@ -8,6 +8,7 @@ interface ButtonProps {
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
   onClick?: () => void;
+  style?: CSSProperties | undefined;
 }
 
 export const Button = ({
@@ -16,6 +17,7 @@ export const Button = ({
   disabled,
   type,
   onClick,
+  style,
 }: ButtonProps) => {
   return (
     <button
@@ -23,6 +25,7 @@ export const Button = ({
       disabled={disabled}
       className={classNames(styles.button, styles[variant!])}
       onClick={onClick}
+      style={style}
     >
       {children}
     </button>

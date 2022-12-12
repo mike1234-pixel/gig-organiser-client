@@ -1,3 +1,4 @@
+import { MdAddTask } from "react-icons/md";
 import { useTogglePanel } from "../../../context/TogglePanelContext";
 import { useActions } from "../../../hooks/useActions";
 import { Button } from "../../common/Button";
@@ -57,7 +58,9 @@ export const Actions = () => {
               scheduling an interview or completing a technical test.
             </p>
           </div>
-          <Button onClick={handleClick}>Create Action</Button>
+          <Button onClick={handleClick} style={{ marginTop: 0 }}>
+            Create Action <MdAddTask />
+          </Button>
         </div>
         {actions?.length ? (
           <ActionsTable />

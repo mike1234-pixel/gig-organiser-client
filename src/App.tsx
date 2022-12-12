@@ -1,5 +1,4 @@
 import { QueryClient, QueryClientProvider } from "react-query";
-import styles from "./App.module.css";
 import { Jobs } from "./components/pages/Jobs";
 import { SignUp } from "./components/pages/Signup";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -11,6 +10,7 @@ import { TogglePanelContextProvider } from "./context/TogglePanelContext";
 import { UpdateJobContextProvider } from "./context/UpdateJobContext";
 import { Actions } from "./components/pages/Actions";
 import { UpdateActionContextProvider } from "./context/UpdateActionContext";
+import { NotFound } from "./components/pages/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -21,18 +21,17 @@ const App = () => {
         <UpdateJobContextProvider>
           <UpdateActionContextProvider>
             <TogglePanelContextProvider>
-              <div className={styles.app}>
-                <BrowserRouter>
-                  <Nav />
-                  <Routes>
-                    <Route path="/" element={<Jobs />} />
-                    <Route path="/actions" element={<Actions />} />
-                    <Route path="/signup" element={<SignUp />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/user/:id" element={<Account />} />
-                  </Routes>
-                </BrowserRouter>
-              </div>
+              <BrowserRouter>
+                <Nav />
+                <Routes>
+                  <Route path="/" element={<Jobs />} />
+                  <Route path="/actions" element={<Actions />} />
+                  <Route path="/signup" element={<SignUp />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/user/:id" element={<Account />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </BrowserRouter>
             </TogglePanelContextProvider>
           </UpdateActionContextProvider>
         </UpdateJobContextProvider>

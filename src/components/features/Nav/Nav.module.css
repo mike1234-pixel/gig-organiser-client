@@ -27,6 +27,7 @@
 .title {
     font-size: 1.4rem;
     color: var(--white);
+    margin: 0;
 }
 
 .titleLink {
