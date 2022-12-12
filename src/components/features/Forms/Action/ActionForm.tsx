@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { ErrorMessage, Field, Form, useFormikContext } from "formik";
+import { ChangeEvent } from "react";
 import { useJobs } from "../../../../hooks/useJobs";
 import { JobI } from "../../../../types/Job_Object";
 import { Button } from "../../../common/Button";
@@ -62,11 +63,26 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
           {jobs?.map((job: JobI) => {
             return (
               <option key={job.ID} value={job.ID}>
-                {job.title}
+                {job.title} @ {job.organisation}
               </option>
             );
           })}
         </Field>
+        <ErrorMessage
+          component="span"
+          name="jobid"
+          className={styles.errorMessage}
+        />
+        <label className={styles.label} htmlFor="completed">
+          Action completed?
+        </label>
+        <Field
+          type="checkbox"
+          name="completed"
+          onChange={(event: ChangeEvent<HTMLInputElement>) => {
+            formik.setFieldValue("completed", event.target.checked);
+          }}
+        />
 
         <ErrorMessage
           component="span"

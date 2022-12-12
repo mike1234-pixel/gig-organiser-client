@@ -1,10 +1,9 @@
 import { useMutation } from "react-query";
 import { ActionI } from "../types/Action_Object";
 
-const updateAction = async (action: any) => {
-  action.jobid = parseInt(action.jobid);
+const deleteAction = async (action: ActionI) => {
   const response = await fetch(`http://localhost:3002/actions/${action.ID}`, {
-    method: "PUT",
+    method: "DELETE",
     body: JSON.stringify(action),
     headers: {
       "Content-Type": "application/json",
@@ -12,15 +11,15 @@ const updateAction = async (action: any) => {
   });
 
   if (response.status !== 200) {
-    throw new Error("Could not update action");
+    throw new Error("Could not delete actions");
   }
 
   return await response.json();
 };
 
-export const useUpdateAction = () => {
+export const useDeleteAction = () => {
   const { mutate, error, isSuccess } = useMutation<unknown, Error, ActionI>(
-    updateAction
+    deleteAction
   );
 
   return { mutate, error, isSuccess };

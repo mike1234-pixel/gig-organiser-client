@@ -3,7 +3,6 @@ import { ActionNewI } from "../types/Action_New_Object";
 
 const addAction = async (newAction: any) => {
   newAction.jobid = parseInt(newAction.jobid);
-  newAction.complete_by = new Date(newAction.complete_by).toISOString();
   const response = await fetch("http://localhost:3002/action", {
     method: "POST",
     body: JSON.stringify(newAction),

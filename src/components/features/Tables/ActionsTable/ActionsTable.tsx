@@ -1,31 +1,28 @@
 import { useMemo } from "react";
 import { useTable, useSortBy, Row } from "react-table";
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
-import styles from "./ActionsTable.module.css";
 import { useActions } from "../../../../hooks/useActions";
 import { useJobs } from "../../../../hooks/useJobs";
 import { useTogglePanel } from "../../../../context/TogglePanelContext";
 import { useActionToUpdate } from "../../../../context/UpdateActionContext";
 import { ActionI } from "../../../../types/Action_Object";
 import { ActionButton } from "../../../common/ActionButton";
+import { useDeleteAction } from "../../../../hooks/useDeleteAction";
+import { BsCheck2Circle } from "react-icons/bs";
+import { AiOutlineEllipsis } from "react-icons/ai";
+import styles from "./ActionsTable.module.css";
+import classNames from "classnames";
 
 const DateCell = ({ date }: { date: string }) => {
-  // TODO: Fix this
   const actionDate = new Date(date);
-  const threeDaysBefore = new Date(actionDate);
-  threeDaysBefore.setDate(threeDaysBefore.getDate() - 3);
-
   let color = "green";
 
-  if (actionDate < threeDaysBefore) {
-    color = "yellow";
-  } else if (actionDate >= threeDaysBefore && actionDate < new Date()) {
-    color = "red";
-  } else if (actionDate < new Date()) {
-    color = "grey";
-  }
+  const inThePast = actionDate < new Date();
+
   return (
-    <p style={{ color: color }}>
+    <p
+      className={classNames(styles.dateTime, inThePast && styles.dateTimePast)}
+    >
       <span className={styles.date}>{new Date(date).toLocaleDateString()}</span>{" "}
       <span className={styles.time}>{new Date(date).toLocaleTimeString()}</span>
     </p>
@@ -37,7 +34,12 @@ const JobCell = ({ jobId }: { jobId: number }) => {
 
   const job = jobs?.find((job) => job.ID === jobId);
 
-  return <p>{job?.title}</p>;
+  return (
+    <p>
+      <span className={styles.jobTitle}>{job?.title}</span> @{" "}
+      <span>{job?.organisation}</span>
+    </p>
+  );
 };
 
 const EditButton = ({ action }: { action: ActionI }) => {
@@ -56,9 +58,27 @@ const EditButton = ({ action }: { action: ActionI }) => {
   return <ActionButton variant="edit" onClick={handleClick} />;
 };
 
+const DeleteButton = ({ action }: { action: ActionI }) => {
+  const { mutate } = useDeleteAction();
+
+  return <ActionButton variant="delete" onClick={() => mutate(action)} />;
+};
+
+const CompletedCell = ({ completed }: { completed: boolean }) => {
+  return (
+    <p className={styles.completed}>
+      {completed ? (
+        <BsCheck2Circle className={styles.icon} />
+      ) : (
+        <AiOutlineEllipsis />
+      )}
+    </p>
+  );
+};
+
 const columns: any = [
   {
-    Header: "Name",
+    Header: "Action",
     accessor: "name",
     Cell: ({ value }: { value: string }) => (
       <p className={styles.name}>{value}</p>
@@ -80,9 +100,23 @@ const columns: any = [
     Cell: ({ value }: { value: number }) => <JobCell jobId={value} />,
   },
   {
+    Header: "Completed",
+    accessor: "completed",
+    Cell: ({ value }: { value: boolean }) => (
+      <CompletedCell completed={value} />
+    ),
+  },
+  {
     Header: "",
     id: "edit",
     Cell: ({ row }: { row: Row<any> }) => <EditButton action={row.original} />,
+  },
+  {
+    Header: "",
+    id: "delete",
+    Cell: ({ row }: { row: Row<any> }) => (
+      <DeleteButton action={row.original} />
+    ),
   },
 ];
 

@@ -65,13 +65,11 @@ export const JobForm = ({ buttonText }: { buttonText: string }) => {
           placeholder="Status"
           className={styles.textInput}
           as="select"
-          value="default"
         >
           <option value="pending">Pending</option>
           <option value="success">Success</option>
           <option value="declined">Declined</option>
         </Field>
-
         <ErrorMessage
           component="span"
           name="status"
