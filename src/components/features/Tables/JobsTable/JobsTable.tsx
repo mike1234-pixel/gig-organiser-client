@@ -54,10 +54,10 @@ const EditButton = ({ job }: { job: JobI }) => {
 
   const { setTogglePanel, togglePanel } = useTogglePanel();
 
-  const { setAddJob } = useTogglePanel();
+  const { setForm } = useTogglePanel();
 
   const handleClick = () => {
-    setAddJob(false);
+    setForm("UpdateJob");
     setJobToUpdate(job);
     setTogglePanel(!togglePanel);
   };
@@ -86,11 +86,11 @@ const columns: any = [
   {
     Header: "Description",
     accessor: "description",
+    disableSortBy: true,
   },
   {
     Header: "Created",
     accessor: "CreatedAt",
-    sortable: true,
     Cell: ({ value }: { value: string }) => <DateCell date={value} />,
   },
   {

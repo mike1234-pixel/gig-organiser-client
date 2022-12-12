@@ -1,0 +1,27 @@
+.textInput {
+    border: 1px solid rgba(189, 189, 189, 0.2);
+    border-radius: 4px;
+    padding: 8px;
+    display: block;
+    margin: 16px 0;
+    font-size: 2rem;
+    font-family: var(--font-secondary);
+}
+
+.textarea {
+    resize: vertical;
+}
+
+.textInput::placeholder {
+    font-family: var(--font-secondary);
+}
+
+.errorMessage {
+    color: var(--danger);
+}
+
+.label {
+    display: block;
+    max-width: 500px;
+    margin-top: 16px;
+}

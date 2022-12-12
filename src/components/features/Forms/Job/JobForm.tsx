@@ -47,7 +47,7 @@ export const JobForm = ({ buttonText }: { buttonText: string }) => {
         </label>
         <Field
           type="number"
-          min="0"
+          min="1"
           max="10"
           name="priority"
           placeholder="Priority"
@@ -66,11 +66,8 @@ export const JobForm = ({ buttonText }: { buttonText: string }) => {
           placeholder="Status"
           className={styles.textInput}
           as="select"
-          defaultValue="default"
+          value="default"
         >
-          <option value="" disabled>
-            Select Status
-          </option>
           <option value="pending">Pending</option>
           <option value="success">Success</option>
           <option value="declined">Declined</option>

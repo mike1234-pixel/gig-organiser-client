@@ -3,15 +3,15 @@ import { createContext, ReactNode, useContext, useState } from "react";
 type TogglePanelContextValue = {
   togglePanel: boolean;
   setTogglePanel: (toggle: boolean) => void;
-  addJob: boolean;
-  setAddJob: (addJob: boolean) => void;
+  form: "AddJob" | "UpdateJob" | "AddAction" | "UpdateAction" | null;
+  setForm: (formName: TogglePanelContextValue["form"]) => void;
 };
 
 const TogglePanelContext = createContext<TogglePanelContextValue>({
   togglePanel: false,
   setTogglePanel: () => {},
-  addJob: false,
-  setAddJob: () => {},
+  form: null,
+  setForm: () => {},
 });
 
 const useTogglePanel = (): TogglePanelContextValue => {
@@ -28,16 +28,16 @@ const useTogglePanel = (): TogglePanelContextValue => {
 
 const TogglePanelContextProvider = ({ children }: { children: ReactNode }) => {
   const [togglePanel, setTogglePanel] = useState<boolean>(false);
-  const [addJob, setAddJob] = useState<boolean>(false); // this controls whether the form displayed is for adding a job or upddating a job
-  // to make this more flexible this could just be a string that specifies a form
+
+  const [form, setForm] = useState<TogglePanelContextValue["form"]>(null);
 
   return (
     <TogglePanelContext.Provider
       value={{
         togglePanel,
         setTogglePanel,
-        addJob,
-        setAddJob,
+        form,
+        setForm,
       }}
     >
       {children}

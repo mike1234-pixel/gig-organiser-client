@@ -8,20 +8,20 @@ import { LayoutPage } from "../../common/LayoutPage";
 import { UpdateJob } from "../../features/Forms/UpdateJob";
 import { Home } from "../Home";
 import { useJobs } from "../../../hooks/useJobs";
-import styles from "./Dashboard.module.css";
 import { EmptyState } from "../../common/EmptyState";
 import { LoadingState } from "../../common/LoadingState";
 import { ErrorState } from "../../common/ErrorState";
+import styles from "./Jobs.module.css";
 
-export const Dashboard = () => {
+export const Jobs = () => {
   const { isLoggedIn } = useAuth();
 
   const { jobs, isLoading, error } = useJobs();
 
-  const { addJob, setAddJob, togglePanel, setTogglePanel } = useTogglePanel();
+  const { form, setForm, togglePanel, setTogglePanel } = useTogglePanel();
 
   const handleClick = () => {
-    setAddJob(true);
+    setForm("AddJob");
     setTogglePanel(!togglePanel);
   };
 
@@ -43,7 +43,7 @@ export const Dashboard = () => {
 
   return (
     <>
-      {addJob ? (
+      {form === "AddJob" ? (
         <EditPanel title="Add Job">
           <AddJob />
         </EditPanel>

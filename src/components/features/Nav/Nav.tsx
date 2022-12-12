@@ -30,7 +30,8 @@ export const Nav = () => {
           <ul
             className={classNames(styles.list, !navClosed && styles.collapsed)}
           >
-            <NavLinkItem path="/" name={isLoggedIn ? "Dashboard" : "Home"} />
+            <NavLinkItem path="/" name={isLoggedIn ? "Jobs" : "Home"} />
+            {user && <NavLinkItem path="/actions" name={"Actions"} />}
             {!isLoggedIn && (
               <>
                 <NavLinkItem path="/signup" name="Sign Up" />
