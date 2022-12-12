@@ -36,11 +36,10 @@ export const useLoginUser = () => {
   >(loginUser);
 
   // save user to global state
-  const { setUser, setIsLoggedIn } = useAuth();
+  const { setUser } = useAuth();
 
   if (data) {
     setUser(data);
-    setIsLoggedIn(true);
   }
 
   return { mutate, error, isSuccess, isLoading };

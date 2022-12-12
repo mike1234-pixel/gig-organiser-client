@@ -4,18 +4,20 @@ import { useAuth } from "../../../context/AuthContext";
 import { Container } from "../../common/Container";
 import { CgMenuRight, CgClose } from "react-icons/cg";
 import { SiEditorconfig } from "react-icons/si";
-import styles from "./Nav.module.css";
 import { NavLinkItem } from "./NavLink";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import styles from "./Nav.module.css";
 
 export const Nav = () => {
-  const { isLoggedIn, user, setIsLoggedIn, setUser } = useAuth();
+  const { user, setUser } = useAuth();
+
+  const navigate = useNavigate();
 
   const [navClosed, setNavClosed] = useState<boolean>(true);
 
   const handleClick = () => {
     setUser(null);
-    setIsLoggedIn(false);
+    navigate("/");
   };
 
   return (
@@ -30,9 +32,9 @@ export const Nav = () => {
           <ul
             className={classNames(styles.list, !navClosed && styles.collapsed)}
           >
-            <NavLinkItem path="/" name={isLoggedIn ? "Jobs" : "Home"} />
+            <NavLinkItem path="/" name={user ? "Jobs" : "Home"} />
             {user && <NavLinkItem path="/actions" name={"Actions"} />}
-            {!isLoggedIn && (
+            {!user && (
               <>
                 <NavLinkItem path="/signup" name="Sign Up" />
                 <NavLinkItem path="/login" name="Login" />

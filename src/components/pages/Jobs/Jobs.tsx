@@ -14,7 +14,7 @@ import { ErrorState } from "../../common/ErrorState";
 import styles from "./Jobs.module.css";
 
 export const Jobs = () => {
-  const { isLoggedIn } = useAuth();
+  const { user } = useAuth();
 
   const { jobs, isLoading, error } = useJobs();
 
@@ -25,7 +25,7 @@ export const Jobs = () => {
     setTogglePanel(!togglePanel);
   };
 
-  if (!isLoggedIn) return <Home />;
+  if (!user) return <Home />;
 
   if (isLoading)
     return (

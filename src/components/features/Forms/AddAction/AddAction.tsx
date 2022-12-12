@@ -39,7 +39,7 @@ export const AddAction = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <ActionForm buttonText={"Add Action"} />
+      <ActionForm buttonText={"Create Action"} />
     </Formik>
   );
 };

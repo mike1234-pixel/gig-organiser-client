@@ -38,12 +38,11 @@ export const Actions = () => {
   return (
     <>
       {form === "AddAction" ? (
-        <EditPanel title="Add Action">
+        <EditPanel title="Create Action">
           <AddAction />
         </EditPanel>
       ) : (
         <EditPanel title="Update Action">
-          {/* to be UpdateAction */}
           <UpdateAction />
         </EditPanel>
       )}

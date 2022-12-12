@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Account.module.css";
 
 export const Account = () => {
-  const { user, setUser, setIsLoggedIn } = useAuth();
+  const { user, setUser } = useAuth();
 
   const { mutate, error, isSuccess } = useDeleteUser();
 
@@ -23,7 +23,6 @@ export const Account = () => {
 
   if (isSuccess) {
     setUser(null);
-    setIsLoggedIn(false);
     navigate("/");
   }
 
