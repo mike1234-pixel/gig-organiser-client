@@ -1,4 +1,5 @@
 import { useFormikContext, Form, Field, ErrorMessage } from "formik";
+import { BiLogIn } from "react-icons/bi";
 import { Button } from "../../../common/Button";
 import styles from "./UserLogin.module.css";
 
@@ -31,7 +32,7 @@ export const UserLoginForm = () => {
           className={styles.errorMessage}
         />
         <Button type="submit" disabled={formik.isSubmitting}>
-          Login
+          Login <BiLogIn />
         </Button>
       </>
     </Form>

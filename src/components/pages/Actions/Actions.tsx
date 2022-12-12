@@ -7,8 +7,8 @@ import { EmptyState } from "../../common/EmptyState";
 import { ErrorState } from "../../common/ErrorState";
 import { LayoutPage } from "../../common/LayoutPage";
 import { LoadingState } from "../../common/LoadingState";
-import { AddAction } from "../../features/Forms/AddAction/AddAction";
-import { UpdateAction } from "../../features/Forms/UpdateAction/UpdateAction";
+import { AddAction } from "../../features/Forms/AddAction";
+import { UpdateAction } from "../../features/Forms/UpdateAction";
 import { ActionsTable } from "../../features/Tables/ActionsTable";
 import styles from "./Actions.module.css";
 

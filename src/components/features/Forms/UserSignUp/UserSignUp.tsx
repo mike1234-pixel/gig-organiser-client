@@ -4,11 +4,11 @@ import { validationSchema } from "./validationSchema";
 import { UserSignUpI } from "../../../../types/User_Signup_Object";
 import { UserSignUpForm } from "./UserSignUpForm";
 import { LayoutPage } from "../../../common/LayoutPage";
-import styles from "./UserSignUp.module.css";
 import { Button } from "../../../common/Button";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ErrorState } from "../../../common/ErrorState";
+import styles from "./UserSignUp.module.css";
 
 export const UserSignUp = () => {
   const initialValues: UserSignUpI = {
@@ -70,8 +70,7 @@ export const UserSignUp = () => {
           make Gig Organiser the best way to organise your job search.
         </p>
         <p>
-          So go ahead, sign up and get organised -{" "}
-          <strong>your next job opportunity is just a few clicks away!</strong>
+          So go ahead, sign up and <strong>get organised</strong>.
         </p>
       </div>
       <Formik

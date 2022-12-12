@@ -47,6 +47,7 @@ export const Account = () => {
               We hope you enjoy using the application. Thanks for being a part
               of our community!
             </p>
+            <hr className={styles.rule} />
             <h2 className={styles.subtitle}>Account Details</h2>
             <p>Name: {user?.name}</p>
             <p>Email: {user?.email}</p>

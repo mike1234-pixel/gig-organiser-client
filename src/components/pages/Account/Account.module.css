@@ -10,3 +10,8 @@
 .summary {
     max-width: 90%;
 }
+
+.rule {
+    border-top: 1px dashed black;
+    margin: 16px 0;
+}

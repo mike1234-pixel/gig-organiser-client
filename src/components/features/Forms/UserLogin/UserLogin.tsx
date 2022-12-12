@@ -3,12 +3,12 @@ import { validationSchema } from "./validationSchema";
 import { UserLoginI } from "../../../../types/User_Login_Object";
 import { UserLoginForm } from "./UserLoginForm";
 import { useLoginUser } from "../../../../hooks/useLoginUser";
-import { Link } from "react-router-dom";
 import { Button } from "../../../common/Button";
 import { useAuth } from "../../../../context/AuthContext";
 import { LayoutPage } from "../../../common/LayoutPage";
 import { ErrorState } from "../../../common/ErrorState";
 import { useEffect, useState } from "react";
+import { WelcomeState } from "../../../common/WelcomeState";
 import styles from "./UserLogin.module.css";
 
 export const UserLogin = () => {
@@ -30,10 +30,10 @@ export const UserLogin = () => {
   if (isSuccess)
     return (
       <LayoutPage>
-        <h1 className={styles.title}>{`Welcome Back ${user?.name}`}</h1>
-        <Link to="/">
-          <Button>Go to dashboard</Button>
-        </Link>
+        <WelcomeState
+          title={`Welcome back ${user?.name}`}
+          text={"to manage your jobs and actions."}
+        />
       </LayoutPage>
     );
 
@@ -47,6 +47,7 @@ export const UserLogin = () => {
 
   return (
     <LayoutPage>
+      <h1 className={styles.title}>Login</h1>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

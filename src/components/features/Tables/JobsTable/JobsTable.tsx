@@ -1,100 +1,19 @@
 import { useMemo } from "react";
-import { Row, useTable, useSortBy } from "react-table";
+import { Row, useTable, useSortBy, Column } from "react-table";
 import { useJobs } from "../../../../hooks/useJobs";
-import { useTogglePanel } from "../../../../context/TogglePanelContext";
 import { Badge } from "../../../common/Badge";
-import { BadgeProps } from "../../../common/Badge/Badge";
-import { ActionButton } from "../../../common/ActionButton";
-import classNames from "classnames";
-import { JobI } from "../../../../types/Job_Object";
-import { useJobToUpdate } from "../../../../context/UpdateJobContext";
-import { useDeleteJob } from "../../../../hooks/useDeleteJob";
-import {
-  AiOutlineArrowUp,
-  AiOutlineArrowDown,
-  AiOutlineEllipsis,
-} from "react-icons/ai";
-import { useActions } from "../../../../hooks/useActions";
+import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import styles from "./JobsTable.module.css";
+import {
+  DateCell,
+  PriorityBadgeCell,
+  ActionsCell,
+  badgeVariants,
+  EditButton,
+  DeleteButton,
+} from "./cells";
 
-const badgeVariants: { [key: string]: BadgeProps["variant"] } = {
-  pending: "warning",
-  success: "success",
-  declined: "danger",
-};
-
-const DateCell = ({ date }: { date: string }) => {
-  return (
-    <span className={styles.date}>{new Date(date).toLocaleDateString()}</span>
-  );
-};
-
-const PriorityBadgeCell = ({ priority }: { priority: string }) => {
-  const getPriorityClass = (priority: number) => {
-    if (priority < 4) {
-      return "danger";
-    } else if (priority < 8) {
-      return "warning";
-    } else {
-      return "success";
-    }
-  };
-
-  const priorityInt = parseInt(priority);
-
-  return (
-    <div className={styles.priority}>
-      <span
-        className={classNames(
-          styles[getPriorityClass(priorityInt)],
-          styles.priorityValue
-        )}
-      >
-        {priority}
-      </span>
-    </div>
-  );
-};
-
-const ActionsCell = ({ jobId }: { jobId: number }) => {
-  const { actions } = useActions();
-
-  const jobActions = actions?.filter((action) => action.jobid === jobId);
-
-  return jobActions?.length ? (
-    <ul className={styles.actionsList}>
-      {jobActions.map((action) => {
-        return <li key={action.ID}>{action.name}</li>;
-      })}
-    </ul>
-  ) : (
-    <AiOutlineEllipsis />
-  );
-};
-
-const EditButton = ({ job }: { job: JobI }) => {
-  const { setJobToUpdate } = useJobToUpdate();
-
-  const { setTogglePanel, togglePanel } = useTogglePanel();
-
-  const { setForm } = useTogglePanel();
-
-  const handleClick = () => {
-    setForm("UpdateJob");
-    setJobToUpdate(job);
-    setTogglePanel(!togglePanel);
-  };
-
-  return <ActionButton variant="edit" onClick={handleClick} />;
-};
-
-const DeleteButton = ({ job }: { job: JobI }) => {
-  const { mutate } = useDeleteJob();
-
-  return <ActionButton variant="delete" onClick={() => mutate(job)} />;
-};
-
-const columns: any = [
+const columns: Column[] = [
   {
     Header: "Title",
     accessor: "title",
