@@ -25,7 +25,12 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
         <label className={styles.label} htmlFor="description">
           Description
         </label>
-        <Field type="text" name="description" className={styles.textInput} />
+        <Field
+          type="text"
+          name="description"
+          as="textarea"
+          className={styles.textInput}
+        />
         <ErrorMessage
           component="span"
           name="description"
@@ -35,9 +40,9 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
           When should this action be completed by?
         </label>
         <Field
-          type="text"
+          type="datetime-local"
+          min={new Date()}
           name="complete_by"
-          as="textarea"
           className={classNames(styles.textInput, styles.textarea)}
         />
         <ErrorMessage

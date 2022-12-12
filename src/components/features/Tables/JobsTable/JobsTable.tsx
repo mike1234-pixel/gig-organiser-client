@@ -23,7 +23,7 @@ const DateCell = ({ date }: { date: string }) => {
   return <p className={styles.date}>{new Date(date).toLocaleDateString()}</p>;
 };
 
-const PriorityBadge = ({ priority }: { priority: string }) => {
+const PriorityBadgeCell = ({ priority }: { priority: string }) => {
   const getPriorityClass = (priority: number) => {
     if (priority < 4) {
       return "danger";
@@ -50,7 +50,7 @@ const PriorityBadge = ({ priority }: { priority: string }) => {
   );
 };
 
-const Actions = ({ jobId }: { jobId: number }) => {
+const ActionsCell = ({ jobId }: { jobId: number }) => {
   const { actions } = useActions();
 
   const jobActions = actions?.filter((action) => action.jobid === jobId);
@@ -58,7 +58,7 @@ const Actions = ({ jobId }: { jobId: number }) => {
   return (
     <ul className={styles.actionsList}>
       {jobActions?.map((action) => {
-        return <li>{action.name}</li>;
+        return <li key={action.ID}>{action.name}</li>;
       })}
     </ul>
   );
@@ -111,12 +111,14 @@ const columns: any = [
   {
     Header: "Priority",
     accessor: "priority",
-    Cell: ({ value }: { value: string }) => <PriorityBadge priority={value} />,
+    Cell: ({ value }: { value: string }) => (
+      <PriorityBadgeCell priority={value} />
+    ),
   },
   {
     Header: "Actions",
     accessor: "ID",
-    Cell: ({ value }: { value: number }) => <Actions jobId={value} />,
+    Cell: ({ value }: { value: number }) => <ActionsCell jobId={value} />,
   },
   {
     Header: "Status",

@@ -50,3 +50,7 @@ thead tr {
     font-size: 1rem;
     margin-left: 5px;
 }
+
+.date, .name {
+    font-weight: 600;
+}

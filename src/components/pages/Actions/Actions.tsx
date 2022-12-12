@@ -49,7 +49,7 @@ export const Actions = () => {
 
       <LayoutPage>
         <div className={styles.actionButtonContainer}>
-          <Button onClick={handleClick}>Add Action</Button>
+          <Button onClick={handleClick}>Create Action</Button>
         </div>
         {actions?.length ? (
           <ActionsTable />

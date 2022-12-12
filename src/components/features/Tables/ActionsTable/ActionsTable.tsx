@@ -5,7 +5,16 @@ import styles from "./ActionsTable.module.css";
 import { useActions } from "../../../../hooks/useActions";
 import { useJobs } from "../../../../hooks/useJobs";
 
-const Job = ({ jobId }: { jobId: number }) => {
+const DateCell = ({ date }: { date: string }) => {
+  return (
+    <p>
+      <span className={styles.date}>{new Date(date).toLocaleDateString()}</span>{" "}
+      <span className={styles.time}>{new Date(date).toLocaleTimeString()}</span>
+    </p>
+  );
+};
+
+const JobCell = ({ jobId }: { jobId: number }) => {
   const { jobs } = useJobs();
 
   const job = jobs?.find((job) => job.ID === jobId);
@@ -17,6 +26,9 @@ const columns: any = [
   {
     Header: "Name",
     accessor: "name",
+    Cell: ({ value }: { value: string }) => (
+      <p className={styles.name}>{value}</p>
+    ),
   },
   {
     Header: "Description",
@@ -26,11 +38,12 @@ const columns: any = [
   {
     Header: "Complete By",
     accessor: "complete_by",
+    Cell: ({ value }: { value: string }) => <DateCell date={value} />,
   },
   {
     Header: "Job",
     accessor: "jobid",
-    Cell: ({ value }: { value: number }) => <Job jobId={value} />,
+    Cell: ({ value }: { value: number }) => <JobCell jobId={value} />,
   },
 ];
 
