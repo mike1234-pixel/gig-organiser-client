@@ -9,9 +9,13 @@ import classNames from "classnames";
 import { JobI } from "../../../../types/Job_Object";
 import { useJobToUpdate } from "../../../../context/UpdateJobContext";
 import { useDeleteJob } from "../../../../hooks/useDeleteJob";
-import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
-import styles from "./JobsTable.module.css";
+import {
+  AiOutlineArrowUp,
+  AiOutlineArrowDown,
+  AiOutlineEllipsis,
+} from "react-icons/ai";
 import { useActions } from "../../../../hooks/useActions";
+import styles from "./JobsTable.module.css";
 
 const badgeVariants: { [key: string]: BadgeProps["variant"] } = {
   pending: "warning",
@@ -55,12 +59,14 @@ const ActionsCell = ({ jobId }: { jobId: number }) => {
 
   const jobActions = actions?.filter((action) => action.jobid === jobId);
 
-  return (
+  return jobActions?.length ? (
     <ul className={styles.actionsList}>
-      {jobActions?.map((action) => {
+      {jobActions.map((action) => {
         return <li key={action.ID}>{action.name}</li>;
       })}
     </ul>
+  ) : (
+    <AiOutlineEllipsis />
   );
 };
 

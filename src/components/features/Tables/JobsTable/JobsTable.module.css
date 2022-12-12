@@ -70,6 +70,7 @@ th:nth-of-type(5) {
     margin-left: 5px;
 }
 
-.actionsList {
-    list-style: disc;
+.actionsList > li::before {
+    content: "•";
+    margin-right: 5px;
 }
