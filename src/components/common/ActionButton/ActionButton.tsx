@@ -4,7 +4,7 @@ import styles from "./ActionButton.module.css";
 
 interface ActionButtonProps {
   variant: "edit" | "delete";
-  onClick?: (arg: any) => void;
+  onClick?: () => void;
 }
 
 export const ActionButton = ({ variant, onClick }: ActionButtonProps) => {

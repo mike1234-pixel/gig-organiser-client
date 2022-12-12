@@ -2,6 +2,7 @@ import { useMutation } from "react-query";
 import { ActionNewI } from "../types/Action_New_Object";
 
 const addAction = async (newAction: any) => {
+  // formik casts job id as a string so i'm accepting any here and transforming the value prior to post
   newAction.jobid = parseInt(newAction.jobid);
   const response = await fetch("http://localhost:3002/action", {
     method: "POST",

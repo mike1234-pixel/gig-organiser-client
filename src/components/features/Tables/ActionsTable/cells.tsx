@@ -11,7 +11,6 @@ import styles from "./ActionsTable.module.css";
 
 export const DateCell = ({ date }: { date: string }) => {
   const actionDate = new Date(date);
-  let color = "green";
 
   const inThePast = actionDate < new Date();
 

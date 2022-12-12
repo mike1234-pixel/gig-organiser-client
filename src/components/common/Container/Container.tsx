@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from "react";
+import { ReactNode } from "react";
 import styles from "./Container.module.css";
 
 export interface ContainerProps {
