@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 
 :root {
   /* colours */
   --white: #fff;
+  --black: #000;
   --text-dark: #444;
   --danger: #d9534f;
   --success: #3d9f54;
@@ -12,9 +13,12 @@
   --success-light: #d5ffdf;
   --warning-light: #fff5d3;
   --action: #0087FF;
+  --action-light: #6caee8;
+  --action-light-2: #b4d1ea;
+  --success-medium: #60e37e;
   /* fonts */
   --font-primary: 'Montserrat', sans-serif;
-  --font-secondary: 'Kodchasan', sans-serif;
+  --font-secondary: 'Staatliches', sans-serif;
 }
 
 /* Reset default styles */

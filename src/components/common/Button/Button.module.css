@@ -14,6 +14,15 @@
     gap: 16px;
     align-items: center;
     margin-top: 16px;
+    transition: all 0.2s;
+}
+
+.button:hover {
+    outline: 3px solid var(--action-light);
+}
+
+.button:focus, .button:active {
+    outline: 3px solid var(--action-light);
 }
 
 .warning {

@@ -1,8 +1,8 @@
 .hero {
     width: 100%;
     background-image: url("./organise.jpg");
-    background-color: rgba(0, 0, 0, 0.5);
-    background-blend-mode: multiply;
+    background-color: rgba(255,255,255, 0.8);
+    background-blend-mode: lighten;
     background-size: cover;
     height: 100vh;
 }
@@ -16,14 +16,15 @@
 
 .title {
     font-size: 3rem;
-    color: var(--white);
-    margin-bottom: 30px;
+    color: var(--text-dark);
+    margin-bottom: 50px;
     font-family: var(--font-secondary);
 }
 
 .subtitle {
     font-size: 1.2rem;
-    color: var(--white);
-    max-width: 600px;
-    margin-bottom: 16px;
+    line-height: 2rem;
+    color: var(--text-dark);
+    max-width: 700px;
+    margin-bottom: 30px;
 }

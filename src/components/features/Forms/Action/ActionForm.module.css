@@ -25,3 +25,7 @@
     max-width: 500px;
     margin-top: 16px;
 }
+
+button[type="submit"] {
+    margin-top: 30px;
+}

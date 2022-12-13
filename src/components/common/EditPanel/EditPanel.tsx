@@ -22,8 +22,10 @@ export const EditPanel = ({ children, title }: EditPanelProps) => {
       <div
         className={classNames(styles.panel, togglePanel && styles.panelOpen)}
       >
-        <h1 className={styles.title}>{title}</h1>
-        {children}
+        <div>
+          <h1 className={styles.title}>{title}</h1>
+          {children}
+        </div>
         <button
           onClick={() => setTogglePanel(!togglePanel)}
           className={styles.close}

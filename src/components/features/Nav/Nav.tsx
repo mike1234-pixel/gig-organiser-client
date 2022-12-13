@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../../../context/AuthContext";
 import { Container } from "../../common/Container";
 import { CgMenuRight, CgClose } from "react-icons/cg";
@@ -14,14 +14,21 @@ export const Nav = () => {
   const navigate = useNavigate();
 
   const [navClosed, setNavClosed] = useState<boolean>(true);
+  const [scroll, setScroll] = useState<boolean>(false);
 
   const handleClick = () => {
     setUser(null);
     navigate("/");
   };
 
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScroll(window.scrollY > 2);
+    });
+  }, []);
+
   return (
-    <nav className={styles.nav}>
+    <nav className={classNames(styles.nav, scroll && styles.navScroll)}>
       <Container>
         <div className={styles.content}>
           <Link to="/" className={styles.titleLink}>

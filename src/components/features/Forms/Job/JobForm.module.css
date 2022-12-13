@@ -67,9 +67,13 @@ input[type="checkbox"]:after {
 
 input[type="checkbox"]:checked {
     border: none;
-    background-color: var(--success);
+    background-color: var(--success-medium);
 }
 
 input[type="checkbox"]:checked:after {
     content: url("data:image/svg+xml, <svg viewBox='0 0 16 15' xmlns='http://www.w3.org/2000/svg'><path fill='white' d='M15.25.847a1.51 1.51 0 0 1 .405 2.096L8.106 14.11a1.944 1.944 0 0 1-2.94.329L.6 10.156a1.51 1.51 0 1 1 2.067-2.202l3.645 3.42 6.841-10.122a1.51 1.51 0 0 1 2.098-.405Z'/></svg>");
+}
+
+button[type="submit"] {
+    margin-top: 30px;
 }
