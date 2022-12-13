@@ -4,6 +4,7 @@ import { ActionForm } from "../Action";
 import { ActionI } from "../../../../types/Action_Object";
 import { useActionToUpdate } from "../../../../context/UpdateActionContext";
 import { useUpdateAction } from "../../../../hooks/useUpdateAction";
+import { useTranslation } from "react-i18next";
 
 export const UpdateAction = () => {
   const { mutate } = useUpdateAction();
@@ -11,6 +12,8 @@ export const UpdateAction = () => {
   const { togglePanel, setTogglePanel } = useTogglePanel();
 
   const { actionToUpdate } = useActionToUpdate();
+
+  const { t } = useTranslation();
 
   const handleSubmit = (
     action: ActionI,
@@ -60,7 +63,7 @@ export const UpdateAction = () => {
       onSubmit={handleSubmit}
       enableReinitialize
     >
-      <ActionForm buttonText={"Update"} />
+      <ActionForm buttonText={t("actions.updateAlt")} />
     </Formik>
   );
 };

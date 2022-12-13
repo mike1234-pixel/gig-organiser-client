@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ErrorState } from "../../../common/ErrorState";
 import { BiLogIn } from "react-icons/bi";
+import { Trans, useTranslation } from "react-i18next";
 import styles from "./UserSignUp.module.css";
 
 export const UserSignUp = () => {
@@ -20,6 +21,8 @@ export const UserSignUp = () => {
 
   const { mutate, error: responseError, isSuccess } = useCreateUser();
 
+  const { t } = useTranslation();
+
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
@@ -29,18 +32,11 @@ export const UserSignUp = () => {
   if (isSuccess)
     return (
       <LayoutPage>
-        <h1 className={styles.title}>You're Set</h1>
-        <p>
-          Welcome to JobSprint! You're all set and ready to start organising
-          your job search like a pro.
-        </p>
-        <p>
-          Log in to your account and start taking control of your job search.
-          With JobSprint, landing your next job opportunity is just a few clicks
-          away!
-        </p>
+        <h1 className={styles.title}>{t("signup.success.title")}</h1>
+        <Trans i18nKey="signup.success.intro.one" />
+        <Trans i18nKey="signup.success.intro.two" />
         <Button>
-          <Link to="/login">Login to your account</Link> <BiLogIn />
+          <Link to="/login">{t("signup.success.login")}</Link> <BiLogIn />
         </Button>
       </LayoutPage>
     );
@@ -49,30 +45,18 @@ export const UserSignUp = () => {
     return (
       <LayoutPage>
         <ErrorState title="Error" text={error.message} />
-        <Button onClick={() => setError(null)}>Try Again</Button>
+        <Button onClick={() => setError(null)}>{t("error.tryagain")}</Button>
       </LayoutPage>
     );
 
   return (
     <LayoutPage>
       <div className={styles.intro}>
-        <h1 className={styles.title}>Welcome to JobSprint!</h1>
-        <p>
-          To get started, all you need to do is{" "}
-          <strong>sign up for your account.</strong>
-        </p>
-        <p>
-          <strong>No need to worry about email verification</strong> - just
-          enter your desired username and password, and you'll be on your way to
-          keeping track of your job search like a pro.
-        </p>
-        <p>
-          Once you're signed up, you'll have access to all the features that
-          make JobSprint the best way to organise your job search.
-        </p>
-        <p>
-          So go ahead, sign up and <strong>get organised</strong>.
-        </p>
+        <h1 className={styles.title}>{t("signup.title")}</h1>
+        <Trans i18nKey="signup.intro.one" />
+        <Trans i18nKey="signup.intro.two" />
+        <Trans i18nKey="signup.intro.three" />
+        <Trans i18nKey="signup.intro.four" />
       </div>
       <Formik
         initialValues={initialValues}

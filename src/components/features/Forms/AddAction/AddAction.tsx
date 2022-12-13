@@ -5,6 +5,7 @@ import { ActionNewI } from "../../../../types/Action_New_Object";
 import { useAddAction } from "../../../../hooks/useAddAction";
 import { validationSchema } from "./validationSchema";
 import { ActionForm } from "../Action";
+import { useTranslation } from "react-i18next";
 
 export const AddAction = () => {
   const { user } = useAuth();
@@ -12,6 +13,8 @@ export const AddAction = () => {
   const { mutate } = useAddAction();
 
   const { togglePanel, setTogglePanel } = useTogglePanel();
+
+  const { t } = useTranslation();
 
   const handleSubmit = (
     action: ActionNewI,
@@ -39,7 +42,7 @@ export const AddAction = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <ActionForm buttonText={"Create Action"} />
+      <ActionForm buttonText={t("actions.add")} />
     </Formik>
   );
 };

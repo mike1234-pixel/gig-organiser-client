@@ -5,6 +5,7 @@ import { MdAddTask } from "react-icons/md";
 import { useJobs } from "../../../../hooks/useJobs";
 import { JobI } from "../../../../types/Job_Object";
 import { Button } from "../../../common/Button";
+import { useTranslation } from "react-i18next";
 import styles from "./ActionForm.module.css";
 
 export const ActionForm = ({ buttonText }: { buttonText: string }) => {
@@ -12,11 +13,13 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
 
   const { jobs } = useJobs();
 
+  const { t } = useTranslation();
+
   return (
     <Form>
       <>
         <label className={styles.label} htmlFor="name">
-          Action Name
+          {t("actions.form.label.name")}
         </label>
         <Field type="text" name="name" className={styles.textInput} />
         <ErrorMessage
@@ -25,7 +28,7 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
           className={styles.errorMessage}
         />
         <label className={styles.label} htmlFor="description">
-          Description
+          {t("actions.form.label.description")}
         </label>
         <Field
           type="text"
@@ -39,7 +42,7 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
           className={styles.errorMessage}
         />
         <label className={styles.label} htmlFor="completed_by">
-          When should this action be completed by?
+          {t("actions.form.label.completedBy")}
         </label>
         <Field
           type="datetime-local"
@@ -53,7 +56,7 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
           className={styles.errorMessage}
         />
         <label className={styles.label} htmlFor="jobid">
-          What job is this action for?
+          {t("actions.form.label.job")}
         </label>
         <Field
           name="jobid"
@@ -75,7 +78,7 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
           className={styles.errorMessage}
         />
         <label className={styles.label} htmlFor="completed">
-          Action completed?
+          {t("actions.form.label.completed")}
         </label>
         <Field
           type="checkbox"
@@ -84,7 +87,6 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
             formik.setFieldValue("completed", event.target.checked);
           }}
         />
-
         <ErrorMessage
           component="span"
           name="jobid"

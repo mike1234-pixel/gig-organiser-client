@@ -6,6 +6,7 @@ import { CgMenuRight, CgClose } from "react-icons/cg";
 import { SiEditorconfig } from "react-icons/si";
 import { NavLinkItem } from "./NavLink";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import styles from "./Nav.module.css";
 
 export const Nav = () => {
@@ -15,6 +16,8 @@ export const Nav = () => {
 
   const [navClosed, setNavClosed] = useState<boolean>(true);
   const [scroll, setScroll] = useState<boolean>(false);
+
+  const { t } = useTranslation();
 
   const handleClick = () => {
     setUser(null);
@@ -33,18 +36,17 @@ export const Nav = () => {
         <div className={styles.content}>
           <Link to="/" className={styles.titleLink}>
             <SiEditorconfig className={styles.logo} />
-            <h1 className={styles.title}>JobSprint</h1>
+            <h1 className={styles.title}>{t("nav.org")}</h1>
           </Link>
-
           <ul
             className={classNames(styles.list, !navClosed && styles.collapsed)}
           >
-            <NavLinkItem path="/" name={user ? "Jobs" : "Home"} />
-            {user && <NavLinkItem path="/actions" name={"Actions"} />}
+            <NavLinkItem path="/" name={user ? t("nav.jobs") : t("nav.home")} />
+            {user && <NavLinkItem path="/actions" name={t("nav.actions")} />}
             {!user && (
               <>
-                <NavLinkItem path="/signup" name="Sign Up" />
-                <NavLinkItem path="/login" name="Login" />
+                <NavLinkItem path="/signup" name={t("nav.signup")} />
+                <NavLinkItem path="/login" name={t("nav.login")} />
               </>
             )}
             {user && (
@@ -59,7 +61,7 @@ export const Nav = () => {
                     onClick={handleClick}
                     className={styles.navLinkButton}
                   >
-                    Log Out
+                    {t("nav.logout")}
                   </button>
                 </li>
               </>

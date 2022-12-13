@@ -9,6 +9,7 @@ import { LayoutPage } from "../../../common/LayoutPage";
 import { ErrorState } from "../../../common/ErrorState";
 import { useEffect, useState } from "react";
 import { WelcomeState } from "../../../common/WelcomeState";
+import { useTranslation } from "react-i18next";
 import styles from "./UserLogin.module.css";
 
 export const UserLogin = () => {
@@ -21,6 +22,8 @@ export const UserLogin = () => {
 
   const { user } = useAuth();
 
+  const { t } = useTranslation();
+
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
@@ -31,8 +34,8 @@ export const UserLogin = () => {
     return (
       <LayoutPage>
         <WelcomeState
-          title={`Welcome back ${user?.name}`}
-          text={"to manage your jobs and actions."}
+          title={`${t("login.welcome.title")} ${user?.name}`}
+          text={t("login.welcome.text")}
         />
       </LayoutPage>
     );
@@ -40,14 +43,14 @@ export const UserLogin = () => {
   if (error)
     return (
       <LayoutPage>
-        <ErrorState title="Error" text={error.message} />
-        <Button onClick={() => setError(null)}>Try Again</Button>
+        <ErrorState title={t("error.title")} text={error.message} />
+        <Button onClick={() => setError(null)}>{t("error.tryagain")}</Button>
       </LayoutPage>
     );
 
   return (
     <LayoutPage>
-      <h1 className={styles.title}>Login</h1>
+      <h1 className={styles.title}>{t("login.title")}</h1>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

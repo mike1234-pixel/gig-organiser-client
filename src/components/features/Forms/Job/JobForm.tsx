@@ -2,16 +2,19 @@ import classNames from "classnames";
 import { ErrorMessage, Field, Form, useFormikContext } from "formik";
 import { Button } from "../../../common/Button";
 import { MdOutlineCreateNewFolder } from "react-icons/md";
+import { useTranslation } from "react-i18next";
 import styles from "./JobForm.module.css";
 
 export const JobForm = ({ buttonText }: { buttonText: string }) => {
   const formik = useFormikContext<any>();
 
+  const { t } = useTranslation();
+
   return (
     <Form>
       <>
         <label className={styles.label} htmlFor="title">
-          Job Title
+          {t("jobs.form.label.title")}
         </label>
         <Field type="text" name="title" className={styles.textInput} />
         <ErrorMessage
@@ -20,7 +23,7 @@ export const JobForm = ({ buttonText }: { buttonText: string }) => {
           className={styles.errorMessage}
         />
         <label className={styles.label} htmlFor="organisation">
-          Organisation
+          {t("jobs.form.label.organisation")}
         </label>
         <Field type="text" name="organisation" className={styles.textInput} />
         <ErrorMessage
@@ -29,7 +32,7 @@ export const JobForm = ({ buttonText }: { buttonText: string }) => {
           className={styles.errorMessage}
         />
         <label className={styles.label} htmlFor="description">
-          Enter a job description, or any notes you want!
+          {t("jobs.form.label.description")}
         </label>
         <Field
           type="text"
@@ -43,8 +46,7 @@ export const JobForm = ({ buttonText }: { buttonText: string }) => {
           className={styles.errorMessage}
         />
         <label className={styles.label} htmlFor="priority">
-          Set the priority. On a scale of 1-10 (1 being low), how important is
-          this opportunity?
+          {t("jobs.form.label.priority")}
         </label>
         <Field
           type="number"
@@ -58,8 +60,8 @@ export const JobForm = ({ buttonText }: { buttonText: string }) => {
           name="priority"
           className={styles.errorMessage}
         />
-        <label className={styles.label} htmlFor="description">
-          What is the status of the application?
+        <label className={styles.label} htmlFor="status">
+          {t("jobs.form.label.status")}
         </label>
         <Field
           name="status"
@@ -67,9 +69,9 @@ export const JobForm = ({ buttonText }: { buttonText: string }) => {
           className={styles.textInput}
           as="select"
         >
-          <option value="pending">Pending</option>
-          <option value="success">Success</option>
-          <option value="declined">Declined</option>
+          <option value="pending">{t("jobs.status.value.one")}</option>
+          <option value="success">{t("jobs.status.value.two")}</option>
+          <option value="declined">{t("jobs.status.value.three")}</option>
         </Field>
         <ErrorMessage
           component="span"

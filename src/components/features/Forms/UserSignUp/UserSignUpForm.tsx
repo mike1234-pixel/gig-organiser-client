@@ -1,10 +1,13 @@
 import { useFormikContext, Form, Field, ErrorMessage } from "formik";
 import { BsFillDoorOpenFill } from "react-icons/bs";
 import { Button } from "../../../common/Button";
+import { useTranslation } from "react-i18next";
 import styles from "./UserSignUp.module.css";
 
 export const UserSignUpForm = () => {
   const formik = useFormikContext<any>();
+
+  const { t } = useTranslation();
 
   return (
     <Form>
@@ -43,7 +46,7 @@ export const UserSignUpForm = () => {
           className={styles.errorMessage}
         />
         <Button type="submit" disabled={formik.isSubmitting}>
-          Sign Up <BsFillDoorOpenFill />
+          {t("signup.submit")} <BsFillDoorOpenFill />
         </Button>
       </>
     </Form>

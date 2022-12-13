@@ -7,6 +7,15 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
+      nav: {
+        org: "JobSprint",
+        home: "Home",
+        jobs: "Jobs",
+        actions: "Actions",
+        signup: "Sign Up",
+        login: "Login",
+        logout: "Logout",
+      },
       home: {
         title: "Organise Your Job Search",
         subtitle: {
@@ -21,9 +30,27 @@ const resources = {
         },
         add: "Add Job",
         update: "Update Job",
+        updateAlt: "Update",
         empty: {
           title: "No jobs yet.",
           text: "Start adding jobs!",
+        },
+        form: {
+          label: {
+            title: "Job Title",
+            organisation: "Organisation",
+            description: "Enter a job description, or any notes you want!",
+            priority:
+              "Set the priority. On a scale of 1-10 (1 being low), how important is this opportunity?",
+            status: "What is the status of the application?",
+          },
+          status: {
+            value: {
+              one: "Pending",
+              two: "Success",
+              three: "Declined",
+            },
+          },
         },
       },
       actions: {
@@ -31,9 +58,19 @@ const resources = {
           "Jobs have <strong>actions</strong>, which are the specific steps you need to take in order to move forward with the application. These actions can be added here, and might include things like scheduling an interview or completing a technical test.",
         add: "Create Action",
         update: "Update Action",
+        updateAlt: "Update",
         empty: {
           title: "No actions yet.",
           text: "Start adding actions!",
+        },
+        form: {
+          label: {
+            name: "Action Name",
+            description: "Description",
+            completedBy: "When should this action be completed by?",
+            job: "What job is this action for?",
+            completed: "Action completed?",
+          },
         },
       },
       account: {
@@ -49,12 +86,40 @@ const resources = {
         email: "Email",
         delete: "Delete Account",
       },
+      signup: {
+        title: "Welcome to JobSprint!",
+        intro: {
+          one: "<p>To get started, all you need to do is <strong>sign up for your account.</strong></p>",
+          two: "<p><strong>No need to worry about email verification</strong> - just enter your desired username and password, and you'll be on your way to keeping track of your job search like a pro.</p>",
+          three:
+            "<p>Once you're signed up, you'll have access to all the features that make JobSprint the best way to organise your job search.</p>",
+          four: "<p>So go ahead, sign up and <strong>get organised</strong>.</p>",
+        },
+        success: {
+          title: "You're Set",
+          intro: {
+            one: "Welcome to JobSprint! You're all set and ready to start organising your job search like a pro.",
+            two: "Log in to your account and start taking control of your job search. With JobSprint, landing your next job opportunity is just a few clicks away!",
+          },
+          login: "Login to your account",
+        },
+        submit: "Sign Up",
+      },
+      login: {
+        title: "Login",
+        welcome: {
+          title: "Welcome back",
+          text: "to manage your jobs and actions.",
+        },
+        login: "Login",
+      },
       loading: {
         title: "Loading...",
         text: "just a second...",
       },
       error: {
         title: "Error",
+        tryagain: "Try Again",
       },
       notfound: {
         title: "404 - Page Not Found",

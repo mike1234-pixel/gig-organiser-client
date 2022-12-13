@@ -3,6 +3,7 @@ import { useTogglePanel } from "../../../../context/TogglePanelContext";
 import { useUpdateJob } from "../../../../hooks/useUpdateJob";
 import { JobI } from "../../../../types/Job_Object";
 import { useJobToUpdate } from "../../../../context/UpdateJobContext";
+import { useTranslation } from "react-i18next";
 import { JobForm } from "../Job";
 
 export const UpdateJob = () => {
@@ -11,6 +12,8 @@ export const UpdateJob = () => {
   const { togglePanel, setTogglePanel } = useTogglePanel();
 
   const { jobToUpdate } = useJobToUpdate();
+
+  const { t } = useTranslation();
 
   const handleSubmit = (
     job: JobI,
@@ -60,7 +63,7 @@ export const UpdateJob = () => {
       onSubmit={handleSubmit}
       enableReinitialize
     >
-      <JobForm buttonText={"Update"} />
+      <JobForm buttonText={t("jobs.updateAlt")} />
     </Formik>
   );
 };

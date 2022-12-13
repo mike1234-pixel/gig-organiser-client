@@ -4,6 +4,7 @@ import { useAuth } from "../../../../context/AuthContext";
 import { useAddJob } from "../../../../hooks/useAddJob";
 import { JobNewI } from "../../../../types/Job_New_Object";
 import { validationSchema } from "./validationSchema";
+import { useTranslation } from "react-i18next";
 import { JobForm } from "../Job";
 
 export const AddJob = () => {
@@ -12,6 +13,8 @@ export const AddJob = () => {
   const { mutate } = useAddJob();
 
   const { togglePanel, setTogglePanel } = useTogglePanel();
+
+  const { t } = useTranslation();
 
   const handleSubmit = (
     job: JobNewI,
@@ -39,7 +42,7 @@ export const AddJob = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <JobForm buttonText={"Add Job"} />
+      <JobForm buttonText={t("jobs.add")} />
     </Formik>
   );
 };
