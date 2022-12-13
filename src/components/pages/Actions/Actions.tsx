@@ -10,12 +10,15 @@ import { LoadingState } from "../../common/LoadingState";
 import { AddAction } from "../../features/Forms/AddAction";
 import { UpdateAction } from "../../features/Forms/UpdateAction";
 import { ActionsTable } from "../../features/Tables/ActionsTable";
+import { Trans, useTranslation } from "react-i18next";
 import styles from "./Actions.module.css";
 
 export const Actions = () => {
   const { actions, isLoading, error } = useActions();
 
   const { form, setForm, togglePanel, setTogglePanel } = useTogglePanel();
+
+  const { t } = useTranslation();
 
   const handleClick = () => {
     setForm("AddAction");
@@ -25,25 +28,25 @@ export const Actions = () => {
   if (isLoading)
     return (
       <LayoutPage>
-        <LoadingState title="Loading..." text="just a second..." />
+        <LoadingState title={t("loading.title")} text={t("loading.text")} />
       </LayoutPage>
     );
 
   if (error)
     return (
       <LayoutPage>
-        <ErrorState title="Error" text={error.message} />
+        <ErrorState title={t("error.title")} text={error.message} />
       </LayoutPage>
     );
 
   return (
     <>
       {form === "AddAction" ? (
-        <EditPanel title="Create Action">
+        <EditPanel title={t("actions.add")}>
           <AddAction />
         </EditPanel>
       ) : (
-        <EditPanel title="Update Action">
+        <EditPanel title={t("actions.update")}>
           <UpdateAction />
         </EditPanel>
       )}
@@ -52,20 +55,20 @@ export const Actions = () => {
         <div className={styles.summaryContainer}>
           <div className={styles.summary}>
             <p>
-              Jobs have <strong>actions</strong>, which are the specific steps
-              you need to take in order to move forward with the application.
-              These actions can be added here, and might include things like
-              scheduling an interview or completing a technical test.
+              <Trans i18nKey="actions.intro" />
             </p>
           </div>
           <Button onClick={handleClick} style={{ marginTop: 0 }}>
-            Create Action <MdAddTask />
+            {t("actions.add")} <MdAddTask />
           </Button>
         </div>
         {actions?.length ? (
           <ActionsTable />
         ) : (
-          <EmptyState title="No actions yet." text="Start adding actions!" />
+          <EmptyState
+            title={t("actions.empty.title")}
+            text={t("actions.empty.text")}
+          />
         )}
       </LayoutPage>
     </>

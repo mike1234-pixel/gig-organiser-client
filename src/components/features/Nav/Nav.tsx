@@ -33,7 +33,7 @@ export const Nav = () => {
         <div className={styles.content}>
           <Link to="/" className={styles.titleLink}>
             <SiEditorconfig className={styles.logo} />
-            <h1 className={styles.title}>Gig Organiser</h1>
+            <h1 className={styles.title}>JobSprint</h1>
           </Link>
 
           <ul

@@ -1,4 +1,5 @@
 import { useFormikContext, Form, Field, ErrorMessage } from "formik";
+import { BsFillDoorOpenFill } from "react-icons/bs";
 import { Button } from "../../../common/Button";
 import styles from "./UserSignUp.module.css";
 
@@ -42,7 +43,7 @@ export const UserSignUpForm = () => {
           className={styles.errorMessage}
         />
         <Button type="submit" disabled={formik.isSubmitting}>
-          Sign Up
+          Sign Up <BsFillDoorOpenFill />
         </Button>
       </>
     </Form>

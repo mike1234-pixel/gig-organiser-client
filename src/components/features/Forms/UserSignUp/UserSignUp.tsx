@@ -8,6 +8,7 @@ import { Button } from "../../../common/Button";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ErrorState } from "../../../common/ErrorState";
+import { BiLogIn } from "react-icons/bi";
 import styles from "./UserSignUp.module.css";
 
 export const UserSignUp = () => {
@@ -30,16 +31,16 @@ export const UserSignUp = () => {
       <LayoutPage>
         <h1 className={styles.title}>You're Set</h1>
         <p>
-          Welcome to Gig Organiser! You're all set and ready to start organising
+          Welcome to JobSprint! You're all set and ready to start organising
           your job search like a pro.
         </p>
         <p>
           Log in to your account and start taking control of your job search.
-          With Gig Organiser, landing your next job opportunity is just a few
-          clicks away!
+          With JobSprint, landing your next job opportunity is just a few clicks
+          away!
         </p>
         <Button>
-          <Link to="/login">Login to your account</Link>
+          <Link to="/login">Login to your account</Link> <BiLogIn />
         </Button>
       </LayoutPage>
     );
@@ -55,7 +56,7 @@ export const UserSignUp = () => {
   return (
     <LayoutPage>
       <div className={styles.intro}>
-        <h1 className={styles.title}>Welcome to Gig Organiser!</h1>
+        <h1 className={styles.title}>Welcome to JobSprint!</h1>
         <p>
           To get started, all you need to do is{" "}
           <strong>sign up for your account.</strong>
@@ -67,7 +68,7 @@ export const UserSignUp = () => {
         </p>
         <p>
           Once you're signed up, you'll have access to all the features that
-          make Gig Organiser the best way to organise your job search.
+          make JobSprint the best way to organise your job search.
         </p>
         <p>
           So go ahead, sign up and <strong>get organised</strong>.

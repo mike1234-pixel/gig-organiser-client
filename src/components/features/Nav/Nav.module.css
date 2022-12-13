@@ -32,7 +32,7 @@
 
 .title {
     font-size: 1.4rem;
-    color: var(--text-dark);
+    color: var(--black);
     margin: 0;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .logo {
-    color: var(--text-dark);
+    color: var(--black);
     font-size: 4rem;
 }
 
@@ -56,14 +56,14 @@
 .navLink {
     padding: 8px 16px;
     border-radius: 4px;
-    color: var(--text-dark);
+    color: var(--black);
     text-transform: uppercase;
 }
 
 .navLinkButton {
     padding: 8px 16px;
     border-radius: 4px;
-    color: var(--text-dark);
+    color: var(--black);
     background-color: transparent;
     border: none;
     font-size: 1rem;

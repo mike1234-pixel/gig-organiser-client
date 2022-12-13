@@ -4,13 +4,16 @@ import { Button } from "../../common/Button";
 import { ErrorState } from "../../common/ErrorState";
 import { LayoutPage } from "../../common/LayoutPage";
 import { useNavigate } from "react-router-dom";
-import styles from "./Account.module.css";
 import { AiOutlineUserDelete } from "react-icons/ai";
+import { useTranslation } from "react-i18next";
+import styles from "./Account.module.css";
 
 export const Account = () => {
   const { user, setUser } = useAuth();
 
   const { mutate, error, isSuccess } = useDeleteUser();
+
+  const { t } = useTranslation();
 
   const navigate = useNavigate();
 
@@ -30,29 +33,21 @@ export const Account = () => {
     <>
       {user && (
         <LayoutPage>
-          <h1 className={styles.title}>Welcome to your account page!</h1>
+          <h1 className={styles.title}>{t("account.title")}</h1>
           <div className={styles.summary}>
-            <p>
-              Here you can see your email address and name, as well as delete
-              your account.
-            </p>
-            <p>
-              If you're feeling like it's time to say goodbye, you can delete
-              your account from this page. Please note that this action cannot
-              be undone, so make sure you really want to do it before hitting
-              that big red button. Once your account is deleted, all of your
-              data will be permanently removed from our systems.
-            </p>
-            <p>
-              We hope you enjoy using the application. Thanks for being a part
-              of our community!
-            </p>
+            <p>{t("account.summary.one")}</p>
+            <p>{t("account.summary.two")}</p>
+            <p>{t("account.summary.three")}</p>
             <hr className={styles.rule} />
-            <h2 className={styles.subtitle}>Account Details</h2>
-            <p>Name: {user?.name}</p>
-            <p>Email: {user?.email}</p>
+            <h2 className={styles.subtitle}>{t("account.subtitle")}</h2>
+            <p>
+              {t("account.name")}: {user?.name}
+            </p>
+            <p>
+              {t("account.email")}: {user?.email}
+            </p>
             <Button variant="danger" onClick={() => mutate(user)}>
-              Delete Account <AiOutlineUserDelete />
+              {t("account.delete")} <AiOutlineUserDelete />
             </Button>
           </div>
         </LayoutPage>

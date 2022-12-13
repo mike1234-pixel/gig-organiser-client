@@ -31,7 +31,7 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
           type="text"
           name="description"
           as="textarea"
-          className={styles.textInput}
+          className={classNames(styles.textInput, styles.textarea)}
         />
         <ErrorMessage
           component="span"
@@ -45,7 +45,7 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
           type="datetime-local"
           min={new Date()}
           name="complete_by"
-          className={classNames(styles.textInput, styles.textarea)}
+          className={classNames(styles.textInput)}
         />
         <ErrorMessage
           component="span"

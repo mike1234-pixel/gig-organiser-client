@@ -1,6 +1,6 @@
 # Gig Organiser Client
 
-This is the React frontend for the Gig Organiser app, which helps users organise and manage their jobs.
+This is the React frontend for the Gig Organiser (JobSprint) app, which helps users organise and manage their jobs.
 
 ## Features
 
