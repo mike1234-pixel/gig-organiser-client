@@ -69,9 +69,9 @@ export const JobForm = ({ buttonText }: { buttonText: string }) => {
           className={styles.textInput}
           as="select"
         >
-          <option value="pending">{t("jobs.status.value.one")}</option>
-          <option value="success">{t("jobs.status.value.two")}</option>
-          <option value="declined">{t("jobs.status.value.three")}</option>
+          <option value="pending">Pending</option>
+          <option value="success">Success</option>
+          <option value="declined">Declined</option>
         </Field>
         <ErrorMessage
           component="span"

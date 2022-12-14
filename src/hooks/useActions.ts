@@ -5,7 +5,7 @@ import { ActionI } from "../types/Action_Object";
 export const useActions = () => {
   const { user } = useAuth();
 
-  const { data, isLoading, error } = useQuery<any, Error, ActionI[], "actions">(
+  const { data, isLoading, error } = useQuery<ActionI[], Error>(
     "actions",
     () =>
       fetch(`http://localhost:3002/actions?userID=${user?.ID}`).then(

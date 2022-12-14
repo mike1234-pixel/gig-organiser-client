@@ -1,11 +1,12 @@
 .hero {
     width: 100%;
-    background-image: url("./organise.jpg");
-    background-color: rgba(255,255,255, 0.8);
-    background-blend-mode: lighten;
+    background-color: var(--white);
     background-size: cover;
     height: 100vh;
 }
+
+
+
 
 .titleContainer {
     height: 100%;

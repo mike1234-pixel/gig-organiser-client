@@ -18,9 +18,7 @@ const deleteAction = async (action: ActionI) => {
 };
 
 export const useDeleteAction = () => {
-  const { mutate, error, isSuccess } = useMutation<unknown, Error, ActionI>(
-    deleteAction
-  );
+  const { mutate, error, isSuccess } = useMutation(deleteAction);
 
   return { mutate, error, isSuccess };
 };

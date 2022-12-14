@@ -5,7 +5,7 @@ import { JobI } from "../types/Job_Object";
 export const useJobs = () => {
   const { user } = useAuth();
 
-  const { data, isLoading, error } = useQuery<any, Error, JobI[], "jobs">(
+  const { data, isLoading, error } = useQuery<JobI[], Error>(
     "jobs",
     () =>
       fetch(`http://localhost:3002/jobs?userID=${user?.ID}`).then((response) =>

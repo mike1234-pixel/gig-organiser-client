@@ -18,9 +18,7 @@ const addJob = async (newJob: JobNewI) => {
 };
 
 export const useAddJob = () => {
-  const { mutate, error, isSuccess } = useMutation<unknown, Error, JobNewI>(
-    addJob
-  );
+  const { mutate, error, isSuccess } = useMutation(addJob);
 
   return { mutate, error, isSuccess };
 };

@@ -1,20 +1,20 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 
-type TogglePanelContextValue = {
+type TogglePanelI = {
   togglePanel: boolean;
-  setTogglePanel: (toggle: boolean) => void;
+  setTogglePanel: (toggle: TogglePanelI["togglePanel"]) => void;
   form: "AddJob" | "UpdateJob" | "AddAction" | "UpdateAction" | null;
-  setForm: (formName: TogglePanelContextValue["form"]) => void;
+  setForm: (formName: TogglePanelI["form"]) => void;
 };
 
-const TogglePanelContext = createContext<TogglePanelContextValue>({
+const TogglePanelContext = createContext<TogglePanelI>({
   togglePanel: false,
   setTogglePanel: () => {},
   form: null,
   setForm: () => {},
 });
 
-const useTogglePanel = (): TogglePanelContextValue => {
+const useTogglePanel = (): TogglePanelI => {
   const context = useContext(TogglePanelContext);
 
   if (!context) {
@@ -27,9 +27,10 @@ const useTogglePanel = (): TogglePanelContextValue => {
 };
 
 const TogglePanelContextProvider = ({ children }: { children: ReactNode }) => {
-  const [togglePanel, setTogglePanel] = useState<boolean>(false);
+  const [togglePanel, setTogglePanel] =
+    useState<TogglePanelI["togglePanel"]>(false);
 
-  const [form, setForm] = useState<TogglePanelContextValue["form"]>(null);
+  const [form, setForm] = useState<TogglePanelI["form"]>(null);
 
   return (
     <TogglePanelContext.Provider

@@ -1,12 +1,12 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { ActionI } from "../types/Action_Object";
 
-type UpdateActionContextValue = {
+type UpdateActionI = {
   actionToUpdate: ActionI;
   setActionToUpdate: (action: ActionI) => void;
 };
 
-const actionInit = {
+const actionInit: ActionI = {
   ID: 0,
   CreatedAt: "",
   UpdatedAt: "",
@@ -19,12 +19,12 @@ const actionInit = {
   completed: false,
 };
 
-const UpdateActionContext = createContext<UpdateActionContextValue>({
+const UpdateActionContext = createContext<UpdateActionI>({
   actionToUpdate: actionInit,
   setActionToUpdate: () => {},
 });
 
-const useActionToUpdate = (): UpdateActionContextValue => {
+const useActionToUpdate = (): UpdateActionI => {
   const context = useContext(UpdateActionContext);
 
   if (!context) {

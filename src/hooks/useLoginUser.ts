@@ -1,7 +1,6 @@
 import { UserLoginI } from "../types/User_Login_Object";
 import { useMutation } from "react-query";
 import { useAuth } from "../context/AuthContext";
-import { UserI } from "../types/User_Object";
 
 const loginUser = async (values: UserLoginI) => {
   const response = await fetch(
@@ -29,11 +28,7 @@ const loginUser = async (values: UserLoginI) => {
 };
 
 export const useLoginUser = () => {
-  const { mutate, error, isSuccess, isLoading, data } = useMutation<
-    UserI,
-    Error,
-    UserLoginI
-  >(loginUser);
+  const { mutate, error, isSuccess, isLoading, data } = useMutation(loginUser);
 
   // save user to global state
   const { setUser } = useAuth();

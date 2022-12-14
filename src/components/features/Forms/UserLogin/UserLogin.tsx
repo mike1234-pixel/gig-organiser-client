@@ -7,7 +7,6 @@ import { Button } from "../../../common/Button";
 import { useAuth } from "../../../../context/AuthContext";
 import { LayoutPage } from "../../../common/LayoutPage";
 import { ErrorState } from "../../../common/ErrorState";
-import { useEffect, useState } from "react";
 import { WelcomeState } from "../../../common/WelcomeState";
 import { useTranslation } from "react-i18next";
 import styles from "./UserLogin.module.css";
@@ -18,17 +17,11 @@ export const UserLogin = () => {
     password: "",
   };
 
-  const { mutate, error: responseError, isSuccess } = useLoginUser();
+  const { user, error, setError } = useAuth();
 
-  const { user } = useAuth();
+  const { mutate, isSuccess } = useLoginUser();
 
   const { t } = useTranslation();
-
-  const [error, setError] = useState<Error | null>(null);
-
-  useEffect(() => {
-    setError(responseError);
-  }, [responseError]);
 
   if (isSuccess)
     return (

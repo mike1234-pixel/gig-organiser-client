@@ -44,13 +44,6 @@ const resources = {
               "Set the priority. On a scale of 1-10 (1 being low), how important is this opportunity?",
             status: "What is the status of the application?",
           },
-          status: {
-            value: {
-              one: "Pending",
-              two: "Success",
-              three: "Declined",
-            },
-          },
         },
       },
       actions: {

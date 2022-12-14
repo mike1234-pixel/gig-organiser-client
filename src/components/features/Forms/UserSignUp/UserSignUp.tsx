@@ -26,7 +26,7 @@ export const UserSignUp = () => {
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    setError(responseError);
+    setError(responseError as Error);
   }, [responseError]);
 
   if (isSuccess)

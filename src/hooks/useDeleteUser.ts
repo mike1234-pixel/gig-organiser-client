@@ -18,9 +18,7 @@ const deleteUser = async (user: UserI) => {
 };
 
 export const useDeleteUser = () => {
-  const { mutate, error, isSuccess } = useMutation<unknown, Error, UserI>(
-    deleteUser
-  );
+  const { mutate, error, isSuccess } = useMutation(deleteUser);
 
   return { mutate, error, isSuccess };
 };

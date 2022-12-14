@@ -1,12 +1,12 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { JobI } from "../types/Job_Object";
 
-type UpdateJobContextValue = {
+type UpdateJobI = {
   jobToUpdate: JobI;
   setJobToUpdate: (job: JobI) => void;
 };
 
-const jobInit = {
+const jobInit: JobI = {
   CreatedAt: "",
   DeletedAt: "",
   ID: 0,
@@ -19,12 +19,12 @@ const jobInit = {
   title: "",
 };
 
-const UpdateJobContext = createContext<UpdateJobContextValue>({
+const UpdateJobContext = createContext<UpdateJobI>({
   jobToUpdate: jobInit,
   setJobToUpdate: () => {},
 });
 
-const useJobToUpdate = (): UpdateJobContextValue => {
+const useJobToUpdate = (): UpdateJobI => {
   const context = useContext(UpdateJobContext);
 
   if (!context) {

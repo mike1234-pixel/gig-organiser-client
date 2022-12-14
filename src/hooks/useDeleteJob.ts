@@ -18,9 +18,7 @@ const deleteJob = async (job: JobI) => {
 };
 
 export const useDeleteJob = () => {
-  const { mutate, error, isSuccess } = useMutation<unknown, Error, JobI>(
-    deleteJob
-  );
+  const { mutate, error, isSuccess } = useMutation(deleteJob);
 
   return { mutate, error, isSuccess };
 };
