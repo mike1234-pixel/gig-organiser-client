@@ -81,45 +81,47 @@ export const JobsTable = () => {
     );
 
   return (
-    <table {...getTableProps()} className={styles.table}>
-      <thead>
-        {headerGroups.map((headerGroup) => (
-          <tr {...headerGroup.getHeaderGroupProps()} className={styles.row}>
-            {headerGroup.headers.map((column) => (
-              <th
-                className={styles.th}
-                {...column.getHeaderProps(column.getSortByToggleProps())}
-              >
-                {column.render("Header")}
-                <span className={styles.sortArrow}>
-                  {column.isSorted &&
-                    (column.isSortedDesc ? (
-                      <AiOutlineArrowDown />
-                    ) : (
-                      <AiOutlineArrowUp />
-                    ))}
-                </span>
-              </th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map((row) => {
-          prepareRow(row);
-          return (
-            <tr {...row.getRowProps()}>
-              {row.cells.map((cell) => {
-                return (
-                  <td className={styles.td} {...cell.getCellProps()}>
-                    {cell.render("Cell")}
-                  </td>
-                );
-              })}
+    <div className={styles.container}>
+      <table {...getTableProps()} className={styles.table}>
+        <thead>
+          {headerGroups.map((headerGroup) => (
+            <tr {...headerGroup.getHeaderGroupProps()} className={styles.row}>
+              {headerGroup.headers.map((column) => (
+                <th
+                  className={styles.th}
+                  {...column.getHeaderProps(column.getSortByToggleProps())}
+                >
+                  {column.render("Header")}
+                  <span className={styles.sortArrow}>
+                    {column.isSorted &&
+                      (column.isSortedDesc ? (
+                        <AiOutlineArrowDown />
+                      ) : (
+                        <AiOutlineArrowUp />
+                      ))}
+                  </span>
+                </th>
+              ))}
             </tr>
-          );
-        })}
-      </tbody>
-    </table>
+          ))}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {rows.map((row) => {
+            prepareRow(row);
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map((cell) => {
+                  return (
+                    <td className={styles.td} {...cell.getCellProps()}>
+                      {cell.render("Cell")}
+                    </td>
+                  );
+                })}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 };

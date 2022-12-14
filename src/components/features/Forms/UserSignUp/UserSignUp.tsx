@@ -7,7 +7,7 @@ import { LayoutPage } from "../../../common/LayoutPage";
 import { Button } from "../../../common/Button";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ErrorState } from "../../../common/ErrorState";
+import { State } from "../../../common/State";
 import { BiLogIn } from "react-icons/bi";
 import { Trans, useTranslation } from "react-i18next";
 import styles from "./UserSignUp.module.css";
@@ -44,7 +44,7 @@ export const UserSignUp = () => {
   if (error)
     return (
       <LayoutPage>
-        <ErrorState title="Error" text={error.message} />
+        <State type="error" title="Error" text={error.message} />
         <Button onClick={() => setError(null)}>{t("error.tryagain")}</Button>
       </LayoutPage>
     );

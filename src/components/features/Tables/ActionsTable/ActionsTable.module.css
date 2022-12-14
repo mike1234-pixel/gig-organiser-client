@@ -1,13 +1,10 @@
-.table {
-    width: 100%;
-    margin-top: 30px;
+.container {
     overflow-x: auto;
 }
 
-@media (max-width: 991px) {
-    .table {
-        overflow-x: scroll;
-    }
+.table {
+    margin-top: 30px;
+    width: 100%;
 }
 
 .th {

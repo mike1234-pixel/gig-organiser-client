@@ -3,10 +3,8 @@ import { useTogglePanel } from "../../../context/TogglePanelContext";
 import { useActions } from "../../../hooks/useActions";
 import { Button } from "../../common/Button";
 import { EditPanel } from "../../common/EditPanel";
-import { EmptyState } from "../../common/EmptyState";
-import { ErrorState } from "../../common/ErrorState";
 import { LayoutPage } from "../../common/LayoutPage";
-import { LoadingState } from "../../common/LoadingState";
+import { State } from "../../common/State";
 import { AddAction } from "../../features/Forms/AddAction";
 import { UpdateAction } from "../../features/Forms/UpdateAction";
 import { ActionsTable } from "../../features/Tables/ActionsTable";
@@ -28,14 +26,18 @@ export const Actions = () => {
   if (isLoading)
     return (
       <LayoutPage>
-        <LoadingState title={t("loading.title")} text={t("loading.text")} />
+        <State
+          type="loading"
+          title={t("loading.title")}
+          text={t("loading.text")}
+        />
       </LayoutPage>
     );
 
   if (error)
     return (
       <LayoutPage>
-        <ErrorState title={t("error.title")} text={error.message} />
+        <State type="error" title={t("error.title")} text={error.message} />
       </LayoutPage>
     );
 
@@ -65,7 +67,8 @@ export const Actions = () => {
         {actions?.length ? (
           <ActionsTable />
         ) : (
-          <EmptyState
+          <State
+            type="empty"
             title={t("actions.empty.title")}
             text={t("actions.empty.text")}
           />

@@ -8,9 +8,7 @@ import { LayoutPage } from "../../common/LayoutPage";
 import { UpdateJob } from "../../features/Forms/UpdateJob";
 import { Home } from "../Home";
 import { useJobs } from "../../../hooks/useJobs";
-import { EmptyState } from "../../common/EmptyState";
-import { LoadingState } from "../../common/LoadingState";
-import { ErrorState } from "../../common/ErrorState";
+import { State } from "../../common/State";
 import { MdOutlineCreateNewFolder } from "react-icons/md";
 import { Trans, useTranslation } from "react-i18next";
 import styles from "./Jobs.module.css";
@@ -34,14 +32,18 @@ export const Jobs = () => {
   if (isLoading)
     return (
       <LayoutPage>
-        <LoadingState title={t("loading.title")} text={t("loading.text")} />
+        <State
+          type="loading"
+          title={t("loading.title")}
+          text={t("loading.text")}
+        />
       </LayoutPage>
     );
 
   if (error)
     return (
       <LayoutPage>
-        <ErrorState title={t("error.title")} text={error.message} />
+        <State type="error" title={t("error.title")} text={error.message} />
       </LayoutPage>
     );
 
@@ -74,7 +76,8 @@ export const Jobs = () => {
         {jobs?.length ? (
           <JobsTable />
         ) : (
-          <EmptyState
+          <State
+            type="empty"
             title={t("jobs.empty.title")}
             text={t("jobs.empty.text")}
           />

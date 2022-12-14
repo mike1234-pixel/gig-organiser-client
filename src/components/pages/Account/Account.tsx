@@ -1,7 +1,7 @@
 import { useAuth } from "../../../context/AuthContext";
 import { useDeleteUser } from "../../../hooks/useDeleteUser";
 import { Button } from "../../common/Button";
-import { ErrorState } from "../../common/ErrorState";
+import { State } from "../../common/State";
 import { LayoutPage } from "../../common/LayoutPage";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineUserDelete } from "react-icons/ai";
@@ -20,7 +20,7 @@ export const Account = () => {
   if (error)
     return (
       <LayoutPage>
-        <ErrorState title="Error" text="Could not delete user" />
+        <State type="error" title="Error" text="Could not delete user" />
       </LayoutPage>
     );
 
