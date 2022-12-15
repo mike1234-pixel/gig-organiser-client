@@ -54,7 +54,7 @@ export const State = ({ title, text, type }: StateProps) => {
     <div className={styles.root}>
       <h1 className={styles.title}>{title}</h1>
       <Content />
-      <p>{text}</p>
+      <p className={styles.text}>{text}</p>
     </div>
   );
 };

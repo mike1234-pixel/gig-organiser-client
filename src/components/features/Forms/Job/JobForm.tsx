@@ -66,7 +66,7 @@ export const JobForm = ({ buttonText }: { buttonText: string }) => {
         <Field
           name="status"
           placeholder="Status"
-          className={styles.textInput}
+          className={classNames(styles.textInput, styles.select)}
           as="select"
         >
           <option value="pending">Pending</option>

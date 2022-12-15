@@ -8,6 +8,10 @@
     font-family: var(--font-secondary);
 }
 
+.select {
+    width: 75%;
+}
+
 .textarea {
     resize: vertical;
 }

@@ -9,6 +9,7 @@ import { AddAction } from "../../features/Forms/AddAction";
 import { UpdateAction } from "../../features/Forms/UpdateAction";
 import { ActionsTable } from "../../features/Tables/ActionsTable";
 import { Trans, useTranslation } from "react-i18next";
+import { useAuth } from "../../../context/AuthContext";
 import styles from "./Actions.module.css";
 
 export const Actions = () => {
@@ -16,12 +17,26 @@ export const Actions = () => {
 
   const { form, setForm, togglePanel, setTogglePanel } = useTogglePanel();
 
+  const { user } = useAuth();
+
   const { t } = useTranslation();
 
   const handleClick = () => {
     setForm("AddAction");
     setTogglePanel(!togglePanel);
   };
+
+  if (!user) {
+    return (
+      <LayoutPage>
+        <State
+          type="error"
+          title={t("actions.error.title")}
+          text={t("actions.error.text")}
+        />
+      </LayoutPage>
+    );
+  }
 
   if (isLoading)
     return (

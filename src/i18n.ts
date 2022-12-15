@@ -52,6 +52,10 @@ const resources = {
         add: "Create Action",
         update: "Update Action",
         updateAlt: "Update",
+        error: {
+          title: "Error",
+          text: "You are logged out. Please login to see your actions.",
+        },
         empty: {
           title: "No actions yet.",
           text: "Start adding actions!",

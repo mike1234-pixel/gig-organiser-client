@@ -12,6 +12,6 @@
 }
 
 .rule {
-    border-top: 1px dashed black;
+    border-top: 1px dashed var(--black);
     margin: 16px 0;
 }

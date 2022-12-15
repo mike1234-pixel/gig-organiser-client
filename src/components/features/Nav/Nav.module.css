@@ -1,7 +1,7 @@
 .nav {
     display: flex;
     padding: 20px 0;
-    background: white;
+    background: var(--white);
     position: fixed;
     width: 100%;
     top: 0;
@@ -92,7 +92,7 @@
 .toggleButton {
     padding: 8px 16px;
     border-radius: 4px;
-    color: var(--white);
+    color: var(--black);
     background-color: transparent;
     border: none;
     font-size: 1rem;

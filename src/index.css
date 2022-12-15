@@ -141,7 +141,7 @@ body {
   font-family: var(--font-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(259deg, rgba(0, 135, 255, 0.1) 0%, rgba(219, 91, 255, 0.1) 65%, rgba(81, 250, 255, 0.1) 100%);
+  background: var(--white);
   background-attachment: fixed;
   font-size: 1rem;
   line-height: 1.6rem;

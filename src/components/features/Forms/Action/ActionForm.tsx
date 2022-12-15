@@ -61,7 +61,7 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
         <Field
           name="jobid"
           placeholder="Job"
-          className={styles.textInput}
+          className={classNames(styles.textInput, styles.select)}
           as="select"
         >
           {jobs?.map((job: JobI) => {
