@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import styles from "./UserSignUp.module.css";
 
 export const UserSignUpForm = () => {
-  const formik = useFormikContext<any>();
+  const formik = useFormikContext();
 
   const { t } = useTranslation();
 

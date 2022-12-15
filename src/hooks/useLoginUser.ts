@@ -28,14 +28,12 @@ const loginUser = async (values: UserLoginI) => {
 };
 
 export const useLoginUser = () => {
-  const { mutate, error, isSuccess, isLoading, data } = useMutation(loginUser);
-
-  // save user to global state
   const { setUser } = useAuth();
-
-  if (data) {
-    setUser(data);
-  }
+  const { mutate, error, isSuccess, isLoading } = useMutation(loginUser, {
+    onSuccess: (data) => {
+      setUser(data);
+    },
+  });
 
   return { mutate, error, isSuccess, isLoading };
 };

@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 import styles from "./ActionForm.module.css";
 
 export const ActionForm = ({ buttonText }: { buttonText: string }) => {
-  const formik = useFormikContext<any>();
+  const formik = useFormikContext();
 
   const { jobs } = useJobs();
 

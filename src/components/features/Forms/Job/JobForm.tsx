@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import styles from "./JobForm.module.css";
 
 export const JobForm = ({ buttonText }: { buttonText: string }) => {
-  const formik = useFormikContext<any>();
+  const formik = useFormikContext();
 
   const { t } = useTranslation();
 
