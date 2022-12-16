@@ -6,6 +6,7 @@ import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import styles from "./JobsTable.module.css";
 import {
   DateCell,
+  DescriptionCell,
   PriorityBadgeCell,
   ActionsCell,
   badgeVariants,
@@ -29,6 +30,9 @@ const columns: Column[] = [
     Header: "Description",
     accessor: "description",
     disableSortBy: true,
+    Cell: ({ value }: { value: string }) => (
+      <DescriptionCell description={value} />
+    ),
   },
   {
     Header: "Created",

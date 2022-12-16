@@ -45,16 +45,16 @@ export const UpdateJob = () => {
   } = jobToUpdate;
 
   const initialValues: JobI = {
-    CreatedAt: CreatedAt,
-    DeletedAt: DeletedAt,
-    ID: ID,
-    UpdatedAt: UpdatedAt,
-    userid: userid,
-    description: description,
-    organisation: organisation,
-    priority: priority,
-    status: status,
-    title: title,
+    CreatedAt,
+    DeletedAt,
+    ID,
+    UpdatedAt,
+    userid,
+    description: description.replace(/(<([^>]+)>)/gi, ""),
+    organisation,
+    priority,
+    status,
+    title,
   };
 
   return (

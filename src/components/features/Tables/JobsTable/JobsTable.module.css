@@ -8,17 +8,22 @@
 }
 
 .th {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    font-weight: 600;
     padding: 8px;
     text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
 }
 
 .td {
     padding: 16px 8px;
+    vertical-align: top;
 }
 
 tr:nth-child(odd) {
-    background: var(--white);
+    background: var(--grey);
 }
 
 thead tr {
@@ -41,25 +46,23 @@ th:nth-of-type(5) {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: var(--font-secondary)
+    font-family: var(--font-secondary);
+    border: 1px solid var(--grey-dark);
 }
 
 .warning {
     background: var(--warning-light);
     color: var(--warning);
-    border: 2px outset var(--warning-light);
 }
 
 .danger {
     background: var(--danger-light);
     color: var(--danger);
-    border: 2px outset var(--danger-light);
 }
 
 .success {
     background: var(--success-light);
     color: var(--success);
-    border: 2px outset var(--success-light);
 }
 
 .sortArrow {
@@ -71,3 +74,5 @@ th:nth-of-type(5) {
     content: "•";
     margin-right: 5px;
 }
+
+

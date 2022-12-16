@@ -5,11 +5,12 @@
     display: block;
     margin: 16px 0;
     font-size: 2rem;
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
+    width: 100%;
 }
 
 .select {
-    width: 75%;
+    width: 100%;
 }
 
 .textarea {
@@ -17,7 +18,7 @@
 }
 
 .textInput::placeholder {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
 }
 
 .errorMessage {
@@ -28,54 +29,6 @@
     display: block;
     max-width: 500px;
     margin-top: 16px;
-}
-
-input[type="checkbox"] {
-    appearance: none;
-    height: 40px;
-    width: 40px;
-    background: var(--white);
-    border: 2px solid var(--action);
-    margin: 16px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    outline-offset: 5px;
-    outline-color: var(--action);
-}
-
-input[type="checkbox"] {
-    background: var(--action);
-}
-
-input[type="checkbox"]:after {
-    content: "";
-    display: block;
-    transform: scale(0);
-    transition: 120ms transform ease-in-out;
-}
-
-input[type="checkbox"]:checked:after {
-    transform: scale(1);
-}
-
-input[type="checkbox"] {
-    border-radius: 4px;
-}
-
-input[type="checkbox"]:after {
-    width: 16px;
-    height: 16px;
-}
-
-input[type="checkbox"]:checked {
-    border: none;
-    background-color: var(--success-medium);
-}
-
-input[type="checkbox"]:checked:after {
-    content: url("data:image/svg+xml, <svg viewBox='0 0 16 15' xmlns='http://www.w3.org/2000/svg'><path fill='white' d='M15.25.847a1.51 1.51 0 0 1 .405 2.096L8.106 14.11a1.944 1.944 0 0 1-2.94.329L.6 10.156a1.51 1.51 0 1 1 2.067-2.202l3.645 3.42 6.841-10.122a1.51 1.51 0 0 1 2.098-.405Z'/></svg>");
 }
 
 button[type="submit"] {

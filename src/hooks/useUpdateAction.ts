@@ -1,8 +1,14 @@
 import { useMutation } from "react-query";
 import { ActionI } from "../types/Action_Object";
+import { marked } from "marked";
+import DOMPurify from "dompurify";
 
 const updateAction = async (action: ActionI) => {
+  const parsedDescription = DOMPurify.sanitize(marked(action.description));
+
+  action.description = parsedDescription;
   action.jobid = parseInt(action.jobid as unknown as string);
+
   const response = await fetch(
     `https://gig-organiser-api-7eqmwx53oq-uc.a.run.app/actions/${action.ID}`,
     {

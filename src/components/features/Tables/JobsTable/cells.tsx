@@ -7,12 +7,21 @@ import { useDeleteJob } from "../../../../hooks/useDeleteJob";
 import { JobI } from "../../../../types/Job_Object";
 import { ActionButton } from "../../../common/ActionButton";
 import { BadgeProps } from "../../../common/Badge/Badge";
+import { marked } from "marked";
 import styles from "./JobsTable.module.css";
 
 export const badgeVariants: { [key: string]: BadgeProps["variant"] } = {
   pending: "warning",
   success: "success",
   declined: "danger",
+};
+
+export const DescriptionCell = ({ description }: { description: string }) => {
+  const markdownString = description;
+
+  const html = marked(markdownString);
+
+  return <div dangerouslySetInnerHTML={{ __html: html }}></div>;
 };
 
 export const DateCell = ({ date }: { date: string }) => {

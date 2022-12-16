@@ -7,7 +7,16 @@ import { useDeleteAction } from "../../../../hooks/useDeleteAction";
 import { useJobs } from "../../../../hooks/useJobs";
 import { ActionI } from "../../../../types/Action_Object";
 import { ActionButton } from "../../../common/ActionButton";
+import { marked } from "marked";
 import styles from "./ActionsTable.module.css";
+
+export const DescriptionCell = ({ description }: { description: string }) => {
+  const markdownString = description;
+
+  const html = marked(markdownString);
+
+  return <div dangerouslySetInnerHTML={{ __html: html }}></div>;
+};
 
 export const DateCell = ({ date }: { date: string }) => {
   const actionDate = new Date(date);
@@ -31,8 +40,14 @@ export const JobCell = ({ jobId }: { jobId: number }) => {
 
   return (
     <div>
-      <span className={styles.jobTitle}>{job?.title}</span> @{" "}
-      <span>{job?.organisation}</span>
+      {job ? (
+        <>
+          <span className={styles.jobTitle}>{job?.title}</span> @{" "}
+          <span>{job?.organisation}</span>
+        </>
+      ) : (
+        <AiOutlineEllipsis />
+      )}
     </div>
   );
 };

@@ -52,7 +52,7 @@ export const UpdateAction = () => {
     userid,
     jobid,
     name,
-    description,
+    description: description.replace(/(<([^>]+)>)/gi, ""),
     complete_by,
     completed,
   };

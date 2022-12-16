@@ -8,17 +8,22 @@
 }
 
 .th {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    font-weight: 600;
     padding: 8px;
     text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
 }
 
 .td {
     padding: 16px 8px;
+    vertical-align: top;
 }
 
 tr:nth-child(odd) {
-    background: var(--white);
+    background: var(--grey);
 }
 
 thead tr {

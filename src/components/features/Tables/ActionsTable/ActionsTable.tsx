@@ -9,6 +9,7 @@ import {
   CompletedCell,
   EditButton,
   DeleteButton,
+  DescriptionCell,
 } from "./cells";
 
 const columns: Column[] = [
@@ -23,6 +24,9 @@ const columns: Column[] = [
     Header: "Description",
     accessor: "description",
     disableSortBy: true,
+    Cell: ({ value }: { value: string }) => (
+      <DescriptionCell description={value} />
+    ),
   },
   {
     Header: "Complete By",
