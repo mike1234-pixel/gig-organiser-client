@@ -2,13 +2,16 @@ import { useMutation } from "react-query";
 import { ActionI } from "../types/Action_Object";
 
 const deleteAction = async (action: ActionI) => {
-  const response = await fetch(`http://localhost:3002/actions/${action.ID}`, {
-    method: "DELETE",
-    body: JSON.stringify(action),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const response = await fetch(
+    `https://gig-organiser-api-7eqmwx53oq-uc.a.run.app/actions/${action.ID}`,
+    {
+      method: "DELETE",
+      body: JSON.stringify(action),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 
   if (response.status !== 200) {
     throw new Error("Could not delete actions");

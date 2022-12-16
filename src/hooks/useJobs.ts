@@ -8,9 +8,9 @@ export const useJobs = () => {
   const { data, isLoading, error } = useQuery<JobI[], Error>(
     "jobs",
     () =>
-      fetch(`http://localhost:3002/jobs?userID=${user?.ID}`).then((response) =>
-        response.json()
-      ),
+      fetch(
+        `https://gig-organiser-api-7eqmwx53oq-uc.a.run.app/jobs?userID=${user?.ID}`
+      ).then((response) => response.json()),
     {
       refetchInterval: 5000,
     }

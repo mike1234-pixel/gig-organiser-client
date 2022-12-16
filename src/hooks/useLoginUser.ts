@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 
 const loginUser = async (values: UserLoginI) => {
   const response = await fetch(
-    `http://localhost:3002/user?email=${values.email}&password=${values.password}`,
+    `https://gig-organiser-api-7eqmwx53oq-uc.a.run.app/user?email=${values.email}&password=${values.password}`,
     {
       method: "POST",
       body: JSON.stringify(values),

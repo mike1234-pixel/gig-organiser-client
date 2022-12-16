@@ -8,9 +8,9 @@ export const useActions = () => {
   const { data, isLoading, error } = useQuery<ActionI[], Error>(
     "actions",
     () =>
-      fetch(`http://localhost:3002/actions?userID=${user?.ID}`).then(
-        (response) => response.json()
-      ),
+      fetch(
+        `https://gig-organiser-api-7eqmwx53oq-uc.a.run.app/actions?userID=${user?.ID}`
+      ).then((response) => response.json()),
     {
       refetchInterval: 5000,
     }
