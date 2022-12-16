@@ -62,12 +62,8 @@ export const Jobs = () => {
       <LayoutPage>
         <div className={styles.summaryContainer}>
           <div className={styles.summary}>
-            <p>
-              <Trans i18nKey="jobs.intro.one" />
-            </p>
-            <p>
-              <Trans i18nKey="jobs.intro.two" />
-            </p>
+            <Trans i18nKey="jobs.intro.one" />
+            <Trans i18nKey="jobs.intro.two" />
           </div>
           <Button onClick={handleClick} style={{ marginTop: 0 }}>
             {t("jobs.add")} <MdOutlineCreateNewFolder />

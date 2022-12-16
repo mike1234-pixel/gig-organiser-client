@@ -71,9 +71,7 @@ export const Actions = () => {
       <LayoutPage>
         <div className={styles.summaryContainer}>
           <div className={styles.summary}>
-            <p>
-              <Trans i18nKey="actions.intro" />
-            </p>
+            <Trans i18nKey="actions.intro" />
           </div>
           <Button onClick={handleClick} style={{ marginTop: 0 }}>
             {t("actions.add")} <MdAddTask />

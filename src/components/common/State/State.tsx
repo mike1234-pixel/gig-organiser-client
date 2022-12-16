@@ -4,6 +4,7 @@ import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Button } from "../Button";
 import { LoadingSpinner } from "../LoadingSpinner";
+import { useTranslation } from "react-i18next";
 import styles from "./State.module.css";
 
 interface StateProps {
@@ -17,10 +18,12 @@ const LoadingContent = () => {
 };
 
 const WelcomeContent = () => {
+  const { t } = useTranslation();
+
   return (
     <Link to="/">
       <Button>
-        Go to dashboard <MdOutlineDashboardCustomize />
+        {t("welcome.dashboard")} <MdOutlineDashboardCustomize />
       </Button>
     </Link>
   );

@@ -25,8 +25,8 @@ const resources = {
       },
       jobs: {
         intro: {
-          one: "In your job search, it's important to keep track of the positions you're applying for and the progress you're making with each one. Here you can add a job, including its title, description, priority, and status. The <strong>title</strong> is the name of the position you're applying for, the <strong>description</strong> provides more details about the job, the <strong>priority</strong> indicates how important it is to you, and the <strong>status</strong> shows where you are in the application process.",
-          two: "Jobs also have <strong>actions</strong>, which are the specific steps you need to take in order to move forward with the application. These actions can be added on the <strong>actions page</strong>, and might include things like scheduling an interview or completing a technical test.",
+          one: "<p>In your job search, it's important to keep track of the positions you're applying for and the progress you're making with each one. Here you can add a job, including its title, description, priority, and status. The <strong>title</strong> is the name of the position you're applying for, the <strong>description</strong> provides more details about the job, the <strong>priority</strong> indicates how important it is to you, and the <strong>status</strong> shows where you are in the application process.</p>",
+          two: "<p>Jobs also have <strong>actions</strong>, which are the specific steps you need to take in order to move forward with the application. These actions can be added on the <strong>actions page</strong>, and might include things like scheduling an interview or completing a technical test.</p>",
         },
         add: "Add Job",
         update: "Update Job",
@@ -48,7 +48,7 @@ const resources = {
       },
       actions: {
         intro:
-          "Jobs have <strong>actions</strong>, which are the specific steps you need to take in order to move forward with the application. These actions can be added here, and might include things like scheduling an interview or completing a technical test.",
+          "<p>Jobs have <strong>actions</strong>, which are the specific steps you need to take in order to move forward with the application. These actions can be added here, and might include things like scheduling an interview or completing a technical test.</p>",
         add: "Create Action",
         update: "Update Action",
         updateAlt: "Update",
@@ -121,6 +121,9 @@ const resources = {
       notfound: {
         title: "404 - Page Not Found",
         text: "Sorry, the page you are looking for does not exist.",
+      },
+      welcome: {
+        dashboard: "Go to dashboard",
       },
     },
   },
