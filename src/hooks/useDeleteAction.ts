@@ -13,11 +13,11 @@ const deleteAction = async (action: ActionI) => {
     }
   );
 
-  if (response.status !== 200) {
+  if (response.status !== 204) {
     throw new Error("Could not delete actions");
   }
 
-  return await response.json();
+  return response;
 };
 
 export const useDeleteAction = () => {

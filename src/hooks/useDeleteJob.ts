@@ -13,11 +13,11 @@ const deleteJob = async (job: JobI) => {
     }
   );
 
-  if (response.status !== 200) {
+  if (response.status !== 204) {
     throw new Error("Could not delete job");
   }
 
-  return await response.json();
+  return response;
 };
 
 export const useDeleteJob = () => {

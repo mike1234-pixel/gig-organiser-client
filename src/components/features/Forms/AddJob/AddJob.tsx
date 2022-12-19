@@ -6,11 +6,14 @@ import { JobNewI } from "../../../../types/Job_New_Object";
 import { validationSchema } from "./validationSchema";
 import { useTranslation } from "react-i18next";
 import { JobForm } from "../Job";
+import { useJobs } from "../../../../hooks/useJobs";
 
 export const AddJob = () => {
   const { user } = useAuth();
 
   const { mutate } = useAddJob();
+
+  const { refetchJobs } = useJobs();
 
   const { togglePanel, setTogglePanel } = useTogglePanel();
 
@@ -24,6 +27,7 @@ export const AddJob = () => {
     resetForm();
     setTimeout(() => {
       setTogglePanel(!togglePanel);
+      refetchJobs();
     }, 200);
   };
 

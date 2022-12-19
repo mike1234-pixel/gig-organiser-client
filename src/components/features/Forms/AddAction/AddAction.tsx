@@ -6,6 +6,7 @@ import { useAddAction } from "../../../../hooks/useAddAction";
 import { validationSchema } from "./validationSchema";
 import { ActionForm } from "../Action";
 import { useTranslation } from "react-i18next";
+import { useActions } from "../../../../hooks/useActions";
 
 export const AddAction = () => {
   const { user } = useAuth();
@@ -13,6 +14,8 @@ export const AddAction = () => {
   const { mutate } = useAddAction();
 
   const { togglePanel, setTogglePanel } = useTogglePanel();
+
+  const { refetchActions } = useActions();
 
   const { t } = useTranslation();
 
@@ -24,6 +27,7 @@ export const AddAction = () => {
     resetForm();
     setTimeout(() => {
       setTogglePanel(!togglePanel);
+      refetchActions();
     }, 200);
   };
 

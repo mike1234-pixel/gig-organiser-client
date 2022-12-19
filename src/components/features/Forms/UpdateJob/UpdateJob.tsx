@@ -5,6 +5,7 @@ import { JobI } from "../../../../types/Job_Object";
 import { useJobToUpdate } from "../../../../context/UpdateJobContext";
 import { useTranslation } from "react-i18next";
 import { JobForm } from "../Job";
+import { useJobs } from "../../../../hooks/useJobs";
 
 export const UpdateJob = () => {
   const { mutate } = useUpdateJob();
@@ -12,6 +13,8 @@ export const UpdateJob = () => {
   const { togglePanel, setTogglePanel } = useTogglePanel();
 
   const { jobToUpdate } = useJobToUpdate();
+
+  const { refetchJobs } = useJobs();
 
   const { t } = useTranslation();
 
@@ -23,6 +26,7 @@ export const UpdateJob = () => {
     setTimeout(
       () => {
         setTogglePanel(!togglePanel);
+        refetchJobs();
       },
       200,
       () => {
