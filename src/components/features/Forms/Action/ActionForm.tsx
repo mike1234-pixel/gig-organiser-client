@@ -16,7 +16,7 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
   const { t } = useTranslation();
 
   return (
-    <Form>
+    <Form className={styles.form}>
       <>
         <label className={styles.label} htmlFor="name">
           {t("actions.form.label.name")}

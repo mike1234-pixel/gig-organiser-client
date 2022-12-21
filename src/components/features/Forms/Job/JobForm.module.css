@@ -1,3 +1,7 @@
+.form {
+    width: 100%;
+}
+
 .textInput {
     border: 1px solid rgba(189, 189, 189, 0.2);
     border-radius: 4px;
@@ -7,6 +11,7 @@
     font-size: 2rem;
     font-family: var(--font-primary);
     width: 100%;
+    box-sizing: border-box;
 }
 
 .select {
@@ -15,6 +20,7 @@
 
 .textarea {
     resize: vertical;
+    min-height: 200px;
 }
 
 .textInput::placeholder {

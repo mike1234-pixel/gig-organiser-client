@@ -11,7 +11,7 @@ export const JobForm = ({ buttonText }: { buttonText: string }) => {
   const { t } = useTranslation();
 
   return (
-    <Form>
+    <Form className={styles.form}>
       <>
         <label className={styles.label} htmlFor="title">
           {t("jobs.form.label.title")}
