@@ -9,7 +9,6 @@ import { ActionI } from "../../../../types/Action_Object";
 import { ActionButton } from "../../../common/ActionButton";
 import { marked } from "marked";
 import styles from "./ActionsTable.module.css";
-import { useActions } from "../../../../hooks/useActions";
 
 export const DescriptionCell = ({ description }: { description: string }) => {
   const markdownString = description;
@@ -72,13 +71,8 @@ export const EditButton = ({ action }: { action: ActionI }) => {
 export const DeleteButton = ({ action }: { action: ActionI }) => {
   const { mutate } = useDeleteAction();
 
-  const { refetchActions } = useActions();
-
   const handleClick = () => {
     mutate(action);
-    setTimeout(() => {
-      refetchActions();
-    }, 200);
   };
 
   return <ActionButton variant="delete" onClick={handleClick} />;

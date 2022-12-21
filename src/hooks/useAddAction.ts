@@ -2,6 +2,7 @@ import { useMutation } from "react-query";
 import { ActionNewI } from "../types/Action_New_Object";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
+import { useActions } from "./useActions";
 
 const addAction = async (newAction: ActionNewI) => {
   const parsedDescription = DOMPurify.sanitize(marked(newAction.description));
@@ -29,7 +30,11 @@ const addAction = async (newAction: ActionNewI) => {
 };
 
 export const useAddAction = () => {
-  const { mutate, error, isSuccess } = useMutation(addAction);
+  const { refetchActions } = useActions();
+
+  const { mutate, error, isSuccess } = useMutation(addAction, {
+    onSuccess: refetchActions,
+  });
 
   return { mutate, error, isSuccess };
 };

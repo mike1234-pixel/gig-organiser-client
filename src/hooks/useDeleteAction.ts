@@ -1,5 +1,6 @@
 import { useMutation } from "react-query";
 import { ActionI } from "../types/Action_Object";
+import { useActions } from "./useActions";
 
 const deleteAction = async (action: ActionI) => {
   const response = await fetch(
@@ -21,7 +22,11 @@ const deleteAction = async (action: ActionI) => {
 };
 
 export const useDeleteAction = () => {
-  const { mutate, error, isSuccess } = useMutation(deleteAction);
+  const { refetchActions } = useActions();
+
+  const { mutate, error, isSuccess } = useMutation(deleteAction, {
+    onSuccess: refetchActions,
+  });
 
   return { mutate, error, isSuccess };
 };

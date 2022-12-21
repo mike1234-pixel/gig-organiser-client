@@ -9,7 +9,6 @@ import { ActionButton } from "../../../common/ActionButton";
 import { BadgeProps } from "../../../common/Badge/Badge";
 import { marked } from "marked";
 import styles from "./JobsTable.module.css";
-import { useJobs } from "../../../../hooks/useJobs";
 
 export const badgeVariants: { [key: string]: BadgeProps["variant"] } = {
   pending: "warning",
@@ -93,13 +92,8 @@ export const EditButton = ({ job }: { job: JobI }) => {
 export const DeleteButton = ({ job }: { job: JobI }) => {
   const { mutate } = useDeleteJob();
 
-  const { refetchJobs } = useJobs();
-
   const handleClick = () => {
     mutate(job);
-    setTimeout(() => {
-      refetchJobs();
-    }, 200);
   };
 
   return <ActionButton variant="delete" onClick={handleClick} />;

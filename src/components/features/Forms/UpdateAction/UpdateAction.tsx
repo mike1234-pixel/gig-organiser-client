@@ -5,7 +5,6 @@ import { ActionI } from "../../../../types/Action_Object";
 import { useActionToUpdate } from "../../../../context/UpdateActionContext";
 import { useUpdateAction } from "../../../../hooks/useUpdateAction";
 import { useTranslation } from "react-i18next";
-import { useActions } from "../../../../hooks/useActions";
 
 export const UpdateAction = () => {
   const { mutate } = useUpdateAction();
@@ -13,8 +12,6 @@ export const UpdateAction = () => {
   const { togglePanel, setTogglePanel } = useTogglePanel();
 
   const { actionToUpdate } = useActionToUpdate();
-
-  const { refetchActions } = useActions();
 
   const { t } = useTranslation();
 
@@ -26,7 +23,6 @@ export const UpdateAction = () => {
     setTimeout(
       () => {
         setTogglePanel(!togglePanel);
-        refetchActions();
       },
       200,
       () => {

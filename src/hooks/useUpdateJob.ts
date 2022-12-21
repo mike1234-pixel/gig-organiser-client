@@ -2,6 +2,7 @@ import { useMutation } from "react-query";
 import { JobI } from "../types/Job_Object";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
+import { useJobs } from "./useJobs";
 
 const updateJob = async (job: JobI) => {
   const parsedDescription = DOMPurify.sanitize(marked(job.description));
@@ -26,7 +27,11 @@ const updateJob = async (job: JobI) => {
 };
 
 export const useUpdateJob = () => {
-  const { mutate, error, isSuccess } = useMutation(updateJob);
+  const { refetchJobs } = useJobs();
+
+  const { mutate, error, isSuccess } = useMutation(updateJob, {
+    onSuccess: refetchJobs,
+  });
 
   return { mutate, error, isSuccess };
 };

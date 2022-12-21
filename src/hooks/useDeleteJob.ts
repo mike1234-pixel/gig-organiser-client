@@ -1,5 +1,6 @@
 import { useMutation } from "react-query";
 import { JobI } from "../types/Job_Object";
+import { useJobs } from "./useJobs";
 
 const deleteJob = async (job: JobI) => {
   const response = await fetch(
@@ -21,7 +22,11 @@ const deleteJob = async (job: JobI) => {
 };
 
 export const useDeleteJob = () => {
-  const { mutate, error, isSuccess } = useMutation(deleteJob);
+  const { refetchJobs } = useJobs();
+
+  const { mutate, error, isSuccess } = useMutation(deleteJob, {
+    onSuccess: refetchJobs,
+  });
 
   return { mutate, error, isSuccess };
 };
