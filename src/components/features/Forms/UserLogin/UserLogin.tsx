@@ -9,6 +9,7 @@ import { LayoutPage } from "../../../common/LayoutPage";
 import { State } from "../../../common/State";
 import { useTranslation } from "react-i18next";
 import styles from "./UserLogin.module.css";
+import { useEffect, useState } from "react";
 
 export const UserLogin = () => {
   const initialValues: UserLoginI = {
@@ -16,11 +17,17 @@ export const UserLogin = () => {
     password: "",
   };
 
-  const { user, error, setError } = useAuth();
+  const { user } = useAuth();
 
-  const { mutate, isSuccess } = useLoginUser();
+  const { mutate, error: loginError, isSuccess } = useLoginUser();
 
   const { t } = useTranslation();
+
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    setError(loginError as Error);
+  }, [loginError]);
 
   if (isSuccess)
     return (
@@ -33,13 +40,18 @@ export const UserLogin = () => {
       </LayoutPage>
     );
 
-  if (error)
+  if (error) {
     return (
       <LayoutPage>
-        <State type="error" title={t("error.title")} text={error.message} />
+        <State
+          type="error"
+          title={t("error.title")}
+          text={(error as Error)?.message}
+        />
         <Button onClick={() => setError(null)}>{t("error.tryagain")}</Button>
       </LayoutPage>
     );
+  }
 
   return (
     <LayoutPage>
