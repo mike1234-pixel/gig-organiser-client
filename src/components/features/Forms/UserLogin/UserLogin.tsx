@@ -43,11 +43,7 @@ export const UserLogin = () => {
   if (error) {
     return (
       <LayoutPage>
-        <State
-          type="error"
-          title={t("error.title")}
-          text={(error as Error)?.message}
-        />
+        <State type="error" title={t("error.title")} text={error.message} />
         <Button onClick={() => setError(null)}>{t("error.tryagain")}</Button>
       </LayoutPage>
     );
