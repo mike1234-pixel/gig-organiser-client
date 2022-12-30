@@ -29,6 +29,7 @@
     align-items: center;
     justify-content: center;
     padding: 60px 50px;
+    position: fixed;
 }
 
 @media (max-width: 1199px) {
@@ -45,6 +46,7 @@
 
 .panelOpen {
     transform: translateX(0);
+    position: static;
 }
 
 .title {
