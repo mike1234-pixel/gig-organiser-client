@@ -69,6 +69,9 @@ export const JobForm = ({ buttonText }: { buttonText: string }) => {
           className={classNames(styles.textInput, styles.select)}
           as="select"
         >
+          <option value="" disabled>
+            Select Status
+          </option>
           <option value="pending">Pending</option>
           <option value="success">Success</option>
           <option value="declined">Declined</option>

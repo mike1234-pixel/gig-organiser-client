@@ -29,7 +29,7 @@ export const AddAction = () => {
 
   const initialValues: ActionNewI = {
     userid: user!.ID,
-    jobid: 0,
+    jobid: "",
     name: "",
     description: "",
     complete_by: "",

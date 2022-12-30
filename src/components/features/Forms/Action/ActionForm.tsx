@@ -64,6 +64,9 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
           className={classNames(styles.textInput, styles.select)}
           as="select"
         >
+          <option value="" disabled>
+            Select Job
+          </option>
           {jobs?.map((job: JobI) => {
             return (
               <option key={job.ID} value={job.ID}>
