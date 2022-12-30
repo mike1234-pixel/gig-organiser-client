@@ -1,7 +1,7 @@
-import classNames from "classnames";
-import { ReactNode } from "react";
+import { ReactNode, useRef } from "react";
 import { useTogglePanel } from "../../../context/TogglePanelContext";
 import { TfiClose } from "react-icons/tfi";
+import classNames from "classnames";
 import styles from "./EditPanel.module.css";
 
 interface EditPanelProps {
@@ -11,6 +11,13 @@ interface EditPanelProps {
 
 export const EditPanel = ({ children, title }: EditPanelProps) => {
   const { setTogglePanel, togglePanel } = useTogglePanel();
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  const handleContainerClick = (event: React.MouseEvent) => {
+    if (panelRef.current && !panelRef.current.contains(event.target as Node)) {
+      setTogglePanel(!togglePanel);
+    }
+  };
 
   return (
     <div
@@ -18,9 +25,11 @@ export const EditPanel = ({ children, title }: EditPanelProps) => {
         styles.container,
         togglePanel && styles.containerOpen
       )}
+      onClick={handleContainerClick}
     >
       <div
         className={classNames(styles.panel, togglePanel && styles.panelOpen)}
+        ref={panelRef}
       >
         <h1 className={styles.title}>{title}</h1>
         {children}
