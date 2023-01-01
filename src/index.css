@@ -18,6 +18,8 @@
   --action-light: #6caee8;
   --action-light-2: #b4d1ea;
   --success-medium: #60e37e;
+  --action-gradient: linear-gradient(259deg, rgba(0, 135, 255, 1) 0%, rgba(175, 0, 255, 1) 100%);
+  --danger-gradient: linear-gradient(259deg, rgba(217, 83, 79, 1) 0%, rgb(235, 129, 126) 100%);
   /* fonts */
   --font-primary: 'Montserrat', sans-serif;
   --font-secondary: 'Staatliches', sans-serif;
