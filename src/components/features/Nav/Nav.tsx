@@ -41,8 +41,16 @@ export const Nav = () => {
           <ul
             className={classNames(styles.list, !navClosed && styles.collapsed)}
           >
-            <NavLinkItem path="/" name={user ? t("nav.jobs") : t("nav.home")} />
-            {user && <NavLinkItem path="/actions" name={t("nav.actions")} />}
+            <NavLinkItem
+              path="/"
+              name={user ? t("nav.dashboard") : t("nav.home")}
+            />
+            {user && (
+              <>
+                <NavLinkItem path="/jobs" name={t("nav.jobs")} />
+                <NavLinkItem path="/actions" name={t("nav.actions")} />
+              </>
+            )}
             {!user && (
               <>
                 <NavLinkItem path="/signup" name={t("nav.signup")} />

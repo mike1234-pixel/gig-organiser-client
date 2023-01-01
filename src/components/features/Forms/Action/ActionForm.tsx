@@ -90,11 +90,6 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
             formik.setFieldValue("completed", event.target.checked);
           }}
         />
-        <ErrorMessage
-          component="span"
-          name="jobid"
-          className={styles.errorMessage}
-        />
         <Button type="submit" disabled={formik.isSubmitting}>
           {buttonText} <MdAddTask />
         </Button>

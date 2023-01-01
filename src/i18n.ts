@@ -10,6 +10,7 @@ const resources = {
       nav: {
         org: "JobSprint",
         home: "Home",
+        dashboard: "Dashboard",
         jobs: "Jobs",
         actions: "Actions",
         signup: "Sign Up",
@@ -124,6 +125,14 @@ const resources = {
       },
       welcome: {
         dashboard: "Go to dashboard",
+      },
+      upcomingActions: {
+        title: "Upcoming Actions",
+        empty: {
+          title: "No Upcoming Actions",
+          text: "Add some actions on the ",
+          linkText: "Actions page",
+        },
       },
     },
   },

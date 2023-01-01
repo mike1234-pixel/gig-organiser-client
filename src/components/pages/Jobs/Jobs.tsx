@@ -14,8 +14,6 @@ import { Trans, useTranslation } from "react-i18next";
 import styles from "./Jobs.module.css";
 
 export const Jobs = () => {
-  const { user } = useAuth();
-
   const { jobs, isLoading, error } = useJobs();
 
   const { form, setForm, togglePanel, setTogglePanel } = useTogglePanel();
@@ -26,8 +24,6 @@ export const Jobs = () => {
     setForm("AddJob");
     setTogglePanel(!togglePanel);
   };
-
-  if (!user) return <Home />;
 
   if (isLoading)
     return (

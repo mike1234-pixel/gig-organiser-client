@@ -11,6 +11,7 @@ import { UpdateJobContextProvider } from "./context/UpdateJobContext";
 import { Actions } from "./components/pages/Actions";
 import { UpdateActionContextProvider } from "./context/UpdateActionContext";
 import { NotFound } from "./components/pages/NotFound";
+import { Dashboard } from "./components/pages/Dashboard";
 
 const queryClient = new QueryClient();
 
@@ -24,7 +25,8 @@ const App = () => {
               <BrowserRouter>
                 <Nav />
                 <Routes>
-                  <Route path="/" element={<Jobs />} />
+                  <Route path="/" element={<Dashboard />} />
+                  <Route path="/jobs" element={<Jobs />} />
                   <Route path="/actions" element={<Actions />} />
                   <Route path="/signup" element={<SignUp />} />
                   <Route path="/login" element={<Login />} />
