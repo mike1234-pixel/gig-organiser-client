@@ -1,3 +1,4 @@
+import { Trans } from "react-i18next";
 import { useAuth } from "../../../context/AuthContext";
 import { LayoutPage } from "../../common/LayoutPage";
 import { JobStatusChart } from "../../features/JobStatusChart";
@@ -12,7 +13,10 @@ export const Dashboard = () => {
 
   return (
     <LayoutPage>
-      <div className={styles.root}>
+      <div className={styles.info}>
+        <Trans i18nKey="dashboard.intro" />
+      </div>
+      <div className={styles.grid}>
         <UpcomingActions />
         <JobStatusChart />
       </div>
