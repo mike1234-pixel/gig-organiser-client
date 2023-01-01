@@ -5,6 +5,7 @@ import { retrieveUpcomingActions } from "../../../utils/retrieveUpcomingActions"
 import { Link } from "react-router-dom";
 import { BiTimer } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
+import classNames from "classnames";
 import styles from "./UpcomingActions.module.css";
 
 export const UpcomingActions = () => {
@@ -42,6 +43,12 @@ export const UpcomingActions = () => {
               );
             })}
           </ul>
+          <Link
+            className={classNames(styles.link, styles.mainLink)}
+            to="/actions"
+          >
+            {t("upcomingActions.viewAll")}
+          </Link>
         </>
       ) : (
         <div>

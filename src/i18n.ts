@@ -133,6 +133,12 @@ const resources = {
           text: "Add some actions on the ",
           linkText: "Actions page",
         },
+        viewAll: "View All",
+      },
+      jobStatusChart: {
+        title: "Applications by Status",
+        text: "There are no jobs. Start adding jobs on the ",
+        linkText: "jobs page.",
       },
     },
   },

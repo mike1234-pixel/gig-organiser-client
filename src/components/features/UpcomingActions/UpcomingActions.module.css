@@ -13,7 +13,13 @@
     color: var(--action);
 }
 
-.link:hover, .link:focus, link:active {
+.mainLink {
+    font-weight: 600;
+    display: block;
+    margin-top: 16px;
+}
+
+.link:hover, .link:focus, .link:active, .mainLink:hover, .mainLink:active, .mainLink:focus {
     text-decoration: underline;
 }
 
