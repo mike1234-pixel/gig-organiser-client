@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
   /* colours */
@@ -18,11 +18,13 @@
   --action-light: #6caee8;
   --action-light-2: #b4d1ea;
   --success-medium: #60e37e;
+  --success-gradient: linear-gradient(38deg, rgba(96, 227, 126, 1) 0%, rgba(61, 159, 84, 1) 100%);
   --action-gradient: linear-gradient(259deg, rgba(0, 135, 255, 1) 0%, rgba(175, 0, 255, 1) 100%);
   --danger-gradient: linear-gradient(259deg, rgba(217, 83, 79, 1) 0%, rgb(235, 129, 126) 100%);
+  --grey-gradient: linear-gradient(38deg, rgba(245, 245, 245, 1) 0%, rgba(255, 255, 255, 1) 100%);
   /* fonts */
   --font-primary: 'Montserrat', sans-serif;
-  --font-secondary: 'Staatliches', sans-serif;
+  --font-secondary: 'Poppins', sans-serif;
 }
 
 /* Reset default styles */

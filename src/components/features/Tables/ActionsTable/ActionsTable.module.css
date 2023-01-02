@@ -36,7 +36,7 @@
 }
 
 tr:nth-child(odd) {
-    background: var(--grey);
+    background: var(--grey-gradient);
 }
 
 thead tr {

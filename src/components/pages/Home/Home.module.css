@@ -1,6 +1,6 @@
 .hero {
     width: 100%;
-    background-color: var(--white);
+    background: url('./contract.svg');
     background-size: cover;
     height: 100vh;
 }

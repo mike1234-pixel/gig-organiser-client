@@ -74,6 +74,7 @@ export const Pagination = (props: PaginationProps) => {
         {t("pagination.goToPage")}
         <input
           type="number"
+          min={1}
           className={classNames(styles.input, styles.numberInput)}
           defaultValue={pageIndex + 1}
           onChange={(e) => {
