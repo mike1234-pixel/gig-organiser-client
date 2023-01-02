@@ -19,7 +19,7 @@ export const UserLogin = () => {
 
   const { user } = useAuth();
 
-  const { mutate, error: loginError, isSuccess } = useLoginUser();
+  const { mutate, error: loginError, isSuccess, isLoading } = useLoginUser();
 
   const { t } = useTranslation();
 
@@ -39,6 +39,14 @@ export const UserLogin = () => {
         />
       </LayoutPage>
     );
+
+  if (isLoading) {
+    return (
+      <LayoutPage>
+        <State type="loading" title="Logging you in..." text="hang tight..." />
+      </LayoutPage>
+    );
+  }
 
   if (error) {
     return (

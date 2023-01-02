@@ -9,6 +9,7 @@ import { useJobs } from "../../../hooks/useJobs";
 import { State } from "../../common/State";
 import { MdOutlineCreateNewFolder } from "react-icons/md";
 import { Trans, useTranslation } from "react-i18next";
+import { useAuth } from "../../../context/AuthContext";
 import styles from "./Jobs.module.css";
 
 export const Jobs = () => {
@@ -16,12 +17,26 @@ export const Jobs = () => {
 
   const { form, setForm, togglePanel, setTogglePanel } = useTogglePanel();
 
+  const { user } = useAuth();
+
   const { t } = useTranslation();
 
   const handleClick = () => {
     setForm("AddJob");
     setTogglePanel(!togglePanel);
   };
+
+  if (!user) {
+    return (
+      <LayoutPage>
+        <State
+          type="error"
+          title={t("actions.error.title")}
+          text={t("actions.error.text")}
+        />
+      </LayoutPage>
+    );
+  }
 
   if (isLoading)
     return (
