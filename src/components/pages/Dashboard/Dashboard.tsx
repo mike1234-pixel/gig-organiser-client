@@ -1,8 +1,9 @@
 import { Trans } from "react-i18next";
 import { useAuth } from "../../../context/AuthContext";
 import { LayoutPage } from "../../common/LayoutPage";
-import { JobStatusChart } from "../../features/JobStatusChart";
-import { UpcomingActions } from "../../features/UpcomingActions";
+import { ApplicationsThisMonth } from "../../features/Dashboard/ApplicationsThisMonth";
+import { JobStatusChart } from "../../features/Dashboard/JobStatusChart";
+import { UpcomingActions } from "../../features/Dashboard/UpcomingActions";
 import { Home } from "../Home";
 import styles from "./Dashboard.module.css";
 
@@ -19,6 +20,7 @@ export const Dashboard = () => {
       <div className={styles.grid}>
         <UpcomingActions />
         <JobStatusChart />
+        <ApplicationsThisMonth />
       </div>
     </LayoutPage>
   );

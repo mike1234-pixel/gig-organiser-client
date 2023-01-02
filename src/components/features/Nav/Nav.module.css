@@ -80,9 +80,10 @@
 }
 
 .active {
-    background-color: rgba(222, 222, 222, 0.3);
-    transition: background-color 0.3s ease;
+    background: linear-gradient(38deg, rgba(245, 245, 245, 1) 0%, rgba(255, 255, 255, 1) 100%);
 }
+
+
 
 @media (max-width: 768px) {
     .collapsed {

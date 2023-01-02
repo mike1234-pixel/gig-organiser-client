@@ -144,6 +144,9 @@ const resources = {
         text: "There are no jobs. Start adding jobs on the ",
         linkText: "jobs page.",
       },
+      applicationsThisMonth: {
+        title: "Applications This Month",
+      },
       pagination: {
         previous: "Previous",
         next: "Next",

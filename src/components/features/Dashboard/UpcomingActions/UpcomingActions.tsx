@@ -1,12 +1,12 @@
 import moment, { Moment } from "moment";
-import { State } from "../../common/State";
-import { useActions } from "../../../hooks/useActions";
+import { State } from "../../../common/State";
+import { useActions } from "../../../../hooks/useActions";
 import { Link } from "react-router-dom";
 import { BiTimer } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
 import styles from "./UpcomingActions.module.css";
-import { ActionI } from "../../../types/Action_Object";
+import { ActionI } from "../../../../types/Action_Object";
 
 const getUpcomingActions = (actions: ActionI[], currentDate: Moment) => {
   return actions

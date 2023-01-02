@@ -1,8 +1,8 @@
 import { Chart } from "react-google-charts";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { useJobs } from "../../../hooks/useJobs";
-import { State } from "../../common/State";
+import { useJobs } from "../../../../hooks/useJobs";
+import { State } from "../../../common/State";
 import styles from "./JobStatusChart.module.css";
 
 export const JobStatusChart = () => {
