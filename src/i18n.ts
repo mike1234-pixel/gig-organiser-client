@@ -26,7 +26,7 @@ const resources = {
       },
       dashboard: {
         intro:
-          "<p>Welcome to your dashboard! Here you can find an overview of your job search progress.</p><p>On the left, you will see a list of your <strong>upcoming actions</strong>. These are the specific steps you need to take in order to move forward with your job applications. Make sure to keep track of these actions and mark them as complete when you finish them.</p><p>On the right, you will see a pie chart displaying the <strong>distribution of your jobs by status</strong>. This can help you understand where you are in the application process for each position and identify any areas that may require more attention.</p><p>Overall, the dashboard provides a helpful overview of your application process.</p>",
+          "<p>Welcome to your <strong>dashboard</strong>! Here you can find an <strong>overview of your job search progress.</strong></p>",
       },
       jobs: {
         intro: {

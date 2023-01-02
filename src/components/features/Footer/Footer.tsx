@@ -7,7 +7,12 @@ export const Footer = () => {
   return (
     <div className={styles.root}>
       <Container>
-        <p>{`Michael Tandy ${thisYear}`}</p>
+        <p>
+          <a href="https://github.com/mike1234-pixel" target="_blank">
+            {`Michael Tandy`}
+          </a>
+          <span>{thisYear}</span>
+        </p>
       </Container>
     </div>
   );
