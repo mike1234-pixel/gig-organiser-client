@@ -54,6 +54,12 @@
     gap: 30px;
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+    .list {
+        gap: 0px;
+    }
+}
+
 .navLink {
     padding: 8px 16px;
     border-radius: 4px;

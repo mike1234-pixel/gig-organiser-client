@@ -1,8 +1,7 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useTable, useSortBy, Row, Column } from "react-table";
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import { useActions } from "../../../../hooks/useActions";
-import styles from "./ActionsTable.module.css";
 import {
   DateCell,
   JobCell,
@@ -11,6 +10,8 @@ import {
   DeleteButton,
   DescriptionCell,
 } from "./cells";
+import { ActionI } from "../../../../types/Action_Object";
+import styles from "./ActionsTable.module.css";
 
 const columns: Column[] = [
   {
@@ -59,10 +60,19 @@ const columns: Column[] = [
   },
 ];
 
+const searchActions = (searchText: string, action: ActionI) => {
+  return action.name.toLowerCase().includes(searchText.toLowerCase());
+};
+
 export const ActionsTable = () => {
   const { actions: actionsData } = useActions();
 
-  const actions = useMemo(() => actionsData, [actionsData]);
+  const [searchText, setSearchText] = useState("");
+
+  const actions = useMemo(() => {
+    if (!searchText) return actionsData;
+    return actionsData?.filter((action) => searchActions(searchText, action));
+  }, [actionsData, searchText]);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable(
@@ -75,6 +85,13 @@ export const ActionsTable = () => {
 
   return (
     <div className={styles.container}>
+      <input
+        type="text"
+        placeholder="Search actions..."
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
+        className={styles.searchInput}
+      />
       <table {...getTableProps()} className={styles.table}>
         <thead>
           {headerGroups.map((headerGroup) => (

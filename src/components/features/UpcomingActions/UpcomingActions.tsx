@@ -1,12 +1,24 @@
-import moment from "moment";
+import moment, { Moment } from "moment";
 import { State } from "../../common/State";
 import { useActions } from "../../../hooks/useActions";
-import { retrieveUpcomingActions } from "../../../utils/retrieveUpcomingActions";
 import { Link } from "react-router-dom";
 import { BiTimer } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
 import styles from "./UpcomingActions.module.css";
+import { ActionI } from "../../../types/Action_Object";
+
+const getUpcomingActions = (actions: ActionI[], currentDate: Moment) => {
+  return actions
+    .filter((a) => !a.completed)
+    .filter((a) => moment(a.complete_by).isAfter(currentDate))
+    .sort((a, b) => {
+      const aDate = moment(a.complete_by);
+      const bDate = moment(b.complete_by);
+      return aDate.diff(currentDate) - bDate.diff(currentDate);
+    })
+    .slice(0, 3);
+};
 
 export const UpcomingActions = () => {
   const { actions, isLoading, error } = useActions();
@@ -22,7 +34,7 @@ export const UpcomingActions = () => {
     return <State type="error" title="Error" text="No actions found." />;
 
   const upcomingActions = actions
-    ? retrieveUpcomingActions(actions, currentDate)
+    ? getUpcomingActions(actions, currentDate)
     : [];
 
   return (

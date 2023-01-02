@@ -1,9 +1,8 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Row, useTable, useSortBy, Column } from "react-table";
 import { useJobs } from "../../../../hooks/useJobs";
 import { Badge } from "../../../common/Badge";
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
-import styles from "./JobsTable.module.css";
 import {
   DateCell,
   DescriptionCell,
@@ -13,6 +12,8 @@ import {
   EditButton,
   DeleteButton,
 } from "./cells";
+import { JobI } from "../../../../types/Job_Object";
+import styles from "./JobsTable.module.css";
 
 const columns: Column[] = [
   {
@@ -70,10 +71,19 @@ const columns: Column[] = [
   },
 ];
 
+const searchJobs = (searchText: string, job: JobI) => {
+  return job.title.toLowerCase().includes(searchText.toLowerCase());
+};
+
 export const JobsTable = () => {
   const { jobs: jobsData } = useJobs();
 
-  const jobs = useMemo(() => jobsData, [jobsData]);
+  const [searchText, setSearchText] = useState("");
+
+  const jobs = useMemo(() => {
+    if (!searchText) return jobsData;
+    return jobsData?.filter((job) => searchJobs(searchText, job));
+  }, [jobsData, searchText]);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable(
@@ -86,6 +96,13 @@ export const JobsTable = () => {
 
   return (
     <div className={styles.container}>
+      <input
+        type="text"
+        placeholder="Search jobs..."
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
+        className={styles.searchInput}
+      />
       <table {...getTableProps()} className={styles.table}>
         <thead>
           {headerGroups.map((headerGroup) => (
