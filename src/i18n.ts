@@ -144,6 +144,13 @@ const resources = {
         text: "There are no jobs. Start adding jobs on the ",
         linkText: "jobs page.",
       },
+      pagination: {
+        previous: "Previous",
+        next: "Next",
+        page: "Page ",
+        goToPage: "Go to page: ",
+        show: "Show",
+      },
     },
   },
 };

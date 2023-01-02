@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { useTable, useSortBy, Row, Column } from "react-table";
+import { useTable, useSortBy, Row, Column, usePagination } from "react-table";
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import { useActions } from "../../../../hooks/useActions";
 import {
@@ -12,6 +12,7 @@ import {
 } from "./cells";
 import { ActionI } from "../../../../types/Action_Object";
 import styles from "./ActionsTable.module.css";
+import { Pagination } from "../Pagination";
 
 const columns: Column[] = [
   {
@@ -74,64 +75,93 @@ export const ActionsTable = () => {
     return actionsData?.filter((action) => searchActions(searchText, action));
   }, [actionsData, searchText]);
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable(
-      {
-        columns: columns,
-        data: actions || [],
-      },
-      useSortBy
-    );
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    gotoPage,
+    previousPage,
+    nextPage,
+    setPageSize,
+    canPreviousPage,
+    canNextPage,
+    pageCount,
+    pageOptions,
+    page,
+    state: { pageIndex, pageSize },
+    prepareRow,
+  } = useTable(
+    {
+      columns: columns,
+      data: actions || [],
+    },
+    useSortBy,
+    usePagination
+  );
 
   return (
-    <div className={styles.container}>
-      <input
-        type="text"
-        placeholder="Search actions..."
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
-        className={styles.searchInput}
-      />
-      <table {...getTableProps()} className={styles.table}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()} className={styles.row}>
-              {headerGroup.headers.map((column) => (
-                <th
-                  className={styles.th}
-                  {...column.getHeaderProps(column.getSortByToggleProps())}
-                >
-                  {column.render("Header")}
-                  <span className={styles.sortArrow}>
-                    {column.isSorted &&
-                      (column.isSortedDesc ? (
-                        <AiOutlineArrowDown />
-                      ) : (
-                        <AiOutlineArrowUp />
-                      ))}
-                  </span>
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {rows.map((row) => {
-            prepareRow(row);
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  return (
-                    <td className={styles.td} {...cell.getCellProps()}>
-                      {cell.render("Cell")}
-                    </td>
-                  );
-                })}
+    <>
+      <div className={styles.container}>
+        <input
+          type="text"
+          placeholder="Search actions..."
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          className={styles.searchInput}
+        />
+        <table {...getTableProps()} className={styles.table}>
+          <thead>
+            {headerGroups.map((headerGroup) => (
+              <tr {...headerGroup.getHeaderGroupProps()} className={styles.row}>
+                {headerGroup.headers.map((column) => (
+                  <th
+                    className={styles.th}
+                    {...column.getHeaderProps(column.getSortByToggleProps())}
+                  >
+                    {column.render("Header")}
+                    <span className={styles.sortArrow}>
+                      {column.isSorted &&
+                        (column.isSortedDesc ? (
+                          <AiOutlineArrowDown />
+                        ) : (
+                          <AiOutlineArrowUp />
+                        ))}
+                    </span>
+                  </th>
+                ))}
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
+            ))}
+          </thead>
+          <tbody {...getTableBodyProps()}>
+            {page.map((row) => {
+              prepareRow(row);
+              return (
+                <tr {...row.getRowProps()}>
+                  {row.cells.map((cell) => {
+                    return (
+                      <td className={styles.td} {...cell.getCellProps()}>
+                        {cell.render("Cell")}
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <Pagination
+        setPageSize={setPageSize}
+        gotoPage={gotoPage}
+        previousPage={previousPage}
+        nextPage={nextPage}
+        pageIndex={pageIndex}
+        pageSize={pageSize}
+        pageOptions={pageOptions}
+        pageCount={pageCount}
+        canPreviousPage={canPreviousPage}
+        canNextPage={canNextPage}
+      />
+    </>
   );
 };
