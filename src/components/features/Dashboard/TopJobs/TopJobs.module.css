@@ -1,0 +1,40 @@
+.root {
+    border: 1px dashed rgba(199, 199, 199, 0.3);
+    border-radius: 4px;
+    padding: 16px;
+}
+
+.title {
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+}
+
+.link {
+    color: var(--action);
+}
+
+.mainLink {
+    font-weight: 600;
+    display: block;
+    margin-top: 16px;
+}
+
+.link:hover,
+.link:focus,
+.link:active, 
+.mainLink:hover,
+.mainLink:active,
+.mainLink:focus {
+    text-decoration: underline;
+}
+
+.listItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

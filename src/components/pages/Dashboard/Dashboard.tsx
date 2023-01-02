@@ -3,6 +3,7 @@ import { useAuth } from "../../../context/AuthContext";
 import { LayoutPage } from "../../common/LayoutPage";
 import { ApplicationsThisMonth } from "../../features/Dashboard/ApplicationsThisMonth";
 import { JobStatusChart } from "../../features/Dashboard/JobStatusChart";
+import { TopJobs } from "../../features/Dashboard/TopJobs";
 import { UpcomingActions } from "../../features/Dashboard/UpcomingActions";
 import { Home } from "../Home";
 import styles from "./Dashboard.module.css";
@@ -21,6 +22,7 @@ export const Dashboard = () => {
         <UpcomingActions />
         <JobStatusChart />
         <ApplicationsThisMonth />
+        <TopJobs />
       </div>
     </LayoutPage>
   );

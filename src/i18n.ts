@@ -147,6 +147,12 @@ const resources = {
       applicationsThisMonth: {
         title: "Applications This Month",
       },
+      topJobs: {
+        title: "Top Jobs",
+        subtitle: "Jobs with high priority",
+        empty: "No high priority jobs found.",
+        viewAll: "View All",
+      },
       pagination: {
         previous: "Previous",
         next: "Next",
