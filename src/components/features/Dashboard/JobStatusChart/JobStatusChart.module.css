@@ -19,3 +19,7 @@
 .link:active {
     text-decoration: underline;
 }
+
+text {
+    fill: var(--black);
+}

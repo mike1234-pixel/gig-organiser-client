@@ -40,9 +40,10 @@ export const JobStatusChart = () => {
           chartType="PieChart"
           data={data}
           options={{
-            colors: ["#ffd341", "#3d9f54", "#d9534f"],
+            colors: ["#ffe387", "#57d775", "#f88b88"],
             fontName: "Montserrat",
             fontSize: 14,
+            is3D: true,
           }}
         />
       ) : (
