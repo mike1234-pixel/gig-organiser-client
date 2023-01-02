@@ -1,0 +1,13 @@
+.root {
+    background: rgba(231, 231, 231, 0.3);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    padding: 3px 0;
+}
+
+.root p {
+    margin-bottom: 0;
+    font-size: 0.6rem;
+}

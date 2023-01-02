@@ -12,6 +12,7 @@ import { Actions } from "./components/pages/Actions";
 import { UpdateActionContextProvider } from "./context/UpdateActionContext";
 import { NotFound } from "./components/pages/NotFound";
 import { Dashboard } from "./components/pages/Dashboard";
+import { Footer } from "./components/features/Footer";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => {
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </BrowserRouter>
+              <Footer />
             </TogglePanelContextProvider>
           </UpdateActionContextProvider>
         </UpdateJobContextProvider>
