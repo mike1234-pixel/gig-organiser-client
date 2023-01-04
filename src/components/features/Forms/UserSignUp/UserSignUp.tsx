@@ -19,7 +19,12 @@ export const UserSignUp = () => {
     password: "",
   };
 
-  const { mutate, error: responseError, isSuccess } = useCreateUser();
+  const {
+    mutate,
+    error: responseError,
+    isSuccess,
+    isLoading,
+  } = useCreateUser();
 
   const { t } = useTranslation();
 
@@ -40,6 +45,18 @@ export const UserSignUp = () => {
         </Button>
       </LayoutPage>
     );
+
+  if (isLoading) {
+    return (
+      <LayoutPage>
+        <State
+          type="loading"
+          title="Creating your account..."
+          text="this will take a few seconds..."
+        />
+      </LayoutPage>
+    );
+  }
 
   if (error)
     return (

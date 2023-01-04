@@ -24,7 +24,7 @@ const createUser = async (values: UserSignUpI) => {
 };
 
 export const useCreateUser = () => {
-  const { mutate, error, isSuccess } = useMutation(createUser);
+  const { mutate, error, isSuccess, isLoading } = useMutation(createUser);
 
-  return { mutate, error, isSuccess };
+  return { mutate, error, isSuccess, isLoading };
 };
