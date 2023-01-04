@@ -69,3 +69,8 @@ thead tr {
 .dateTimePast {
     color: var(--danger);
 }
+
+.truncate {
+    max-height: 160px;
+    overflow: auto;
+}

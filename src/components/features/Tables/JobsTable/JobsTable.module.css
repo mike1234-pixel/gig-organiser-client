@@ -88,4 +88,7 @@ th:nth-of-type(5) {
     margin-right: 5px;
 }
 
-
+.truncate {
+    max-height: 160px;
+    overflow: auto;
+}

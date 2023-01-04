@@ -15,7 +15,12 @@ export const DescriptionCell = ({ description }: { description: string }) => {
 
   const html = marked(markdownString);
 
-  return <div dangerouslySetInnerHTML={{ __html: html }}></div>;
+  return (
+    <div
+      className={styles.truncate}
+      dangerouslySetInnerHTML={{ __html: html }}
+    ></div>
+  );
 };
 
 export const DateCell = ({ date }: { date: string }) => {

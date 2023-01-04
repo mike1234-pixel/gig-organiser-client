@@ -8,7 +8,11 @@ export const Footer = () => {
     <div className={styles.root}>
       <Container>
         <p>
-          <a href="https://github.com/mike1234-pixel" target="_blank">
+          <a
+            href="https://github.com/mike1234-pixel"
+            target="_blank"
+            rel="noreferrer"
+          >
             {`Michael Tandy`}
           </a>
           <span>{thisYear}</span>
