@@ -1,0 +1,25 @@
+.unicorn {
+    position: fixed;
+    bottom: -15vw;
+    left: -20vw;
+    width: 20vw;
+    z-index: 10000;
+}
+
+@media (min-width: 1200px) {
+    .fly {
+        animation: fly-across 2s;
+        animation-timing-function: cubic-bezier(0.1, 1, 1, 0.03);
+    }
+
+    @keyframes fly-across {
+        from {
+            transform: translate(-100vw, 100vh);
+        }
+
+        to {
+            transform: translate(200vw, -200vh);
+        }
+    }
+}
+

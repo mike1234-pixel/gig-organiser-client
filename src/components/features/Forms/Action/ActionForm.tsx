@@ -1,12 +1,13 @@
 import classNames from "classnames";
 import { ErrorMessage, Field, Form, useFormikContext } from "formik";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useContext } from "react";
 import { MdAddTask } from "react-icons/md";
 import { useJobs } from "../../../../hooks/useJobs";
 import { JobI } from "../../../../types/Job_Object";
 import { Button } from "../../../common/Button";
 import { useTranslation } from "react-i18next";
 import styles from "./ActionForm.module.css";
+import { SuccessAnimationContext } from "../../../../context/SuccessAnimationContext";
 
 export const ActionForm = ({ buttonText }: { buttonText: string }) => {
   const formik = useFormikContext();
@@ -14,6 +15,8 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
   const { jobs } = useJobs();
 
   const { t } = useTranslation();
+
+  const { handleAction } = useContext(SuccessAnimationContext);
 
   return (
     <Form className={styles.form}>
@@ -88,6 +91,7 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
           name="completed"
           onChange={(event: ChangeEvent<HTMLInputElement>) => {
             formik.setFieldValue("completed", event.target.checked);
+            event.target.checked && handleAction();
           }}
         />
         <Button type="submit" disabled={formik.isSubmitting}>
