@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../../context/AuthContext";
 import { Container } from "../../common/Container";
 import { CgMenuRight, CgClose } from "react-icons/cg";
-import { SiEditorconfig } from "react-icons/si";
 import { NavLinkItem } from "./NavLink";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import horse from "../../common/FlyingHorse/horse.svg";
 import styles from "./Nav.module.css";
 
 export const Nav = () => {
@@ -35,7 +35,7 @@ export const Nav = () => {
       <Container>
         <div className={styles.content}>
           <Link to="/" className={styles.titleLink}>
-            <SiEditorconfig className={styles.logo} />
+            <img src={horse} alt="horse" className={styles.logo} />
             <h1 className={styles.title}>{t("nav.org")}</h1>
           </Link>
           <ul

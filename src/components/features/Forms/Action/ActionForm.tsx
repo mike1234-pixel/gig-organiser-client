@@ -6,8 +6,9 @@ import { useJobs } from "../../../../hooks/useJobs";
 import { JobI } from "../../../../types/Job_Object";
 import { Button } from "../../../common/Button";
 import { useTranslation } from "react-i18next";
+import { FlyingHorseAnimationContext } from "../../../../context/Animation/FlyingHorseAnimationContext";
+import { ConfettiAnimationContext } from "../../../../context/Animation/ConfettiAnimationContext";
 import styles from "./ActionForm.module.css";
-import { SuccessAnimationContext } from "../../../../context/SuccessAnimationContext";
 
 export const ActionForm = ({ buttonText }: { buttonText: string }) => {
   const formik = useFormikContext();
@@ -16,7 +17,9 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
 
   const { t } = useTranslation();
 
-  const { handleAction } = useContext(SuccessAnimationContext);
+  const { handleAction } = useContext(FlyingHorseAnimationContext);
+
+  const { resetRenderConfetti } = useContext(ConfettiAnimationContext);
 
   return (
     <Form className={styles.form}>
@@ -91,7 +94,10 @@ export const ActionForm = ({ buttonText }: { buttonText: string }) => {
           name="completed"
           onChange={(event: ChangeEvent<HTMLInputElement>) => {
             formik.setFieldValue("completed", event.target.checked);
-            event.target.checked && handleAction();
+            if (event.target.checked) {
+              handleAction();
+              resetRenderConfetti();
+            }
           }}
         />
         <Button type="submit" disabled={formik.isSubmitting}>

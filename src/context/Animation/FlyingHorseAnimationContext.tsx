@@ -6,21 +6,23 @@ import {
   useState,
 } from "react";
 
-interface SuccessAnimationI {
+interface FlyingHorseAnimationI {
   handleAction: () => void;
   handleAnimationIteration: () => void;
   animationTriggered: boolean;
   setAnimationTriggered: Dispatch<SetStateAction<boolean>>;
 }
 
-export const SuccessAnimationContext = createContext<SuccessAnimationI>({
-  handleAction: () => {},
-  handleAnimationIteration: () => {},
-  animationTriggered: false,
-  setAnimationTriggered: () => {},
-});
+export const FlyingHorseAnimationContext = createContext<FlyingHorseAnimationI>(
+  {
+    handleAction: () => {},
+    handleAnimationIteration: () => {},
+    animationTriggered: false,
+    setAnimationTriggered: () => {},
+  }
+);
 
-export const SuccessAnimationContextProvider = ({
+export const FlyingHorseAnimationContextProvider = ({
   children,
 }: {
   children: ReactNode | ReactNode[];
@@ -36,7 +38,7 @@ export const SuccessAnimationContextProvider = ({
   };
 
   return (
-    <SuccessAnimationContext.Provider
+    <FlyingHorseAnimationContext.Provider
       value={{
         animationTriggered,
         setAnimationTriggered,
@@ -45,6 +47,6 @@ export const SuccessAnimationContextProvider = ({
       }}
     >
       {children}
-    </SuccessAnimationContext.Provider>
+    </FlyingHorseAnimationContext.Provider>
   );
 };
