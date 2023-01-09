@@ -4,9 +4,9 @@ import { useActions } from "../../../../hooks/useActions";
 import { Link } from "react-router-dom";
 import { BiTimer } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
+import { ActionI } from "../../../../types/Action_Object";
 import classNames from "classnames";
 import styles from "./UpcomingActions.module.css";
-import { ActionI } from "../../../../types/Action_Object";
 
 const getUpcomingActions = (actions: ActionI[], currentDate: Moment) => {
   return actions
@@ -28,10 +28,24 @@ export const UpcomingActions = () => {
   const { t } = useTranslation();
 
   if (isLoading)
-    return <State type="loading" title="Loading" text="sit tight..." />;
+    return (
+      <State
+        type="loading"
+        title="Loading"
+        text="sit tight..."
+        dashboardPanel
+      />
+    );
 
   if (error)
-    return <State type="error" title="Error" text="No actions found." />;
+    return (
+      <State
+        type="error"
+        title="Error"
+        text="No actions found."
+        dashboardPanel
+      />
+    );
 
   const upcomingActions = actions
     ? getUpcomingActions(actions, currentDate)

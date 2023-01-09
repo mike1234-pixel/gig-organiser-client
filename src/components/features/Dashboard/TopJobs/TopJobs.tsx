@@ -27,10 +27,24 @@ export const TopJobs = () => {
   const highPriorityJobs = jobs ? getRecentJobsWithHighPriority(jobs) : [];
 
   if (isLoading)
-    return <State type="loading" title="Loading" text="Nearly there..." />;
+    return (
+      <State
+        type="loading"
+        title="Loading"
+        text="Nearly there..."
+        dashboardPanel
+      />
+    );
 
   if (error)
-    return <State type="error" title="Error" text="Could not find jobs." />;
+    return (
+      <State
+        type="error"
+        title="Error"
+        text="Could not find jobs."
+        dashboardPanel
+      />
+    );
 
   return (
     <div className={styles.root}>

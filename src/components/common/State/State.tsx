@@ -5,12 +5,14 @@ import { Link } from "react-router-dom";
 import { Button } from "../Button";
 import { LoadingSpinner } from "../LoadingSpinner";
 import { useTranslation } from "react-i18next";
+import classNames from "classnames";
 import styles from "./State.module.css";
 
 interface StateProps {
   title: string;
   text: string;
   type: "loading" | "welcome" | "empty" | "error";
+  dashboardPanel?: boolean;
 }
 
 const LoadingContent = () => {
@@ -37,7 +39,7 @@ const EmptyContent = () => {
   return <GiEmptyMetalBucketHandle className={styles.icon} />;
 };
 
-export const State = ({ title, text, type }: StateProps) => {
+export const State = ({ title, text, type, dashboardPanel }: StateProps) => {
   const Content = () => {
     switch (type) {
       case "loading":
@@ -54,7 +56,13 @@ export const State = ({ title, text, type }: StateProps) => {
   };
 
   return (
-    <div className={styles.root}>
+    <div
+      className={
+        dashboardPanel
+          ? classNames(styles.root, styles.dashboardPanel)
+          : styles.root
+      }
+    >
       <h1 className={styles.title}>{title}</h1>
       <Content />
       <p className={styles.text}>{text}</p>

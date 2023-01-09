@@ -11,10 +11,24 @@ export const JobStatusChart = () => {
   const { t } = useTranslation();
 
   if (isLoading)
-    return <State type="loading" title="Loading" text="Nearly there..." />;
+    return (
+      <State
+        type="loading"
+        title="Loading"
+        text="Nearly there..."
+        dashboardPanel
+      />
+    );
 
   if (error)
-    return <State type="error" title="Error" text="Could not find jobs." />;
+    return (
+      <State
+        type="error"
+        title="Error"
+        text="Could not find jobs."
+        dashboardPanel
+      />
+    );
 
   const statuses: { [key: string]: number } = {
     pending: 0,
