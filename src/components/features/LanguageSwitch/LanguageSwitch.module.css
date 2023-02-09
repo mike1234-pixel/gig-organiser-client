@@ -1,0 +1,23 @@
+.select {
+    color: transparent;
+    border: none;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 30px;
+    height: 30px;
+    transition: background-image 0.3s ease-in-out;
+}
+
+.en {
+    background-image: url('./english.png');
+}
+
+.fr {
+    background-image: url('./french.png');
+}  
+
+.de {
+    background-image: url('./german.png');
+}

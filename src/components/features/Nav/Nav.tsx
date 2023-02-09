@@ -6,6 +6,7 @@ import { CgMenuRight, CgClose } from "react-icons/cg";
 import { NavLinkItem } from "./NavLink";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { LanguageSwitch } from "../LanguageSwitch";
 import horse from "../../common/FlyingHorse/horse.svg";
 import styles from "./Nav.module.css";
 
@@ -74,6 +75,9 @@ export const Nav = () => {
                 </li>
               </>
             )}
+            <li>
+              <LanguageSwitch />
+            </li>
           </ul>
           <button
             className={styles.toggleButton}

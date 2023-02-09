@@ -1,8 +1,8 @@
 import { Container } from "../../common/Container";
-import { Trans } from "react-i18next";
+import { Trans, withTranslation } from "react-i18next";
 import styles from "./Home.module.css";
 
-export const Home = () => {
+const HomePage = () => {
   return (
     <div className={styles.hero}>
       <Container>
@@ -21,3 +21,7 @@ export const Home = () => {
     </div>
   );
 };
+// export Home as a named export, wrapped in a higher order component - this refreshes the text when translation language is changed but useTranslation is not used
+const Home = withTranslation()(HomePage);
+
+export { Home }

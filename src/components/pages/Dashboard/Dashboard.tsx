@@ -1,4 +1,4 @@
-import { Trans } from "react-i18next";
+import { Trans, withTranslation } from "react-i18next";
 import { useAuth } from "../../../context/AuthContext";
 import { LayoutPage } from "../../common/LayoutPage";
 import { ApplicationsThisMonth } from "../../features/Dashboard/ApplicationsThisMonth";
@@ -8,7 +8,7 @@ import { UpcomingActions } from "../../features/Dashboard/UpcomingActions";
 import { Home } from "../Home";
 import styles from "./Dashboard.module.css";
 
-export const Dashboard = () => {
+export const DashboardPage = () => {
   const { user } = useAuth();
 
   if (!user) return <Home />;
@@ -27,3 +27,7 @@ export const Dashboard = () => {
     </LayoutPage>
   );
 };
+
+const Dashboard = withTranslation()(DashboardPage);
+
+export { Dashboard }
