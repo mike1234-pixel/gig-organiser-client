@@ -15,7 +15,7 @@ export const ConfettiEffect = () => {
 
   return (
     <div className={styles.container}>
-      <Confetti numberOfPieces={confettiPieces} width={width} height={height} />
+      <Confetti numberOfPieces={confettiPieces} width={width} height={height} data-testid={confettiPieces} />
     </div>
   );
 };

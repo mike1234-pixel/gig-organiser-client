@@ -2,14 +2,16 @@
 
 This is the React frontend for the Gig Organiser (JobSprint) app, which helps users organise and manage their jobs.
 
-## Features
+## Tools
 
-- Uses React Query for efficient data fetching and caching
-- Uses CSS Modules for modular and reusable styles
-- Uses Jest and Testing Library for unit and integration testing
-- Uses React Router for routing and navigation
-- Uses TypeScript for type-safe code
-- Comes with a Docker setup for easy deployment
+- React Query for efficient data fetching and caching
+- CSS Modules for modular and reusable styles
+- React Router for routing and navigation
+- TypeScript for type-safe code
+- i18next for translations
+- Docker setup for easy deployment
+- Jest and Testing Library for testing
+- Github Actions to run unit tests when merging code
 
 ## Installation
 
