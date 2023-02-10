@@ -7,21 +7,25 @@ interface ActionButtonProps {
   onClick?: () => void;
 }
 
-export const ActionButton = ({ variant, onClick }: ActionButtonProps) => {
-  const Variant = () => {
-    switch (variant) {
-      case "edit":
-        return <GrEdit />;
-      case "delete":
-        return <MdOutlineDeleteOutline />;
-      default:
-        return null;
-    }
-  };
+interface VariantProps {
+  variant: ActionButtonProps['variant'];
+}
 
+const Variant = ({ variant }: VariantProps) => {
+  switch (variant) {
+    case "edit":
+      return <GrEdit data-testid={variant} />;
+    case "delete":
+      return <MdOutlineDeleteOutline data-testid={variant} />;
+    default:
+      return null;
+  }
+};
+
+export const ActionButton = ({ variant, onClick }: ActionButtonProps) => {
   return (
-    <button className={styles.root} onClick={onClick}>
-      <Variant />
+    <button className={styles.root} onClick={onClick} data-testid={'action-button'}>
+      <Variant variant={variant} />
     </button>
   );
 };
