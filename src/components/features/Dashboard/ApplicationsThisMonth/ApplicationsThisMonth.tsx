@@ -45,7 +45,7 @@ export const ApplicationsThisMonth = () => {
   return (
     <div className={styles.root}>
       <h2 className={styles.title}>{t("applicationsThisMonth.title")}</h2>
-      <div className={styles.count}>
+      <div className={styles.count} data-testid='count'>
         <Link className={styles.link} to="/jobs">
           {jobsThisMonth.length}
         </Link>
