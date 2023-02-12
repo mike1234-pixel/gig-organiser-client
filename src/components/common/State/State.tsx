@@ -25,18 +25,18 @@ const WelcomeContent = () => {
   return (
     <Link to="/">
       <Button>
-        {t("welcome.dashboard")} <MdOutlineDashboardCustomize />
+        {t("welcome.dashboard")} <MdOutlineDashboardCustomize data-testid='dashboard-icon' />
       </Button>
     </Link>
   );
 };
 
 const ErrorContent = () => {
-  return <BiCommentError className={styles.icon} />;
+  return <BiCommentError className={styles.icon} data-testid='error-icon' />;
 };
 
 const EmptyContent = () => {
-  return <GiEmptyMetalBucketHandle className={styles.icon} />;
+  return <GiEmptyMetalBucketHandle className={styles.icon} data-testid='empty-icon' />;
 };
 
 export const State = ({ title, text, type, dashboardPanel }: StateProps) => {

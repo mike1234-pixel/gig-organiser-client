@@ -2,7 +2,7 @@ import styles from "./LoadingSpinner.module.css";
 
 export const LoadingSpinner = () => {
   return (
-    <main className={styles.root}>
+    <main className={styles.root} data-testid='loading-spinner'>
       <svg
         className={styles.ip}
         viewBox="0 0 256 128"
