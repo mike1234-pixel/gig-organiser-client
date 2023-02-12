@@ -26,6 +26,7 @@ export const EditPanel = ({ children, title }: EditPanelProps) => {
         togglePanel && styles.containerOpen
       )}
       onClick={handleContainerClick}
+      data-testid='edit-panel'
     >
       <div
         className={classNames(styles.panel, togglePanel && styles.panelOpen)}
@@ -37,6 +38,7 @@ export const EditPanel = ({ children, title }: EditPanelProps) => {
         <button
           onClick={() => setTogglePanel(!togglePanel)}
           className={styles.close}
+          data-testid='close'
         >
           <TfiClose />
         </button>
